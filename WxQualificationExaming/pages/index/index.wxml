@@ -11,3 +11,20 @@
     </block>
   </view>
 </view>
+<view class='view_lianxi'>
+<button class='btn_lianxi'>练习</button>
+</view>
+<view>
+<view class='view_monilianxi'>
+<button class='btn_monikaoshi'>全真模拟</button>
+</view>
+<view class='view_cuoti'>
+<button class='btn_cuoti'>错题</button>
+</view>
+<view class='view_gerenzhongxin'>
+<button class='btn_gerenzhongxin'>个人中心</button>
+</view>
+<view class='view_shoucang'>
+<button class='btn_shoucang'>收藏</button>
+</view>
+</view>
