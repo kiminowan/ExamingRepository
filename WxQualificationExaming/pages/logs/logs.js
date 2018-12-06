@@ -5,6 +5,9 @@ Page({
   data: {
     logs: []
   },
+   bindViewTap: function () {
+    wx.navigateBack()
+  },
   onLoad: function () {
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
