@@ -12,8 +12,9 @@ namespace QualificationExaming.Entity
     public class Collection
     {
         /// <summary>
-        /// 收藏表主键
+        /// 收藏表id
         /// </summary>
+        
         public int CollectionID { get; set; }
         /// <summary>
         /// 用户id

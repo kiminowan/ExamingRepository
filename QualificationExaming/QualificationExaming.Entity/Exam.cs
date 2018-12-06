@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace QualificationExaming.Entity
 {
-    class Exam
+    /// <summary>
+    /// 试卷表
+    /// </summary>
+    public class Exam
     {
+        /// <summary>
+        /// 试卷id
+        /// </summary>
+        public int ExamID {get;set;} 
+        /// <summary>
+        /// 试卷名称
+        /// </summary>
+        public string ExamNam { get; set; }
     }
 }

@@ -12,8 +12,9 @@ namespace QualificationExaming.Entity
     public class ErrQuestion
     {
         /// <summary>
-        /// 错题主键
+        /// 错题id
         /// </summary>
+        
         public int ErrQuestionID { get; set; }
         /// <summary>
         /// 用户id

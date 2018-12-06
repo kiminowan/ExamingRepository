@@ -12,8 +12,9 @@ namespace QualificationExaming.Entity
     public class Score
     {
         /// <summary>
-        /// 成绩id
+        /// 成绩主键
         /// </summary>
+        
        public int ScoreID { get; set; }
         /// <summary>
         /// 成绩

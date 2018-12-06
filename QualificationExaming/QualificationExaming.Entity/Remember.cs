@@ -12,8 +12,9 @@ namespace QualificationExaming.Entity
     public class Remember
     {
         /// <summary>
-        /// 记忆表主键
+        /// 记忆表id
         /// </summary>
+       
        public int RememberID { get; set; }
         /// <summary>
         /// 做题时间
