@@ -1,0 +1,19 @@
+/* pages/pagegr/pagegr.wxss */
+.v1{
+
+
+}
+.btn1{
+  margin-top: 50px;
+background-color: yellow;
+border:0ex ;
+}
+.btn2{
+  margin-top: 50px;
+background-color: yellow;
+}
+.btn3{
+  margin-top: 50px;
+  background-color: yellow;
+
+}
