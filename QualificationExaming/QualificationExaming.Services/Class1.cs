@@ -8,5 +8,6 @@ namespace QualificationExaming.Services
 {
     public class Class1
     {
+
     }
 }

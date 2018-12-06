@@ -2,8 +2,8 @@
 <view class='min'>
       <image src='/image/backImg.jpg' class='backimg'></image>
   </view>
-<view  class="container">
-  <view style='background-color: black' class="userinfo">
+<view style='padding: 0' class="container">
+  <view  class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
