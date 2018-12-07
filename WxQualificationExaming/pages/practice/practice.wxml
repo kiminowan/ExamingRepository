@@ -3,8 +3,8 @@
 <image src='/image/backImg.jpg' class='zybj'></image>
 </view>
 <view>
-<button class='btn' bindtap='zsd1'>知识点一<image src='/image/btn1.jpg' class='img'></image></button>
-<button class='btn'>知识点二<image src='/image/btn1.jpg' class='img'></image></button>
-<button class='btn'>知识点三<image src='/image/btn1.jpg' class='img'></image></button>
-<button class='btn'>知识点四<image src='/image/btn1.jpg' class='img'></image></button>
+<block wx:for="{{practice}}">
+<button class='btn' bindtap='zsd1'>{{item.KnowledgePointName}}<image src='/image/btn1.jpg' class='img'></image></button>
+</block>
+
 </view>

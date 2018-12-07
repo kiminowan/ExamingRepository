@@ -15,6 +15,7 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public KnowledgePointIService kdpi { get; set; }
+        [HttpGet]
         public List<KnowledgePoint> GetKnowledgePointServices()
         {
             return kdpi.GetKnowledgePointServices();

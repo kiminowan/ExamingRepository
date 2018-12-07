@@ -142,6 +142,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QualificationExaming.Entity\QualificationExaming.Entity.csproj">
+      <Project>{bc7585ce-bd4a-472d-88cc-bfd09b807580}</Project>
+      <Name>QualificationExaming.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QualificationExaming.IServices\QualificationExaming.IServices.csproj">
+      <Project>{b8815c7c-2bb4-4350-a66a-cceb86d69405}</Project>
+      <Name>QualificationExaming.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QualificationExaming.Services\QualificationExaming.Services.csproj">
+      <Project>{58f7d12e-3e89-4a61-bebf-44e378310f6c}</Project>
+      <Name>QualificationExaming.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
