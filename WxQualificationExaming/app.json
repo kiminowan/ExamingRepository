@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/choose/choose",
     "pages/index/index",
     "pages/practice/practice",
     "pages/pagegr/pagegr",
     
     "pages/logs/logs"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

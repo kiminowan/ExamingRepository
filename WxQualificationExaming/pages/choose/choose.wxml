@@ -1,0 +1,12 @@
+<!--pages/choose/choose.wxml-->
+
+<view class='min'>
+      <image src='/image/beijing1.png' class='backimg'></image>
+  </view>
+  <view>
+  <button class='btn_shijuan'>试卷选择</button>
+
+  <button class='btn_suiji'>随机抽题</button>
+
+  <button class='btn_monikaoshi'>模拟考试</button>
+  </view>

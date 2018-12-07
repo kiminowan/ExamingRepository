@@ -12,7 +12,7 @@
   </view>
 </view>
 <view class='view_lianxi'>
-<button class='btn_lianxi'>练习</button>
+<button class='btn_lianxi'>练习<image class='img' src='/image/lianxi.png'></image></button>
 </view>
 <view>
 <view class='view_monilianxi'>

@@ -1,0 +1,16 @@
+/* pages/choose/choose.wxss */
+.btn_shijuan{
+  width: 180px;
+  height: 50px;
+  margin-top: 50px;
+}
+.btn_suiji{
+  width: 180px;
+  height: 50px;
+  margin-top: 50px;
+}
+.btn_monikaoshi{
+  width: 180px;
+  height: 50px;
+  margin-top: 50px;
+}
