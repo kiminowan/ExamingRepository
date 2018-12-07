@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/panduan/panduan",
     "pages/duoxuan/duoxuan",
     "pages/danxuan/danxuan",
     "pages/choose/choose",
-    "pages/index/index",
+    
+    "pages/practice1/practice1",
     "pages/practice/practice",
     "pages/pagegr/pagegr",
     "pages/logs/logs"
