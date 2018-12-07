@@ -1,0 +1,13 @@
+<!--pages/panduan/panduan.wxml-->
+<view class='min'>
+ <image class='img' src='/image/beijing1.png'></image>
+</view>
+<view class='view_timu'>
+<text>题目</text>
+</view>
+<view class='view_dui'>
+<button class='btn_dui'><image class='img1' src='/image/right.png'></image></button>
+</view>
+<view class='view_cuo'>
+<button class='btn_cuo'><image class='img1' src='/image/wrong.png'></image></button>
+</view>

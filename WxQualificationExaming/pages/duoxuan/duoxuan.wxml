@@ -1,0 +1,13 @@
+<!--pages/duoxuan/duoxuan.wxml-->
+<view class='min'>
+ <image class='img' src='/image/beijing1.png'></image>
+</view>
+<view class='view_timu'>
+<text>题目</text>
+</view>
+<view>
+<button class='btn_A'>A</button>
+<button class='btn_B'>B</button>
+<button class='btn_C'>C</button>
+<button class='btn_D'>D</button>
+</view>
