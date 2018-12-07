@@ -1,4 +1,4 @@
-// pages/practice/practice.js
+// pages/practice1/practice1.js
 Page({
 
   /**
@@ -62,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  zsd1: function () {
-   wx.navigateTo({
-     url: '/pages/practice1/practice1',
-   })
   }
 })

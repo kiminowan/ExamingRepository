@@ -1,0 +1,4 @@
+<!--pages/practice1/practice1.wxml-->
+<view>
+<image src='/image/backimg.jpg' class='sxlt1'></image>
+</view>
