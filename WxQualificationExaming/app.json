@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/pagegr/pagegr",
     "pages/index/index",
+    "pages/practice/practice",
+    "pages/pagegr/pagegr",
+    
     "pages/logs/logs"
     
   ],
