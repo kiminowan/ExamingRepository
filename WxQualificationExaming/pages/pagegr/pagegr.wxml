@@ -1,8 +1,9 @@
 <!--pages/pagegr/pagegr.wxml-->
 <view class='v1'>
 
-<button class='btn1'>我的错题</button>
-<button class='btn2'>题目收藏</button>
-<button class='btn3'>历史成绩</button>
+
+<button class="btn1" bindtap='cuoti'>我的错题</button>
+<button class='btn2' bindtap='shoucang'>题目收藏</button>
+<button class='btn3' bindtap='lishi'>历史成绩</button>
 </view>
 

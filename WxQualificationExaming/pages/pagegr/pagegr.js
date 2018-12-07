@@ -62,5 +62,48 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  cuoti: function () {
+    wx.navigateTo({
+      //跳转到自己希望到页面
+      url: '/pages/kemu/index',
+    })
+    //静态提示框事件
+    wx.showModal({
+
+      title: '提示',
+
+      content: '弹出一个提示框用来提醒精要前往错题页面',
+
+      success: function (res) {
+
+        if (res.confirm) {//这里是点击了确定以后
+
+          console.log('用户点击确定')
+
+        } else {//这里是点击了取消以后
+
+          console.log('用户点击取消')
+
+        }
+
+      }
+
+    })
+  },
+  //点击题目收藏执行事件
+  shoucang: function () {
+    wx.navigateTo({
+      //跳转到自己希望到页面
+      url: '/pages/kemu/index',
+    })
+  },
+  //点击历史成绩执行的事件
+  lishi:function()
+  {
+wx.navigateTo({
+  url: '/pages/kemu/index',
+})
+
   }
 })
