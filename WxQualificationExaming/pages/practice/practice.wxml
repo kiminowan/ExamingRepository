@@ -1,0 +1,7 @@
+<!--pages/practice/practice.wxml-->
+<view class='min'>
+      <image src='/image/backImg.jpg' class='backimg'></image>
+  </view>
+  <view>
+  <button class='btn'>知识点一<image class='img' src='/image/btn2.jpg'></image></button>  <button class='btn'>知识点二<image class='img' src='/image/btn2.jpg'></image></button>  <button class='btn'>知识点三<image class='img' src='/image/btn2.jpg'></image></button>  <button class='btn'>知识点四<image class='img' src='/image/btn2.jpg'></image></button>
+</view>
