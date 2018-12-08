@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace QualificationExaming.IServices
 {
     
-    public interface KnowledgePointIService
+    public interface IKnowledgePointService
     {
-        List<KnowledgePoint> GetKnowledgePointServices();
+        List<KnowledgePoint> GetKnowledgePoint();
         
     }
 }

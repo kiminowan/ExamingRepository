@@ -1,4 +1,5 @@
 // pages/practice/practice.js
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -63,9 +64,26 @@ Page({
   onShareAppMessage: function () {
 
   },
-  zsd1: function () {
+  zsd1: function (data) {
+    console.log(data.currentTarget.dataset.src)
    wx.navigateTo({
-     url: '/pages/practice1/practice1',
+     url: '/pages/practice1/practice1?id=' + data.currentTarget.dataset.src,
    })
+  },
+  data:{
+
+  },
+  onLoad:function(){
+    var that=this;
+    wx.request({
+      url: 'http://localhost:13803/api/KnowledgePointApi/GetKnowledgePoint',
+      method:'get',
+      success:function(q){
+        console.log(q)
+        that.setData({
+          practice:q.data
+        })
+      }
+    })
   }
 })

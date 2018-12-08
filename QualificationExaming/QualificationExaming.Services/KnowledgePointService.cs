@@ -13,16 +13,23 @@ namespace QualificationExaming.Services
     using System.Configuration;
     using Entity;
 
-    public class KnowledgePointService
+    public class KnowledgePointService:IKnowledgePointService
     {
         /// <summary>
         /// 知识点类型表显示
         /// </summary>
         /// <returns></returns>
-        public List<KnowledgePoint>GetKnowledgePointServices()
+        public List<KnowledgePoint> GetKnowledgePoint()
         {
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString);
-            return conn.Query<KnowledgePoint>("select * from KnowledgePoint").ToList();
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var knowledgePointList= conn.Query<KnowledgePoint>("select * from KnowledgePoint", null);
+                if (knowledgePointList != null)
+                {
+                    return knowledgePointList.ToList();
+                }
+                return null;
+            }
         }
     }
 }

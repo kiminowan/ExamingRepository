@@ -11,14 +11,14 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class GetKnowledgePointController : ApiController
+    public class KnowledgePointApiController : ApiController
     {
         [Dependency]
-        public KnowledgePointIService kdpi { get; set; }
+        public IKnowledgePointService kdpi { get; set; }
         [HttpGet]
-        public List<KnowledgePoint> GetKnowledgePointServices()
+        public List<KnowledgePoint> GetKnowledgePoint()
         {
-            return kdpi.GetKnowledgePointServices();
+            return kdpi.GetKnowledgePoint();
         }
     }
 }

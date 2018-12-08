@@ -3,8 +3,7 @@
 <image src='/image/backImg.jpg' class='zybj'></image>
 </view>
 <view>
-<block wx:for="{{practice}}">
-<button class='btn' bindtap='zsd1'>{{item.KnowledgePointName}}<image src='/image/btn1.jpg' class='img'></image></button>
+<block wx:for='{{practice}}'>
+<button class='btn' bindtap='zsd1' data-src='{{item.KnowledgePointID}}'>{{item.KnowledgePointID}},{{item.KnowledgePointName}}<image src='/image/btn1.jpg' class='img'></image></button>
 </block>
-
 </view>

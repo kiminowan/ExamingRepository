@@ -1,9 +1,10 @@
 using System;
-
 using Unity;
 
 namespace QualificationExaming.Api
 {
+    using Services;
+    using IServices;
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
@@ -42,6 +43,7 @@ namespace QualificationExaming.Api
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IKnowledgePointService, KnowledgePointService>();
         }
     }
 }
