@@ -16,7 +16,7 @@
 </view>
 <view>
 <view class='view_monilianxi'>
-<button class='btn_monikaoshi'>全真模拟</button>
+<button class='btn_monikaoshi' bindtap="monitiao">全真模拟</button>
 </view>
 <view class='view_cuoti'>
 <button class='btn_cuoti'>错题</button>

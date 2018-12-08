@@ -2,13 +2,18 @@
 <view class='min'>
  <image class='img' src='/image/beijing1.png'></image>
 </view>
+<block wx:for='{{danxuan}}'>
 <view class='view_timu'>
-<text>题目</text>
+
+<text>{{item.timu}}</text>
 </view>
 <view>
-<button class='btn_A'>A</button>
-<button class='btn_B'>B</button>
-<button class='btn_C'>C</button>
-<button class='btn_D'>D</button>
+<button class='btn_A'>{{item.A}}</button>
+<button class='btn_B'>{{item.B}}</button>
+<button class='btn_C'>{{item.C}}</button>
+<button class='btn_D'>{{item.D}}</button>
+
 </view>
+</block>
+
 
