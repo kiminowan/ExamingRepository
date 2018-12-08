@@ -2,3 +2,8 @@
 <view>
 <image src='/image/backimg.jpg' class='sxlt1'></image>
 </view>
+<view>
+<block wx:for='{{logs}}'>
+<text class='show'>{{item.QuestionID}},{{item.QuestionName}},{{item.ChoiceA}},{{item.ChoiceB}},{{item.ChoiceC}},{{item.ChoiceD}},{{item.TypeID}}</text>
+</block>
+</view>

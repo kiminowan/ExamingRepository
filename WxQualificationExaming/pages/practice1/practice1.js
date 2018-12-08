@@ -62,5 +62,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  data: {
+  },
+  onLoad: function () {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:13803/api/KnowledgePointApi/GetQuestions',
+      method: 'get',
+      success: function (q) {
+        console.log(q)
+        that.setData({
+          logs: q.data
+        })
+      }
+    })
   }
 })

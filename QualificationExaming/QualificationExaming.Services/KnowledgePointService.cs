@@ -31,5 +31,17 @@ namespace QualificationExaming.Services
                 return null;
             }
         }
+        public List<Question> GetQuestions()
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var questionlist = conn.Query<Question>("select * from question where TypeID=1", null);
+                if(questionlist!=null)
+                {
+                    return questionlist.ToList();
+                }
+                return null;
+            }
+        }
     }
 }

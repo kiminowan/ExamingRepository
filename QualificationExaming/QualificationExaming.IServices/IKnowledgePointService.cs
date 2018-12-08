@@ -10,7 +10,16 @@ namespace QualificationExaming.IServices
     
     public interface IKnowledgePointService
     {
+        /// <summary>
+        /// 知识点类型表
+        /// </summary>
+        /// <returns></returns>
         List<KnowledgePoint> GetKnowledgePoint();
-        
+        /// <summary>
+        /// 题目表
+        /// </summary>
+        /// <returns></returns>
+        List<Question> GetQuestions();
+
     }
 }

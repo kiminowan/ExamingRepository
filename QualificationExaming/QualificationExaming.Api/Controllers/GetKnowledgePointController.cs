@@ -15,10 +15,18 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IKnowledgePointService kdpi { get; set; }
+        /// <summary>
+        /// 知识点类型表显示
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public List<KnowledgePoint> GetKnowledgePoint()
         {
             return kdpi.GetKnowledgePoint();
+        }
+        public List<Question> GetQuestions()
+        {
+            return kdpi.GetQuestions();
         }
     }
 }
