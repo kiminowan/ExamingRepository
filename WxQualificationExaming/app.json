@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/practice1/practice1",
     "pages/danxuan/danxuan",
     "pages/index/index",
     "pages/practice/practice",
@@ -7,7 +8,7 @@
     "pages/duoxuan/duoxuan",
     "pages/choose/choose",
     
-    "pages/practice1/practice1",
+    
     
     "pages/pagegr/pagegr",
     "pages/logs/logs"
