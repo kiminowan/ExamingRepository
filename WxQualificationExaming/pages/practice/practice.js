@@ -6,14 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoint',
+      method: 'get',
+      success: function (q) {
+        console.log(q)
+        that.setData({
+          practice: q.data
+        })
+      }
+    })
   },
 
   /**
@@ -69,21 +78,5 @@ Page({
    wx.navigateTo({
      url: '/pages/practice1/practice1?id=' + data.currentTarget.dataset.src,
    })
-  },
-  data:{
-
-  },
-  onLoad:function(){
-    var that=this;
-    wx.request({
-      url: 'http://localhost:13803/api/KnowledgePointApi/GetKnowledgePoint',
-      method:'get',
-      success:function(q){
-        console.log(q)
-        that.setData({
-          practice:q.data
-        })
-      }
-    })
   }
 })

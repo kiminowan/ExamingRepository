@@ -1,9 +1,28 @@
 <!--pages/practice1/practice1.wxml-->
-<view>
-<image src='/image/backimg.jpg' class='sxlt1'></image>
+<view class='min'>
+ <image class='backimg' src='/image/beijing1.png'></image>
+</view>
+<button class='index'>
+<view>导</view><view>航</view>
+</button>
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+<view class='view_question' >
+<view>{{index+1}}.{{item.QuestionName}}</view>
 </view>
 <view>
-<block wx:for='{{logs}}'>
-<text class='show'>{{item.QuestionID}},{{item.QuestionName}},{{item.ChoiceA}},{{item.ChoiceB}},{{item.ChoiceC}},{{item.ChoiceD}},{{item.TypeID}}</text>
-</block>
+<button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+<button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+<button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+<button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+</view>
+<view class='view_answer'>
+<view class='view_currentAnswer' wx:if="{{answer}}">
+<text>正确答案:</text><text class='text_answer'>{{item.Answer}}</text>
+<button class='btn_analysis'>查看解析</button>
+</view>
+</view>
+  <view>
+    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+    <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+  </view>
 </view>

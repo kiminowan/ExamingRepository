@@ -1,20 +1,60 @@
 // pages/practice1/practice1.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    step: 1,
+    answer:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id) 
+    console.log(this.data.step)
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8033/api/KnowledgePointApi/GetQuestions',
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+        console.log(that.data.step)
+        that.setData({
+          logs: res.data
+        })
+      }
+    })
   },
-
+  prevQuestion:function(){
+    if (this.data.step>1){
+    this.setData({
+      step: this.data.step - 1,
+      answer: false,
+      })
+    }
+  },
+  nextQuestion: function () {
+    if (this.data.step < this.data.logs.length){
+    this.setData({
+      step: this.data.step + 1,
+      answer:false,
+      })
+    }
+  }, 
+  answer: function (data) {
+    if (data.currentTarget.dataset.answer == this.data.logs[this.data.step-1].Answer){
+     this.nextQuestion();
+    }
+    else{
+      this.setData({
+        answer: true,
+        correctAnswer: this.data.logs[this.data.step - 1].Answer
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -62,20 +102,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  data: {
-  },
-  onLoad: function () {
-    var that = this;
-    wx.request({
-      url: 'http://localhost:13803/api/KnowledgePointApi/GetQuestions',
-      method: 'get',
-      success: function (q) {
-        console.log(q)
-        that.setData({
-          logs: q.data
-        })
-      }
-    })
   }
+
 })
