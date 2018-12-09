@@ -7,6 +7,18 @@ Page({
   data: {
 
   },
+  a:function(){
+    wx.showToast({
+      title: '选择试卷',
+      icon: '',
+      duration: 2000
+    })
+  },
+  a1: function () {
+    wx.navigateTo({
+      url: '../danxuan/danxuan'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -15,7 +15,7 @@ Page({
       url: '../choose/choose'
     })
   },
-  practiceSkip: function () {
+  practiceSkip:function(){
     wx.navigateTo({
       url: '../practice/practice'
     })

@@ -4,9 +4,8 @@
       <image src='/image/beijing1.png' class='backimg'></image>
   </view>
   <view>
-  <button class='btn_shijuan'>试卷选择</button>
+  <button class='btn_shijuan' bindtap='a'>试卷选择</button>
 
-  <button class='btn_suiji'>随机抽题</button>
-
-  <button class='btn_monikaoshi'>模拟考试</button>
+  <button class='btn_suiji' bindtap='a1'>随机抽题</button>
+  
   </view>
