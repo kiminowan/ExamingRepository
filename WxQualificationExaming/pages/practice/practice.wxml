@@ -1,6 +1,6 @@
 <!--pages/practice/practice.wxml-->
-<view>
-<image src='/image/backImg.jpg' class='zybj'></image>
+<view class='min'>
+<image src='/image/backImg.jpg' class='backimg'></image>
 </view>
 <view>
 <block wx:for='{{practice}}'>
