@@ -11,20 +11,25 @@
     </block>
   </view>
 </view>
-<view class='view_lianxi'>
-<button class='btn_lianxi'>练习<image class='img' src='/image/lianxi.png'></image></button>
+
+<view class='view_top'>
+<view class='view_test'>
+<button class='btn_test' bindtap="testSkip"><view>全</view><view>真</view><view>模</view><view>拟</view></button>
 </view>
-<view>
-<view class='view_monilianxi'>
-<button class='btn_monikaoshi' bindtap="monitiao">全真模拟</button>
+<view class='view_right'>
+<view class='view_pratice'>
+<button class='btn_pratice' bindtap="practiceSkip">练习<image class='img' src='/image/lianxi.png'></image></button>
 </view>
-<view class='view_cuoti'>
-<button class='btn_cuoti'>错题</button>
+<view class='view_errQuestion'>
+<button class='btn_errQuestion'>错题</button>
 </view>
-<view class='view_gerenzhongxin'>
-<button class='btn_gerenzhongxin'>个人中心</button>
 </view>
-<view class='view_shoucang'>
-<button class='btn_shoucang'>收藏</button>
+</view>
+<view class='view_bottom'>
+<view class='view_collection'>
+<button class='btn_collection'>收藏</button>
+</view>
+<view class='view_personal'>
+<button class='btn_personal'>个人中心</button>
 </view>
 </view>

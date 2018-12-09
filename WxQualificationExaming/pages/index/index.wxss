@@ -20,68 +20,54 @@
 .usermotto {
   margin-top: 200px;
 }
-
-.view_lianxi{
-  width: 110px;
-  height: 80px;
-  margin-right: 25px;
+.view_top{
+  height: 240px;
+  width: 275px;
+  margin: 0 auto;
   margin-top: 30px;
-  float: right;
 }
-.view_monilianxi{
-  width: 150px;
-  height: 180px;
-  margin-left: 25px;
-  margin-top: 30px;
+.view_bottom{
+  height: 200px;
+  width: 275px;
+  margin: 0 auto;
+}
+.view_test{
   float: left;
 }
-.view_shoucang{
-  width: 80px;
-  height: 80px;
-  margin-left: 25px;
-  margin-top: 30px;
+.view_right{
   float: left;
+  margin-left: 15px;
 }
-.view_cuoti{
-  width: 110px;
-  height: 85px;
-  margin-right: 25px;
+.view_errQuestion{
   margin-top: 15px;
-  float: right;
 }
-.view_gerenzhongxin{
-  width: 80px;
-  height: 90px;
-  margin-left: 25px;
-  margin-top: 15px;
+.view_personal{
   float: left;
+  margin-left: 15px;
 }
-.view_shoucang{
-  width: 180px;
-  height: 90px;
-  margin-left: 10px;
-  margin-top: 15px;
+.view_collection{
+  float: left;
 }
 
 
-.btn_lianxi{
-  width: 110px;
-  height: 80px;
+.btn_pratice{
+  width: 140px;
+  height: 100px;
   z-index: -1
 }
-.btn_monikaoshi{
-  width: 150px;
-  height: 180px;
+.btn_test{
+  width: 120px;
+  height: 220px;
 }
-.btn_shoucang{
+.btn_collection{
   width: 180px;
   height: 90px;
 }
-.btn_cuoti{
-  width: 110px;
-  height: 85px;
+.btn_errQuestion{
+  width: 140px;
+  height: 105px;
 }
-.btn_gerenzhongxin{
+.btn_personal{
   width: 80px;
   height: 90px;
 }

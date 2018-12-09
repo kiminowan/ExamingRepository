@@ -10,14 +10,14 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  monitiao:function(){
+  testSkip:function(){
     wx.navigateTo({
       url: '../choose/choose'
+    })
+  },
+  practiceSkip: function () {
+    wx.navigateTo({
+      url: '../practice/practice'
     })
   },
   onLoad: function () {
