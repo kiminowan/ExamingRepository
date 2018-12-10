@@ -31,6 +31,10 @@ namespace QualificationExaming.Services
                 return null;
             }
         }
+        /// <summary>
+        /// 题目表显示
+        /// </summary>
+        /// <returns></returns>
         public List<Question> GetQuestions()
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))

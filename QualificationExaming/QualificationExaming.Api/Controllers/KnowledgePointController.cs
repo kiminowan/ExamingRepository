@@ -24,6 +24,10 @@ namespace QualificationExaming.Api.Controllers
         {
             return kdpi.GetKnowledgePoint();
         }
+        /// <summary>
+        /// 题目表显示
+        /// </summary>
+        /// <returns></returns>
         public List<Question> GetQuestions()
         {
             return kdpi.GetQuestions();
