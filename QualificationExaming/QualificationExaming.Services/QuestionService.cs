@@ -21,7 +21,7 @@ namespace QualificationExaming.Services
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
-                var questionlist = conn.Query<Question>("select * from question where TypeID=1", null);
+                var questionlist = conn.Query<Question>("select * from question", null);
                 if (questionlist != null)
                 {
                     return questionlist.ToList();
