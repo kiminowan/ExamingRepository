@@ -17,7 +17,7 @@ Page({
     console.log(this.data.step)
     var that = this;
     wx.request({
-      url: 'http://localhost:8033/api/KnowledgePointApi/GetQuestions',
+      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
       method: 'get',
       success: function (res) {
         console.log(res)
