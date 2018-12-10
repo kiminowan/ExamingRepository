@@ -1,33 +1,28 @@
-// pages/choose/choose.js
+// pages/practice/practice.js
+const util = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-  a:function(){
-    wx.navigateTo({
-      url: '../choose1/choose1'
-    })
-    /*wx.showToast({
-      title: '选择试卷',
-      icon: '',
-      duration: 2000
-    })*/
-  },
-  a1: function () {
-    wx.navigateTo({
-      url: '../danxuan/danxuan'
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8033/api/Exam/GetExams',
+      method: 'get',
+      success: function (q) {
+        console.log(q)
+        that.setData({
+          practice: q.data
+        })
+      }
+    })
   },
 
   /**
@@ -77,5 +72,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  zsd1: function (data) {
+    console.log(data.currentTarget.dataset.src)
+    wx.navigateTo({
+      url: '/pages/danxuan/danxuan?id=' + data.currentTarget.dataset.src,
+    })
   }
 })

@@ -2,18 +2,29 @@
 <view class='min'>
  <image class='img' src='/image/beijing1.png'></image>
 </view>
-<block wx:for='{{danxuan}}'>
-<view class='view_timu'>
-
-<text>{{item.timu}}</text>
+<button class='index'>
+<view>导</view><view>航</view>
+</button>
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+<view class='view_question' >
+<view>{{index+1}}.{{item.QuestionName}}</view>
 </view>
 <view>
-<button class='btn_A'>{{item.A}}</button>
-<button class='btn_B'>{{item.B}}</button>
-<button class='btn_C'>{{item.C}}</button>
-<button class='btn_D'>{{item.D}}</button>
-
+<button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+<button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+<button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+<button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
 </view>
-</block>
+<view class='view_answer'>
+<view class='view_currentAnswer' wx:if="{{answer}}">
+<text>正确答案:</text><text class='text_answer'>{{item.Answer}}</text>
+<button class='btn_analysis'>查看解析</button>
+</view>
+</view>
+  <view>
+    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+    <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+  </view>
+</view>
 
 

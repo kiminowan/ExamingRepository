@@ -18,6 +18,6 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 试卷名称
         /// </summary>
-        public string ExamNam { get; set; }
+        public string ExamName { get; set; }
     }
 }

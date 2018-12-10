@@ -7,7 +7,8 @@
     "pages/panduan/panduan",
     "pages/duoxuan/duoxuan",
     "pages/choose/choose",
-    "pages/pagegr/pagegr"
+    "pages/pagegr/pagegr",
+    "pages/choose1/choose1"
   ],
   "window": {
     "backgroundTextStyle": "light",
