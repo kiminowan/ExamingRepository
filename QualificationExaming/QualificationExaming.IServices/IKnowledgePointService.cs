@@ -15,11 +15,5 @@ namespace QualificationExaming.IServices
         /// </summary>
         /// <returns></returns>
         List<KnowledgePoint> GetKnowledgePoint();
-        /// <summary>
-        /// 题目表
-        /// </summary>
-        /// <returns></returns>
-        List<Question> GetQuestions();
-
     }
 }

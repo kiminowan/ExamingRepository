@@ -44,6 +44,7 @@ namespace QualificationExaming.Api
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IKnowledgePointService, KnowledgePointService>();
+            container.RegisterType<IQuestionService, QuestionService>();
         }
     }
 }

@@ -11,19 +11,17 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class KnowledgePointApiController : ApiController
+    public class QuestionApiController : ApiController
     {
         [Dependency]
-        public IKnowledgePointService kdpi { get; set; }
+        public IQuestionService iquestionService { get; set; }
         /// <summary>
-        /// 知识点类型表显示
+        /// 题目表显示
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public List<KnowledgePoint> GetKnowledgePoint()
+        public List<Question> GetQuestions()
         {
-            return kdpi.GetKnowledgePoint();
+            return iquestionService.GetQuestions();
         }
-       
     }
 }

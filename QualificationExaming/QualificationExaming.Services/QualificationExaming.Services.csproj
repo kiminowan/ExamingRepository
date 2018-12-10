@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="KnowledgePointService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
