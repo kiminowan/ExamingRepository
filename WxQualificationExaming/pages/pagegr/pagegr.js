@@ -66,7 +66,7 @@ Page({
   cuoti: function () {
     wx.navigateTo({
       //跳转到自己希望到页面
-      url: '/pages/kemu/index',
+      url: '/pages/cuoti/cuoti',
     })
     //静态提示框事件
     wx.showModal({
@@ -95,14 +95,14 @@ Page({
   shoucang: function () {
     wx.navigateTo({
       //跳转到自己希望到页面
-      url: '/pages/kemu/index',
+      url: '/pages/shoucang/shoucang',
     })
   },
   //点击历史成绩执行的事件
   lishi:function()
   {
 wx.navigateTo({
-  url: '/pages/kemu/index',
+  url: '/pages/lishi/lishi',
 })
 
   }
