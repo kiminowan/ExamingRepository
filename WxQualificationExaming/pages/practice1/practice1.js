@@ -28,6 +28,7 @@ Page({
       }
     })
   },
+  //上一题按钮事件
   prevQuestion:function(){
     if (this.data.step>1){
     this.setData({
@@ -36,6 +37,7 @@ Page({
       })
     }
   },
+  //下一题按钮事件
   nextQuestion: function () {
     if (this.data.step < this.data.logs.length){
     this.setData({
@@ -44,11 +46,14 @@ Page({
       })
     }
   }, 
+ //选项按钮事件
   answer: function (data) {
     if (data.currentTarget.dataset.answer == this.data.logs[this.data.step-1].Answer){
+      //选对时跳转下一题
      this.nextQuestion();
     }
     else{
+       //选错时显示正确答案和解析
       this.setData({
         answer: true,
         correctAnswer: this.data.logs[this.data.step - 1].Answer
