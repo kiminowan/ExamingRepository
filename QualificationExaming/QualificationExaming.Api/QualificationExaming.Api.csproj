@@ -123,6 +123,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />
     <Compile Include="Controllers\QuestionApiController.cs" />
     <Compile Include="Global.asax.cs">
