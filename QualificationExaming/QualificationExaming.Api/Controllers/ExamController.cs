@@ -21,6 +21,7 @@ namespace QualificationExaming.Api.Controllers
         /// 试卷类型表
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public List<Exam> GetExams()
         {
             return examService.GetExams();
