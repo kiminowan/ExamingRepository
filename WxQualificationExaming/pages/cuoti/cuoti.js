@@ -63,19 +63,17 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onLoad:function(){
-var that=this;
-wx.request({
-  url: 'http://localhost:58939/caoxiaole/Get',
-  method:'Get',
-  success:function(res){
-that.setData({
-
-  logs:res.data,
-})
-
-  }
-})
-
-  }
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoint',
+      method: 'get',
+      success: function (q) {
+        console.log(q)
+        that.setData({
+          practice: q.data
+        })
+      }
+    })
+  },
 })

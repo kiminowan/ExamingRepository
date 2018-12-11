@@ -15,6 +15,8 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IKnowledgePointService kdpi { get; set; }
+        [Dependency]
+        public IUserservice userservice { get; set; }
         /// <summary>
         /// 知识点类型表显示
         /// </summary>
@@ -24,6 +26,13 @@ namespace QualificationExaming.Api.Controllers
         {
             return kdpi.GetKnowledgePoint();
         }
-       
+
+        [HttpGet]
+        public User Login(string code)
+        {
+            var client = userservice.UserLogin(code);
+            return client;
+        }
+
     }
 }

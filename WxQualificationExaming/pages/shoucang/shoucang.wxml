@@ -1,2 +1,26 @@
 <!--pages/shoucang/shoucang.wxml-->
-<text>题目收藏</text>
+<view class="container">
+    <view class="table">
+        <view class="tr">
+            <view class="th">题目收藏</view>
+            <view class="th">姓名</view>
+            <view class="th">性别</view>
+            <view class="th">编号</view>
+            <view class="th">姓名</view>
+            <view class="th">性别</view>
+             <view class="th">性别</view>
+        </view>
+        <block wx:for="{{logs}}" >
+        <view class="tr">
+        
+            <view class="td"><text class="log-item">{{item.id}}</text></view>
+            <view class="td"><text class="log-item">{{item.name}}</text></view>
+            <view class="td"><text class="log-item">{{item.sex}}</text></view>
+          <view class="td"><text class="log-item">{{item.id}}</text></view>
+            <view class="td"><text class="log-item">{{item.name}}</text></view>
+            <view class="td"><text class="log-item">{{item.sex}}</text></view>
+            <view class="td"><text class="log-item">{{item.sex}}</text></view>
+        </view>
+         </block> 
+    </view>
+</view>

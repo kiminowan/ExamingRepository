@@ -1,4 +1,7 @@
 <!--pages/pagegr/pagegr.wxml-->
+<view class='min'>
+      <image src='/image/backImg.jpg' class='backimg'></image>
+  </view>
 <view class='v1'>
 
 

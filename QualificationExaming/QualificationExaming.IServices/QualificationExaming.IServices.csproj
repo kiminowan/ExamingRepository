@@ -45,6 +45,7 @@
     <Compile Include="IKnowledgePointService.cs" />
     <Compile Include="IQuestionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IUserservice.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QualificationExaming.Entity\QualificationExaming.Entity.csproj">

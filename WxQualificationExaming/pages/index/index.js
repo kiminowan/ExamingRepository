@@ -55,5 +55,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  grzx: function () {
+    wx.navigateTo({
+      //跳转到自己希望到页面
+      url: '/pages/pagegr/pagegr',
+    })
   }
 })

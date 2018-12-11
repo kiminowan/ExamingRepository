@@ -30,6 +30,6 @@
 <button class='btn_collection'>收藏</button>
 </view>
 <view class='view_personal'>
-<button class='btn_personal'>个人中心</button>
+<button class='btn_personal' bindtap='grzx'>个人中心</button>
 </view>
 </view>

@@ -8,8 +8,56 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: function (res) {
+        if (res.code) {
+          wx.request({
+            url: 'http://localhost:8033/api/KnowledgePointApi/Login',
+            data: {
+              code: res.code
+            },
+            success: function (res) {
+              var set = wx.setStorage({
+                key: 'token',
+                data: res.data.session_key,
+                success: function (res) {
+
+                },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+              console.log(res)
+            }
+          })
+        }
+        /*
+        wx.getUserInfo({
+          success: function (res) {
+           console.log(res)
+           var set=wx.setStorage({
+             key: 'username',
+             data: res.userInfo.nickName,
+             success: function(res) {
+               
+             },
+             fail: function(res) {
+               wx.showModal({
+                 title: '提示',
+                 content: '拒绝授权可能会影响部分功能使用，请设置授权',
+                 confirmText: '去设置',
+                 success:res=>{
+                   if(res.confirm)
+                   {
+                      wx.openSetting({
+                        
+                      })
+                   }
+                 }
+               })
+             },
+             complete: function(res) {},
+           })
+          }
+        })*/
       }
     })
     // 获取用户信息

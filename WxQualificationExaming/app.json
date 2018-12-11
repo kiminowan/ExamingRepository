@@ -8,7 +8,10 @@
     "pages/duoxuan/duoxuan",
     "pages/choose/choose",
     "pages/pagegr/pagegr",
-    "pages/choose1/choose1"
+    "pages/choose1/choose1",
+    "pages/cuoti/cuoti",
+    "pages/shoucang/shoucang",
+    "pages/lishi/lishi"
   ],
   "window": {
     "backgroundTextStyle": "light",
