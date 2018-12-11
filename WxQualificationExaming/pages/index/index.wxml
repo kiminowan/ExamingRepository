@@ -21,7 +21,7 @@
 <button class='btn_pratice' bindtap="practiceSkip">练习</button>
 </view>
 <view class='view_errQuestion'>
-<button class='btn_errQuestion'>错题</button>
+<button class='btn_errQuestion' bindtap='cuoti'>错题</button>
 </view>
 </view>
 </view>

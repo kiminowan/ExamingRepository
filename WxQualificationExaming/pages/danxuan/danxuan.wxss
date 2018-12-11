@@ -17,6 +17,17 @@
   margin-top: 20px;
   font-size: 14px;
 }
+.check{
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  line-height: 20px;
+  margin-top: 10px;
+  margin-left: 70px;
+  font-size: 14px;
+}
 .btn{
   height: 80px;
   width: 140px;
@@ -52,4 +63,28 @@
 }
 .index view{
 margin: 8px 0 0 -8px;
+}
+.img1{
+  width: 100%;
+  height: 100%;
+  
+}
+.view_dui{
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+  margin-left: 40px;
+  float: left;
+}
+.view_cuo{
+  width: 100px;
+  height: 80px;
+  margin-top: 30px;
+  margin-right: 40px;
+  float: right;
+}
+.btn_panduan{
+  width: 100px;
+  height: 80px;
+  margin-top: 20px;
 }
