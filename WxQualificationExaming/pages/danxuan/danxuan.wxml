@@ -6,6 +6,7 @@
 <view>导</view><view>航</view>
 </button>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+
 <view wx:if="{{item.TypeID==1}}">
 <view class='view_question' >
 <view>{{index+1}}.{{item.QuestionName}}</view>
@@ -25,10 +26,10 @@
 </view>
 <view>
 <text>123456</text>
-<button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
-<button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
-<button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
-<button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+<checkbox class='check' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</checkbox>
+<checkbox class='check' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</checkbox>
+<checkbox class='check' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</checkbox>
+<checkbox class='check' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</checkbox>
 </view>
 </view>
 
@@ -38,11 +39,13 @@
 <view>{{index+1}}.{{item.QuestionName}}</view>
 </view>
 <view>
-<text>123456</text>
-<button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
-<button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
-<button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
-<button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+<text>987654</text>
+
+<button class='btn_panduan'><image class='img1' src='/image/right.png'></image></button>
+
+<button class='btn_panduan'><image class='img1' src='/image/wrong.png'></image></button>
+
+
 </view>
 </view>
 
