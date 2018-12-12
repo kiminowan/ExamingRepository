@@ -1,0 +1,30 @@
+/* pages/cuotikuan/cuotikuan.wxss */
+page{
+ 
+  font-size: 14px;
+  color: #333
+}
+.table {
+  
+  border: 1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 98%　
+}
+.tr {
+  width: 100%;
+  display: flex;
+justify-content: space-between;
+align-items: stretch
+}
+.th,.td {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  width: 100%
+}
+.th {
+  font-weight: 400;
+  background-color: #dadada;
+}

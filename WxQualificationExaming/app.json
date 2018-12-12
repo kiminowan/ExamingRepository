@@ -11,7 +11,9 @@
     "pages/choose1/choose1",
     "pages/cuoti/cuoti",
     "pages/shoucang/shoucang",
-    "pages/lishi/lishi"
+    "pages/lishi/lishi",
+    "pages/cuotikuan/cuotikuan"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

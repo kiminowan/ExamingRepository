@@ -18,14 +18,14 @@ App({
             success: function (res) {
               var set = wx.setStorage({
                 key: 'token',
-                data: res.data.session_key,
+                data: res.data.OpenID,
                 success: function (res) {
 
                 },
                 fail: function (res) { },
                 complete: function (res) { },
               })
-              console.log(res)
+              console.log(res.data.OpenID)
             }
           })
         }

@@ -13,17 +13,20 @@ namespace QualificationExaming.Services
     using System.Configuration;
     using Entity;
     using Newtonsoft.Json;
-    
+
 
 
     using System.Net.Http;
- 
+
     using System.Transactions;
-    /// <summary>
-    /// 用户添加
-    /// </summary>
-    public class UserServices: IUserservice
+
+    public class UserServices : IUserservice
     {
+        /// <summary>
+        /// 判断用户是否存在，如果不存在进行创建
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public User UserLogin(String code)
         {
 
@@ -55,7 +58,7 @@ namespace QualificationExaming.Services
                 var userList = conn.Query<User>("SELECT * FROM user", null);
                 var client = userList.Where(r => r.OpenID.Equals(user.OpenID)).FirstOrDefault();
                 //string query = "SELECT * FROM user WHERE OpenID = @OpenID";
-                
+
                 //var book = conn.Query<User>(query, parameters).FirstOrDefault(); 
                 //var client = uc.ClientInfo.Where(m => m.OpenId.Equals(clientinfo.OpenID)).FirstOrDefault();//判断是否为已注册用户
                 if (client == null)
@@ -68,11 +71,28 @@ namespace QualificationExaming.Services
                     parameters.Add("@Session_key", user.Session_key);
                     conn.Execute(sql, parameters);
                 }
-            
+
                 //RedisHelper.Set<User>(user.Session_key, user, DateTime.Now.AddMinutes(10));
-                RedisHelper.Set<User>(user.Session_key,user,DateTime.Now.AddMinutes(1));
+                RedisHelper.Set<User>(user.OpenID, user, DateTime.Now.AddHours(1));
                 return user;
             }
+        }
+
+        public List<ErrQuestion> GetErrQuestions(string username)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+             
+                var userList = conn.Query<User>("SELECT * FROM user", null);
+                var client = userList.Where(r => r.OpenID.Equals(username)).FirstOrDefault();
+                var id = client.UserID;
+                string sql = string.Format("select * from errquestion WHERE UserID=@UserID");
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@UserID", id);//@
+                List<ErrQuestion> eroo= conn.Query<ErrQuestion>(sql, parameters).ToList();
+                return eroo;
+            }
+            
         }
     }
 }

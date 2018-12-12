@@ -126,13 +126,17 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />
     <Compile Include="Controllers\QuestionApiController.cs" />
+    <Compile Include="Controllers\RequestAuthorize.cs" />
+    <Compile Include="Controllers\UsersApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppSettings.config" />
+    <Content Include="AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -146,6 +150,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonCache\CommonCache.csproj">
+      <Project>{8fc9643d-8a85-4b7b-b694-ec07a9040c9b}</Project>
+      <Name>CommonCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QualificationExaming.Entity\QualificationExaming.Entity.csproj">
       <Project>{bc7585ce-bd4a-472d-88cc-bfd09b807580}</Project>
       <Name>QualificationExaming.Entity</Name>

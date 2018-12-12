@@ -11,23 +11,22 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-
-    public class ExamController : ApiController
+    [RequestAuthorize]
+    public class UsersApiController : ApiController
     {
 
 
         [Dependency]
-        public IExamService examService { get; set; }
-
+        public IUserservice userses { get; set; }
         /// <summary>
-        /// 试卷类型表
+        /// 获取用户错题
         /// </summary>
+        /// <param name="username"></param>
         /// <returns></returns>
         [HttpGet]
-        public List<Exam> GetExams()
+        public List<ErrQuestion> GetErrQuestions(string username)
         {
-            return examService.GetExams();
-
+            return userses.GetErrQuestions(username);
         }
     }
 }
