@@ -33,15 +33,15 @@
   <ItemGroup>
     <Reference Include="ServiceStack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\小实训2\小实2训机试\微信小程序调用api第一个Redis缓存\WebApi\bin\ServiceStack.dll</HintPath>
+      <HintPath>Redis dll\ServiceStack.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\小实训2\小实2训机试\微信小程序调用api第一个Redis缓存\WebApi\bin\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>Redis dll\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.ServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\token令牌引用dll文件\ServiceStack.ServiceInterface.dll</HintPath>
+      <HintPath>Redis dll\ServiceStack.ServiceInterface.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -58,6 +58,9 @@
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedisHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Redis dll\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
