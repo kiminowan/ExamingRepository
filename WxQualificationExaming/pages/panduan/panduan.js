@@ -36,6 +36,8 @@ Page({
               sureid: false
           },
         ],
+      step: 1,
+      answer: false,
     },
 
     /**
@@ -45,6 +47,18 @@ Page({
         this.setData({
 
         })
+      var that = this;
+      wx.request({
+        url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+        method: 'get',
+        success: function (res) {
+          console.log(res)
+          console.log(that.data.step)
+          that.setData({
+            logs: res.data
+          })
+        }
+      })
     },
 
     /**
