@@ -12,7 +12,8 @@
     "pages/cuoti/cuoti",
     "pages/shoucang/shoucang",
     "pages/lishi/lishi",
-    "pages/cuotikuan/cuotikuan"
+    "pages/cuotikuan/cuotikuan",
+    "pages/result/result"
     
   ],
   "window": {
