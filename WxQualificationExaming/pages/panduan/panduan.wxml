@@ -1,13 +1,33 @@
-<!--pages/panduan/panduan.wxml-->
-<view class='min'>
- <image class='img' src='/image/beijing1.png'></image>
-</view>
-<view class='view_timu'>
-<text>题目</text>
-</view>
-<view class='view_dui'>
-<button class='btn_dui'><image class='img1' src='/image/right.png'></image></button>
-</view>
-<view class='view_cuo'>
-<button class='btn_cuo'><image class='img1' src='/image/wrong.png'></image></button>
+<!--hotblood_gongkao/pages/answer/answer.wxml-->
+<!-- content -->
+<view class='answer-list'>
+  <view class='answer-child'>
+    <text class='answer-title'><text style='margin-right:28rpx;'>{{num + 1}}/{{quesyion.length}}</text>{{question[num][0]}}</text>
+    <view class='answer-options'>
+      <view class="options {{selectIndex[0].sureid?'select':''}}" data-index='{{idx}}1' data-text='A' bindtap="{{whether?'':'selectAnswer'}}">
+        <text><text style='margin-right:36rpx;'> A </text>{{question[num][1]}}</text>
+      </view>
+      <view class="options {{selectIndex[1].sureid?'select':''}}" data-index='{{idx}}2' data-text='B' bindtap="{{whether?'':'selectAnswer'}}">
+        <text><text style='margin-right:36rpx;'> B </text>{{question[num][2]}}</text>
+      </view>
+      <view class="options {{selectIndex[2].sureid?'select':''}}" data-index='{{idx}}3' data-text='C' bindtap="{{whether?'':'selectAnswer'}}">
+        <text><text style='margin-right:36rpx;'> C </text>{{question[num][3]}}</text>
+      </view>
+      <view class="options {{selectIndex[3].sureid?'select':''}}" data-index='{{idx}}4' data-text='D' bindtap="{{whether?'':'selectAnswer'}}">
+        <text><text style='margin-right:36rpx;'> D </text>{{question[num][4]}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="answer {{isWan?'isShow':'isHide'}}">
+    <text>正确答案{{question[num][3]}}</text>
+  </view>
+  <view class="subBtn {{isque?'isShow':'isHide'}}" bindtap='confirm'>
+    <text>确定</text>
+  </view>
+  <view class="subBtn {{isOne?'isHide':'isShow'}}" bindtap='next'>
+    <text>{{con}}</text>
+  </view>
+  <view class="subBtn {{iswancheng?'isShow':'isHide'}}" bindtap='submit'>
+    <text>提交答卷</text>
+  </view>
 </view>

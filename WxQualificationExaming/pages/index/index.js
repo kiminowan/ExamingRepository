@@ -61,5 +61,18 @@ Page({
       //跳转到自己希望到页面
       url: '/pages/pagegr/pagegr',
     })
+  },
+  duoxuan:function(){
+    wx.navigateTo({
+      url: '/pages/result/result',
+    })
+  },
+  cuoti:function(){
+    wx.navigateTo({
+      url: '/pages/panduan/panduan',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

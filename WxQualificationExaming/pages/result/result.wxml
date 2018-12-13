@@ -1,0 +1,13 @@
+<!--pages/result/result.wxml-->
+<view>
+<view class='txt'>成绩</view>
+<view class='txt1'>80</view>
+<view class='num'>总题数</view>
+<view class='num1'>40</view>
+<view class='true'>正确率</view>
+<view class='true1'>80%</view>
+<view>
+<button class='btn_index' bindtap='btn_index'>返回试卷</button>
+<button class='btn_cuoti'>查看错题</button>
+</view>
+</view>
