@@ -77,7 +77,11 @@ namespace QualificationExaming.Services
                 return user;
             }
         }
-
+        /// <summary>
+        /// 根据用户查询所有错题
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public List<ErrQuestion> GetErrQuestions(string username)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -93,6 +97,42 @@ namespace QualificationExaming.Services
                 return eroo;
             }
             
+        }
+        /// <summary>
+        /// 根据错题id删除错题
+        /// </summary>
+        /// <param name="erroid"></param>
+        /// <returns></returns>
+        public int DeleteErro(int erroid)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                
+                parameters.Add("p_errquestionid", erroid);
+                var result = conn.Execute("proc_DeleteErrQuestion", parameters, commandType: System.Data.CommandType.StoredProcedure);
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// 添加错题
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        /// 用户id
+        /// 题目id
+        public int AddErro(ErrQuestion e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add("p_userID", e.UserID);
+                parameters.Add("p_questionID",e.QuestionID)
+;                var result = conn.Execute("proc_AddErrQuestion", parameters, commandType: System.Data.CommandType.StoredProcedure);
+                return result;
+            }
         }
     }
 }

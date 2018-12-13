@@ -6,7 +6,7 @@
             <view class="th">用户id</view>
             <view class="th">题目id</view>
             <view class="th">错题id</view>
-            
+            <view class="th">操作</view>
         </view>
         <block wx:for='{{log}}'>
         
@@ -15,8 +15,9 @@
             <view class="td"><text class="log-item">{{item.CreateTime}}</text></view>
             <view class="td"><text class="log-item">{{item.UserID}}</text></view>
             <view class="td"><text class="log-item">{{item.QuestionID}}</text></view>
-          <view class="td"><text class="log-item">{{item.ErrQuestionID}}</text></view>
-            
+          <view class="td" bindtap="shan" data-aid="{{item.QuestionID}}">删除</view>
+           
+           
         </view>
          </block> 
     </view>

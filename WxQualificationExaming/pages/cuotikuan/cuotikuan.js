@@ -84,5 +84,31 @@ Page({
           })
         }
       })
-}
+},
+//点击删除事件
+  shan:function(e){
+    
+    
+    var id = e.currentTarget.dataset.aid;
+    console.log(id);
+    wx.getStorage({
+      key: 'token',
+      success: function (data) {
+        console.log(data.data)
+        wx.request({
+          url: 'http://localhost:8033/api/UsersApi/DeleteErro?errid=' + id,
+          method: 'get',
+          data: {},
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + data.data
+          },
+          success: function () {
+            console.log("删除成功！");
+          }
+        })
+      }
+    })
+
+  }
 })

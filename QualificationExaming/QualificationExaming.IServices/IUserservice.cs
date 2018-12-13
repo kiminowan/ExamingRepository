@@ -11,5 +11,7 @@ namespace QualificationExaming.IServices
     {
         User UserLogin(String code);
         List<ErrQuestion> GetErrQuestions(string username);
+        int DeleteErro(int erroid);
+        int AddErro(ErrQuestion e);
     }
 }

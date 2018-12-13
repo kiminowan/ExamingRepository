@@ -28,5 +28,25 @@ namespace QualificationExaming.Api.Controllers
         {
             return userses.GetErrQuestions(username);
         }
+        /// <summary>
+        /// 根据错题id进行删除
+        /// </summary>
+        /// <param name="errid"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public int DeleteErro(int errid)
+        {
+            return userses.DeleteErro(errid);
+        }
+        /// <summary>
+        /// 错题添加
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int AddErro(ErrQuestion e)
+        {
+            return userses.AddErro(e);
+        }
     }
 }
