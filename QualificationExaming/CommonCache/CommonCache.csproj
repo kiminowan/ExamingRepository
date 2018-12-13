@@ -35,7 +35,7 @@
       <HintPath>..\QualificationExaming.Common\Redis dll\ServiceStack.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\..\Down\ExamingRepository\QualificationExaming\QualificationExaming.Common\Redis dll\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\QualificationExaming.Common\Redis dll\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.ServiceInterface">
       <HintPath>..\QualificationExaming.Common\Redis dll\ServiceStack.ServiceInterface.dll</HintPath>
