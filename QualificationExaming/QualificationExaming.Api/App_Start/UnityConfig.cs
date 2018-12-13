@@ -47,6 +47,9 @@ namespace QualificationExaming.Api
             container.RegisterType<IQuestionService, QuestionService>();
             container.RegisterType<IExamService, ExamService>();
             container.RegisterType<IUserservice, UserServices>();
+            container.RegisterType<IRememberService, RememberService>();
+
+
         }
     }
 }
