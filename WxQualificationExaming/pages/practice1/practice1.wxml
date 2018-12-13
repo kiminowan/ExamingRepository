@@ -6,7 +6,7 @@
 <view>导</view><view>航</view>
 </button>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
-<view class='view_question' >
+<view class='view_question'   >
 <view>{{index+1}}.{{item.QuestionName}}</view>
 </view>
 <view>

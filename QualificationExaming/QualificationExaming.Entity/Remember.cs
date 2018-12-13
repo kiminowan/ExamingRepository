@@ -24,6 +24,10 @@ namespace QualificationExaming.Entity
         /// 题目Id
         /// </summary>
        public int QuestionID { get; set; }
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+       public int UserID { get; set; } 
 
     }
 }

@@ -16,17 +16,24 @@ Page({
   onLoad: function (options) {
     console.log(this.data.step)
     var that = this;
-    wx.request({
-      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
-      method: 'get',
-      success: function (res) {
-        console.log(res)
-        console.log(that.data.step)
-        that.setData({
-          logs: res.data
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+          method: 'get',
+          success: function (res) {
+            console.log(res)
+            console.log(that.data.step)
+            that.setData({
+              logs: res.data
+            })
+            that.questionLog();
+          }
         })
-      }
+      },
     })
+    
   },
   //上一题按钮事件
   prevQuestion:function(){
@@ -35,6 +42,7 @@ Page({
       step: this.data.step - 1,
       answer: false,
       })
+      this.questionLog();
     }
   },
   //下一题按钮事件
@@ -44,6 +52,7 @@ Page({
       step: this.data.step + 1,
       answer:false,
       })
+      this.questionLog();
     }
   }, 
  //选项按钮事件
@@ -59,6 +68,25 @@ Page({
         correctAnswer: this.data.logs[this.data.step - 1].Answer
       })
     }
+  },
+  questionLog:function(){
+    var id= this.data.logs[this.data.step - 1].QuestionID;
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8033/api/Remember/Addremember',
+          data: {
+            id:id,
+            openID:res.data
+          },
+          method: 'get',
+          success: function(res) {
+console.log(res.data)
+          },
+        })
+      },
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

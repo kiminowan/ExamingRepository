@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Compile Include="RememberService.cs" />
     <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>

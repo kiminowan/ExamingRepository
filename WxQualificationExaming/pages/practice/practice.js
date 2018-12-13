@@ -16,10 +16,10 @@ Page({
     wx.request({
       url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoint',
       method: 'get',
-      success: function (q) {
-        console.log(q)
+      success: function (res) {
+        console.log(res)
         that.setData({
-          practice: q.data
+          practice: res.data
         })
       }
     })
