@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminService.cs" />
     <Compile Include="IExamService.cs" />
     <Compile Include="IKnowledgePointService.cs" />
     <Compile Include="IQuestionService.cs" />
     <Compile Include="IRememberService.cs" />
+    <Compile Include="IRoleService.cs" />
+    <Compile Include="IPowerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IUserservice.cs" />
   </ItemGroup>
