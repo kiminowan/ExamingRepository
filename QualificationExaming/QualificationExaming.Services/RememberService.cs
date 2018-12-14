@@ -14,7 +14,7 @@ namespace QualificationExaming.Services
 
     public class RememberService:IRememberService
     {
-        public int Addremember(int openID,int questionID)
+        public int Addremember(string openID,int questionID)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
