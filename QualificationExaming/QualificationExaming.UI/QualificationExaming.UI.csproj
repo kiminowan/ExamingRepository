@@ -110,6 +110,8 @@
     <Content Include="H-ui.admin\charts-6.html" />
     <Content Include="H-ui.admin\charts-7.html" />
     <Content Include="H-ui.admin\codeing.html" />
+    <Content Include="H-ui.admin\exam_add.html" />
+    <Content Include="H-ui.admin\exam_list.html" />
     <Content Include="H-ui.admin\favicon.ico" />
     <Content Include="H-ui.admin\feedback-list.html" />
     <Content Include="H-ui.admin\index-2.html" />
