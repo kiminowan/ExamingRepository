@@ -90,10 +90,10 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/Remember/AddRemember',
+          url: 'http://localhost:8033/api/Remember/Addremember',
           data: {
-            openID: res.data,
-            questionID: id,
+            id:id,
+            openID:res.data
           },
           method: 'get',
           success: function(res) {

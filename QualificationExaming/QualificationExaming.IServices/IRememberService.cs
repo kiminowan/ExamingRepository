@@ -8,6 +8,6 @@ namespace QualificationExaming.IServices
 {
     public interface IRememberService
     {
-        int Addremember(string openID, int questionID);
+        int Addremember(int openID, int questionID);
     }
 }

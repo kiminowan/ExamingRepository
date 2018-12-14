@@ -126,7 +126,6 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />
     <Compile Include="Controllers\QuestionApiController.cs" />
-    <Compile Include="Controllers\RememberController.cs" />
     <Compile Include="Controllers\RequestAuthorize.cs" />
     <Compile Include="Controllers\UsersApiController.cs" />
     <Compile Include="Global.asax.cs">

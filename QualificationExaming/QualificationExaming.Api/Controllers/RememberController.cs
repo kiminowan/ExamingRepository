@@ -16,7 +16,7 @@ namespace QualificationExaming.Api.Controllers
         [Dependency]
         public IRememberService rememberService { get; set; }
         [HttpGet]
-        public int AddRemember(string openID, int questionID)
+        public int Addremember(int openID, int questionID)
         {
             return rememberService.Addremember(openID, questionID);
         }

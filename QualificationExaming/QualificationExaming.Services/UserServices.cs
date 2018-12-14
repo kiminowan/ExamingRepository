@@ -40,8 +40,8 @@ namespace QualificationExaming.Services
             {
                 User user = new User();
                 HttpClient httpclient = new HttpClient();
-                string appid = "wx5db394e77b9cd0b8";
-                string secret = "45e2ea1c74357c2ec3b0e2de49aba5e0";
+                string appid = "wx78ba9584fd775358";
+                string secret = "6d30a5b4c288996b960ad16a0c0bdd24";
                 httpclient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = httpclient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
                 var result = "";
