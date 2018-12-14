@@ -69,7 +69,7 @@ Page({
   },
   cuoti:function(){
     wx.navigateTo({
-      url: '/pages/panduan/panduan',
+      url: '/pages/duoxuan/duoxuan',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

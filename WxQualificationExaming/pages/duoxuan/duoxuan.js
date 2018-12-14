@@ -5,13 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+   
 
   },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+        console.log(that.data.step)
+        that.setData({
+          logs: res.data
+        })
+      }
+    })
 
   },
 

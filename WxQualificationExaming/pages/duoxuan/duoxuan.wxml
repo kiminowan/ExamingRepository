@@ -1,13 +1,22 @@
-<!--pages/duoxuan/duoxuan.wxml-->
-<view class='min'>
- <image class='img' src='/image/beijing1.png'></image>
+<checkbox-group bindchange="checkboxChange">
+<label wx:for='{{logs}}'>
+  <view wx:if="{{item.TypeID==2}}">
+  <view>{{index+1}}.{{item.QuestionName}}</view>
+  <view class='view'>
+  <view>
+  <checkbox/>{{item.ChoiceA}}
+  </view>
+  <view>
+  <checkbox/>{{item.ChoiceB}}
+  </view>
+  <view>
+  <checkbox/>{{item.ChoiceC}}
+  </view>
+  <view>
+  <checkbox/>{{item.ChoiceD}}
+  </view>
+  </view>
+
 </view>
-<view class='view_timu'>
-<text>题目</text>
-</view>
-<view>
-<button class='btn_A'>A</button>
-<button class='btn_B'>B</button>
-<button class='btn_C'>C</button>
-<button class='btn_D'>D</button>
-</view>
+</label> 
+</checkbox-group>
