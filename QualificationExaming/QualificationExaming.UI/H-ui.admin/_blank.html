@@ -24,9 +24,14 @@
 <title>空白页</title>
 </head>
 <body>
-<div class="pd-20">
-  这是一个空白页
-</div>
+    <div class="pd-20">
+        <button onclick="huoquzhishidian()">获取知识点</button>
+        <span class="select-box inline">
+            <select id="s1" class="select">
+                <option value="0">知识点类型</option>
+            </select>
+        </span>
+    </div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
@@ -34,5 +39,25 @@
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> 
+    <script>
+
+        function huoquzhishidian() {
+            
+            $.ajax({
+                url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+                type: 'Get',
+                dataType:'json',
+                success: function (data) {
+                    
+                   
+                    $(data).each(function (index, data) {
+                        $("#s1").append("<option value='" + 0 + "'>" + data.ChoiceA + "</option>");
+                    })
+                }
+
+            })
+
+        }
+    </script>
 </body>
 </html>

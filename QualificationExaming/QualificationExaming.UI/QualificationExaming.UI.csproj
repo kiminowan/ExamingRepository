@@ -1208,6 +1208,7 @@
     <Content Include="H-ui.admin\user-password-edit.html" />
     <Content Include="H-ui.admin\user-show.html" />
     <Content Include="H-ui.admin\welcome.html" />
+    <Content Include="H-ui.admin\_blank1.html" />
     <Content Include="H-ui.admin\_blank.html" />
     <Content Include="H-ui.admin\_footer.html" />
     <Content Include="H-ui.admin\_header.html" />
