@@ -2,9 +2,29 @@
 <view class='min'>
  <image class='backimg' src='/image/beijing1.png'></image>
 </view>
-<button class='index'>
-<view>导</view><view>航</view>
-</button>
+
+
+  <!--侧边栏-->
+  <view class="sideslip">
+    <view class="logo">
+      <image src="../image/beijing.jpg"></image>
+    </view>
+    <view class="content">
+      <navigator url="../News/News">我的消息</navigator>
+    </view>
+    <view class="content">
+      <navigator url="../Information/Information">个人信息</navigator>
+    </view>
+    <view class="content">
+      <navigator url="../Acitvity-list/Activity-list">活动列表</navigator>
+    </view>
+    <view class="content">
+      <navigator url="../Store/Store">积分商城</navigator>
+    </view>
+  </view>
+    <view class="list-nav">
+    <image class="list-images" bindtap="tap_ch" src="../image/wrong.png"></image>
+    </view>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
 <view class='view_question'   >
 <view>{{index+1}}.{{item.QuestionName}}</view>

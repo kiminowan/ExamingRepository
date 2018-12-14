@@ -53,3 +53,56 @@
 .index view{
 margin: 8px 0 0 -8px;
 }
+.sideslip {
+  height: 100%;
+  width: 750rpx;
+  position: fixed;
+  background-color: #666;
+  z-index: 0;
+}
+
+
+.list-nav {
+  height:80rpx;
+  width: 100%;
+  background: #eee;
+}
+.sideslip {
+  height: 100%;
+  width: 750rpx;
+  position: fixed;
+  background-color: #666;
+  z-index: -5;
+}
+.logo {
+  z-index: 10;
+  width: 75%;
+  height: 400rpx;
+  border-right: 2px solid #666;
+}
+.content {
+  color: #fff;
+  padding: 30rpx 0 30rpx 40rpx;
+}
+list-images {
+  z-index: 100;
+  position: absolute;
+  width: 68rpx;
+  height: 38rpx;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+
+
+.logo image {
+  z-index: 10;
+  width: 75%;
+  height: 400rpx;
+  border-right: 2px solid #666;
+}
+
+.content {
+  color: #fff;
+  padding: 30rpx 0 30rpx 40rpx;
+}

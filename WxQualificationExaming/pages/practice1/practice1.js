@@ -8,8 +8,23 @@ Page({
   data: {
     step: 1,
     answer:false,
+    windowWidth: wx.getSystemInfoSync().windowWidth,
+    staus: 1,
+    translate: ''
   },
-
+  tap_ch: function (e) {
+    if (this.data.open) {
+      this.setData({
+        translate: 'transform: translateX(0px)'
+      })
+      this.data.open = false;
+    } else {
+      this.setData({
+        translate: 'transform: translateX(' + this.data.windowWidth * 0.75 + 'px)'
+      })
+      this.data.open = true;
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
