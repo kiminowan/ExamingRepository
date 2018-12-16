@@ -12,7 +12,7 @@ namespace QualificationExaming.Services
     using MySql.Data.MySqlClient;
     using System.Configuration;
     using Entity;
-    using 
+
     public class PowerService:IPowerService
     {
         public List<Power> GetPowers()
