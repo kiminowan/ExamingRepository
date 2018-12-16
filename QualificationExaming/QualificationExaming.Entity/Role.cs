@@ -20,13 +20,13 @@ namespace QualificationExaming.Entity
         /// </summary>
         public string RoleName { get; set; }
         /// <summary>
-        /// 创建时间
+        /// 描述
         /// </summary>
-        public string CreateTime { get; set; }
+        public string Remake { get; set; }
         /// <summary>
-        /// 修改时间
+        /// 权限ID
         /// </summary>
-        public string ModifyTime { get; set; }
+        public string PowerID { get; set; }
         
     }
 }

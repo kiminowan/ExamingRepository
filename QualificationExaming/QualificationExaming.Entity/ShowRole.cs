@@ -6,27 +6,23 @@ using System.Threading.Tasks;
 
 namespace QualificationExaming.Entity
 {
-    /// <summary>
-    /// 权限表
-    /// </summary>
-   public class Power
+   public class ShowRole
     {
         /// <summary>
-        /// 权限ID
+        /// 角色ID
         /// </summary>
-        public int PowerID { get; set; }
+        public int RoleID { get; set; }
+        /// <summary>
+        /// 角色名称
+        /// </summary>
+        public string RoleName { get; set; }
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Remake { get; set; }
         /// <summary>
         /// 权限名称
         /// </summary>
         public string PowerName { get; set; }
-        /// <summary>
-        /// 路径  
-        /// </summary>
-        public string URL { get; set; }
-        
-
-        
-        
-        
     }
 }

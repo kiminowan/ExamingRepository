@@ -14,5 +14,6 @@ namespace QualificationExaming.IServices
         /// </summary>
         /// <returns></returns>
         List<Power> GetPowers();
+        int AddPowers(Power power);
     }
 }

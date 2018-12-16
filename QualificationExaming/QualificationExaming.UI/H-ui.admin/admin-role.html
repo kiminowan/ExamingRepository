@@ -35,8 +35,8 @@
                 <th width="25"><input type="checkbox" value="" name=""></th>
                 <th width="40">ID</th>
                 <th width="200">角色名</th>
-                <th>创建时间</th>
-                <th width="300">修改时间</th>
+                <th>描述</th>
+                <th width="300">权限</th>
                 <th width="70">操作</th>
             </tr>
         </thead>
@@ -75,18 +75,14 @@ function admin_role_edit(title,url,id,w,h){
             $.ajax({
                 url: 'http://localhost:8033/api/RoleAPI/GetRoles',
                 type: 'get',
-
                 success: function (data) {
-
                     $(data).each(function (index, data) {
-
                         var str = "<tr class='text-c'>";
                         str += "<td><input type='checkbox' value='1' name=''></td>";
                         str += "<td>" + data.RoleID + "</td>";
                         str += "<td>" + data.RoleName + "</td>";
-
-                        str += "<td>" + data.CreateTime + "</td>";
-                        str += "<td>" + data.ModifyTime + "</td>";
+                        str += "<td>" + data.Remake + "</td>";
+                        str += "<td>" + data.PowerName + "</td>";
 
                         str += " <td class=\"f - 14\"><a title=\"编辑\" href=\"javascript: ; \" onclick=\"admin_role_edit('角色编辑', 'admin-role-add.html', '1')\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript: ; \" onclick=\"admin_role_del(this, '1')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6e2;</i></a></td>";
                         str += "</tr>";
@@ -99,32 +95,32 @@ function admin_role_edit(title,url,id,w,h){
         
     })
 
-    function loadData1() {
-        alert(123);
+    //function loadData1() {
+    //    alert(123);
 
-        $.ajax({
-            url: 'http://localhost:8033/api/RoleAPI/GetRoles',
-            type: 'get',
+    //    $.ajax({
+    //        url: 'http://localhost:8033/api/RoleAPI/GetRoles',
+    //        type: 'get',
 
-            success: function (data) {
+    //        success: function (data) {
 
-                $(data).each(function (index, data) {
+    //            $(data).each(function (index, data) {
 
-                    var str = "<tr class='text-c'>";
-                    str += "<td><input type='checkbox' value='1' name=''></td>";
-                    str += "<td>" + data.RoleID + "</td>";
-                    str += "<td>" + data.RoleName + "</td>";
+    //                var str = "<tr class='text-c'>";
+    //                str += "<td><input type='checkbox' value='1' name=''></td>";
+    //                str += "<td>" + data.RoleID + "</td>";
+    //                str += "<td>" + data.RoleName + "</td>";
 
-                    str += "<td>" + data.CreateTime + "</td>";
-                    str += "<td>" + data.ModifyTime + "</td>";
+    //                str += "<td>" + data.CreateTime + "</td>";
+    //                str += "<td>" + data.ModifyTime + "</td>";
 
-                    str += " <td class=\"f - 14\"><a title=\"编辑\" href=\"javascript: ; \" onclick=\"admin_role_edit('角色编辑', 'admin-role-add.html', '1')\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript: ; \" onclick=\"admin_role_del(this, '1')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6e2;</i></a></td>";
-                    str += "</tr>";
-                    $("#tab").append(str);
-                })
-            }
-        });
-    }
+    //                str += " <td class=\"f - 14\"><a title=\"编辑\" href=\"javascript: ; \" onclick=\"admin_role_edit('角色编辑', 'admin-role-add.html', '1')\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript: ; \" onclick=\"admin_role_del(this, '1')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui - iconfont\">&#xe6e2;</i></a></td>";
+    //                str += "</tr>";
+    //                $("#tab").append(str);
+    //            })
+    //        }
+    //    });
+    //}
 /*管理员-角色-删除*/
 function admin_role_del(obj,id){
 	layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){

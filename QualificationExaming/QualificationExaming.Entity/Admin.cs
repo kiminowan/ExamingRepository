@@ -24,9 +24,9 @@ namespace QualificationExaming.Entity
         /// </summary>
         public string AdminPsw { get; set; }
         /// <summary>
-        /// 验证码
+        /// 角色ID
         /// </summary>
-        public string AdminNum { get; set; }
+        public string RoleID { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
@@ -35,5 +35,9 @@ namespace QualificationExaming.Entity
         /// 修改时间
         /// </summary>
         public string ModifyTime { get; set; }
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public int IsDedate { get; set; }
     }
 }

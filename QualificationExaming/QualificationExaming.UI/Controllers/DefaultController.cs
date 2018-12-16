@@ -15,5 +15,6 @@ namespace QualificationExaming.UI.Controllers
             var name = file[0].FileName;
             return Json(file[0].FileName);
         }
+        public ActionResult 
     }
 }

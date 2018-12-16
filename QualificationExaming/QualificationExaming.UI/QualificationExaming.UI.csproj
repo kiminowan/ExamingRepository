@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="H-ui.admin\404.html" />
+    <Content Include="H-ui.admin\admin-permission-add.html" />
     <Content Include="H-ui.admin\admin-add.html" />
     <Content Include="H-ui.admin\admin-list.html" />
     <Content Include="H-ui.admin\admin-password-edit.html" />

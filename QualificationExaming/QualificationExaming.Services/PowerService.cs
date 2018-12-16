@@ -12,7 +12,8 @@ namespace QualificationExaming.Services
     using MySql.Data.MySqlClient;
     using System.Configuration;
     using Entity;
-    public class PowerService
+    using 
+    public class PowerService:IPowerService
     {
         public List<Power> GetPowers()
         {
@@ -24,6 +25,15 @@ namespace QualificationExaming.Services
                     return getpowerlist.ToList();
                 }
                 return null;
+            }
+        }
+        public int AddPowers(Power power)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                string sql = string.Format("insert into Power (PowerName,URL)values(PowerName,URL)");
+                var addpowers = conn.Execute(sql, power);
+                return addpowers;
             }
         }
     }

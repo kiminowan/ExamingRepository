@@ -20,7 +20,7 @@ namespace QualificationExaming.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<Role> GetRoles()
+        public List<ShowRole> GetRoles()
         {
             return roleService.GetRoles();
         }

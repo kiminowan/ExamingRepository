@@ -13,6 +13,6 @@ namespace QualificationExaming.IServices
         /// 角色接口
         /// </summary>
         /// <returns></returns>
-        List<Role> GetRoles();
+        List<ShowRole> GetRoles();
     }
 }
