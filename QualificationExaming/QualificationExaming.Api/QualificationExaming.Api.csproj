@@ -124,11 +124,12 @@
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminAPIController.cs" />
-    <Compile Include="Controllers\ExamController.cs" />
+    <Compile Include="Controllers\ErrQuestionController.cs" />
+    <Compile Include="Controllers\ExamApiController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />
     <Compile Include="Controllers\PowerAPIController.cs" />
     <Compile Include="Controllers\QuestionApiController.cs" />
-    <Compile Include="Controllers\RememberController.cs" />
+    <Compile Include="Controllers\RememberApiController.cs" />
     <Compile Include="Controllers\RequestAuthorize.cs" />
     <Compile Include="Controllers\RoleAPIController.cs" />
     <Compile Include="Controllers\UsersApiController.cs" />

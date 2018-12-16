@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminService.cs" />
+    <Compile Include="ErrQuestionService.cs" />
     <Compile Include="ExamService.cs" />
     <Compile Include="KnowledgePointService.cs" />
     <Compile Include="PowerService.cs" />
