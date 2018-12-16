@@ -22,9 +22,18 @@ namespace QualificationExaming.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<KnowledgePoint> GetKnowledgePoint()
+        public List<KnowledgePoint> GetKnowledgePoints()
         {
             return kdpi.GetKnowledgePoint();
+        }
+        /// <summary>
+        /// 知识点类型表显示
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<KnowledgePoint> GetKnowledgePointByOpenID(string openID)
+        {
+            return kdpi.GetKnowledgePointByOpenID(openID);
         }
         /// <summary>
         /// 判断是不是第一次登录，如果不是进行注册

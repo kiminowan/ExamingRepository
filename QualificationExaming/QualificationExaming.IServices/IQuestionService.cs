@@ -9,6 +9,7 @@ namespace QualificationExaming.IServices
     using Entity;
     public interface IQuestionService
     {
-        List<Question> GetQuestions();
+        List<Question> GetQuestions(int knowledgePointID);
+        Question GetRemember(string openID);
     }
 }

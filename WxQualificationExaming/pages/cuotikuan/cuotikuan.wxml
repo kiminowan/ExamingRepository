@@ -1,24 +1,6 @@
 
 <view class="container">
-    <view class="table">
-        <view class="tr">
-            <view class="th">错题时间</view>
-            <view class="th">用户id</view>
-            <view class="th">题目id</view>
-            <view class="th">错题id</view>
-            <view class="th">操作</view>
-        </view>
-        <block wx:for='{{log}}'>
-        
-        <view class="tr">
-        
-            <view class="td"><text class="log-item">{{item.CreateTime}}</text></view>
-            <view class="td"><text class="log-item">{{item.UserID}}</text></view>
-            <view class="td"><text class="log-item">{{item.QuestionID}}</text></view>
-          <view class="td" bindtap="shan" data-aid="{{item.QuestionID}}">删除</view>
-           
-           
-        </view>
-         </block> 
-    </view>
+  <view wx:for="{{log}}">
+    <button>{{item.QuestionName.substr(0,10)}}</button>
+  </view>
 </view>

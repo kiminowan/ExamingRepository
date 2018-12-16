@@ -2,11 +2,16 @@
 <view class='min'>
   <image class='backimg' src='/image/beijing1.png'></image>
 </view>
-<button class='index'>
-  <view>导</view>
-  <view>航</view>
-</button>
+<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost"><view>导</view><view>航</view></i-button>
+<i-drawer mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
+    <view class="demo-container">
+      <button class='btn_select' bindtap wx:for='{{logs}}' data-num='{{index+1}}'>
+        {{index+1}}
+      </button>
+    </view>
+</i-drawer>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+
 
   <view wx:if="{{item.TypeID==1}}">
     <view class='view_question'>
@@ -26,26 +31,22 @@
       <view>{{index+1}}.{{item.QuestionName}}</view>
     </view>
     <view>
-      <text>123456</text>
       <checkbox class='check' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</checkbox>
       <checkbox class='check' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</checkbox>
       <checkbox class='check' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</checkbox>
       <checkbox class='check' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</checkbox>
     </view>
   </view>
-
-
   <view wx:if="{{item.TypeID==3}}">
     <view class='view_question'>
       <view>{{index+1}}.{{item.QuestionName}}</view>
     </view>
     <view>
-      <text>987654</text>
       <button class='btn_panduan' bindtap='answer' data-answer='A'>
-        <image class='img1' src='/image/right.png'></image>
+        对
       </button>
       <button class='btn_panduan' bindtap='answer' data-answer='B'>
-        <image class='img1' src='/image/wrong.png'></image>
+        错
       </button>
     </view>
   </view>
@@ -58,10 +59,13 @@
       <button class='btn_analysis'>查看解析</button>
     </view>
   </view>
-  <view>
+  <view  wx:if="{{step === logs.length}}">
+    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+    <button class='btn_next btn' bindtap='nextQuestion'>交卷</button>
+  </view>
+<view  wx:else>
     <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
     <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
   </view>
-
 
 </view>

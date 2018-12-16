@@ -21,13 +21,13 @@
 <button class='btn_pratice' bindtap="practiceSkip">练习</button>
 </view>
 <view class='view_errQuestion'>
-<button class='btn_errQuestion' bindtap='cuoti'>错题</button>
+<button class='btn_errQuestion' bindtap='cuoti'>资料下载</button>
 </view>
 </view>
 </view>
 <view class='view_bottom'>
 <view class='view_collection'>
-<button class='btn_collection' bindtap='duoxuan'>收藏</button>
+<button class='btn_collection' bindtap='duoxuan'>音频答题</button>
 </view>
 <view class='view_personal'>
 <button class='btn_personal' bindtap='grzx'>个人中心</button>

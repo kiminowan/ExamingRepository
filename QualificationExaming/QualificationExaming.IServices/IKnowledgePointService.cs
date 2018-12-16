@@ -15,5 +15,11 @@ namespace QualificationExaming.IServices
         /// </summary>
         /// <returns></returns>
         List<KnowledgePoint> GetKnowledgePoint();
+        /// <summary>
+        /// 根据OpenID获取用户错题知识点
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
+        List<KnowledgePoint> GetKnowledgePointByOpenID(string openID);
     }
 }

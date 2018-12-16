@@ -1,48 +1,70 @@
 <!--pages/practice1/practice1.wxml-->
 <view class='min'>
- <image class='backimg' src='/image/beijing1.png'></image>
+  <image class='backimg' src='/image/beijing1.png'></image>
 </view>
+<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost">
+  <view>导</view>
+  <view>航</view>
+</i-button>
+<i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
+  <view class="demo-container">
+    <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{index+1}}'>
+      {{index+1}}
+    </button>
+  </view>
+</i-drawer>
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+
+  <view class='block'>
+    <view class='view_question'>
+      <view>{{index+1}}.{{item.QuestionName}}</view>
+    </view>
+    <view wx:if="{{item.TypeID==1}}">
+
+      <view>
+        <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+        <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+        <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+        <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+      </view>
+    </view>
+    <view wx:if="{{item.TypeID==2}}">
+
+      <view>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox class='check' value='A'>{{item.ChoiceA}}</checkbox>
+          <checkbox class='check' value='B'>{{item.ChoiceB}}</checkbox>
+          <checkbox class='check' value='C'>{{item.ChoiceC}}</checkbox>
+          <checkbox class='check' value='D'>{{item.ChoiceD}}</checkbox>
+        </checkbox-group>
+      </view>
+    </view>
 
 
-  <!--侧边栏-->
-  <view class="sideslip">
-    <view class="logo">
-      <image src="../image/beijing.jpg"></image>
+    <view wx:if="{{item.TypeID==3}}">
+
+      <view style='min-height:290px'>
+        <button class='btn_panduan btn' bindtap='answer' data-answer='A'>
+          对
+        </button>
+        <button class='btn_panduan btn' bindtap='answer' data-answer='B'>
+          错
+        </button>
+      </view>
     </view>
-    <view class="content">
-      <navigator url="../News/News">我的消息</navigator>
-    </view>
-    <view class="content">
-      <navigator url="../Information/Information">个人信息</navigator>
-    </view>
-    <view class="content">
-      <navigator url="../Acitvity-list/Activity-list">活动列表</navigator>
-    </view>
-    <view class="content">
-      <navigator url="../Store/Store">积分商城</navigator>
+    <view class='view_answer'>
+      <view class='view_currentAnswer' wx:if="{{answer}}">
+        <text>正确答案:</text>
+        <text class='text_answer'>{{item.Answer}}</text>
+        <button class='btn_analysis'>查看解析</button>
+      </view>
     </view>
   </view>
-    <view class="list-nav">
-    <image class="list-images" bindtap="tap_ch" src="../image/wrong.png"></image>
-    </view>
-<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
-<view class='view_question'   >
-<view>{{index+1}}.{{item.QuestionName}}</view>
-</view>
-<view>
-<button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
-<button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
-<button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
-<button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
-</view>
-<view class='view_answer'>
-<view class='view_currentAnswer' wx:if="{{answer}}">
-<text>正确答案:</text><text class='text_answer'>{{item.Answer}}</text>
-<button class='btn_analysis'>查看解析</button>
-</view>
-</view>
   <view>
-    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
-    <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    <view>
+      <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+      <button class='btn_submit btn' bindtap='multiAnswer' wx:if="{{item.TypeID==2}}">确认</button>
+      <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    </view>
   </view>
 </view>

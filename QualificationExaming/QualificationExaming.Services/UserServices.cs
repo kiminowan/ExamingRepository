@@ -40,8 +40,8 @@ namespace QualificationExaming.Services
             {
                 User user = new User();
                 HttpClient httpclient = new HttpClient();
-                string appid = "wx5db394e77b9cd0b8";
-                string secret = "45e2ea1c74357c2ec3b0e2de49aba5e0";
+                string appid = "wxa91c675de31edc47";
+                string secret = "0d7663a55d06f3482e9934e52f4b53e1";
                 httpclient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = httpclient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
                 var result = "";
@@ -75,63 +75,6 @@ namespace QualificationExaming.Services
                 //RedisHelper.Set<User>(user.Session_key, user, DateTime.Now.AddMinutes(10));
                 RedisHelper.Set<User>(user.OpenID, user, DateTime.Now.AddHours(1));
                 return user;
-            }
-        }
-        /// <summary>
-        /// 根据用户查询所有错题
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public List<ErrQuestion> GetErrQuestions(string username)
-        {
-            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-            {
-             
-                var userList = conn.Query<User>("SELECT * FROM user", null);
-                var client = userList.Where(r => r.OpenID.Equals(username)).FirstOrDefault();
-                var id = client.UserID;
-                string sql = string.Format("select * from errquestion WHERE UserID=@UserID");
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@UserID", id);//@
-                List<ErrQuestion> eroo= conn.Query<ErrQuestion>(sql, parameters).ToList();
-                return eroo;
-            }
-            
-        }
-        /// <summary>
-        /// 根据错题id删除错题
-        /// </summary>
-        /// <param name="erroid"></param>
-        /// <returns></returns>
-        public int DeleteErro(int erroid)
-        {
-            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-            {
-                DynamicParameters parameters = new DynamicParameters();
-                
-                parameters.Add("p_errquestionid", erroid);
-                var result = conn.Execute("proc_DeleteErrQuestion", parameters, commandType: System.Data.CommandType.StoredProcedure);
-                return result;
-            }
-        }
-
-        /// <summary>
-        /// 添加错题
-        /// </summary>
-        /// <param name="e"></param>
-        /// <returns></returns>
-        /// 用户id
-        /// 题目id
-        public int AddErro(ErrQuestion e)
-        {
-            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
-            {
-                DynamicParameters parameters = new DynamicParameters();
-
-                parameters.Add("p_userID", e.UserID);
-                parameters.Add("p_questionID",e.QuestionID)
-;                var result = conn.Execute("proc_AddErrQuestion", parameters, commandType: System.Data.CommandType.StoredProcedure);
-                return result;
             }
         }
     }

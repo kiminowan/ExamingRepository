@@ -11,7 +11,7 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class RememberController : ApiController
+    public class RememberApiController : ApiController
     {
         [Dependency]
         public IRememberService rememberService { get; set; }

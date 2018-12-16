@@ -62,10 +62,14 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 试卷ID
         /// </summary>
-        public string ExamID { get; set; }
+        public int ExamID { get; set; }
         /// <summary>
         /// 题型
         /// </summary>
-        public string TypeID { get; set; }
+        public int TypeID { get; set; }
+        /// <summary>
+        /// 序号
+        /// </summary>
+        public int Num { get; set; }
     }
 }

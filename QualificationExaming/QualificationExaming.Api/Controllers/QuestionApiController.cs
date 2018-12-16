@@ -14,14 +14,25 @@ namespace QualificationExaming.Api.Controllers
     public class QuestionApiController : ApiController
     {
         [Dependency]
-        public IQuestionService iquestionService { get; set; }
+        public IQuestionService questionService { get; set; }
         /// <summary>
         /// 题目表显示
         /// </summary>
         /// <returns></returns>
-        public List<Question> GetQuestions()
+        public List<Question> GetQuestions(int knowledgePointID)
         {
-            return iquestionService.GetQuestions();
+            var questionList = questionService.GetQuestions(knowledgePointID);
+            return questionList;
+        }
+        /// <summary>
+        /// 获取最后一次练题题目
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
+        public Question GetRememberQuestion(string openID)
+        {
+            var question = questionService.GetRemember(openID);
+            return question;
         }
     }
 }

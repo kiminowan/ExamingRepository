@@ -1,6 +1,10 @@
 /* pages/practice1/practice1.wxss */
+.block{
+  width: 80%;
+  margin: 0 auto;
+}
 .view_question{
-  width: 350px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,21 +16,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 65px;
   line-height: 14px;
   margin-top: 20px;
   font-size: 14px;
 }
 .btn{
-  height: 80px;
+  height: 60px;
   width: 140px;
-  line-height: 80px;
+  line-height: 60px;
 }
 .btn_prev{
   float: left;
+  width: 100px;
 }
 .btn_next{
   float: right;
+  width: 100px;
+}
+.btn_panduan{
+  margin-top: 50px;
+}
+.btn_submit{
+  float: left;
+  margin-left: 28px;
+  width: 120px;
 }
 .text_answer{
   color: red;
@@ -105,4 +119,11 @@ list-images {
 .content {
   color: #fff;
   padding: 30rpx 0 30rpx 40rpx;
+}
+
+
+.demo-container{
+	width:50vw;
+	height: 100vh;
+	background:#e0bb69;
 }

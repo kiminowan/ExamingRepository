@@ -12,9 +12,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showModal({
+      title: '提示',
+      content: '是否回到上次做题页面',
+      success: function (res) {
+        if (res.confirm) {
+          //这里是点击了确定以后
+          wx.getStorage({
+            key: 'token',
+            success: function(res) {
+              wx.request({
+                url: 'http://localhost:8033/api/QuestionApi/GetRememberQuestion',
+                data: {
+                  openID: res.data
+                },
+                method: 'get',
+                header: {
+                  'content-type': 'application/json',
+                  'Authorization': 'BasicAuth ' + res.data
+                },
+                success: function (res) {
+                  console.log(res)
+                  wx.navigateTo({
+                    url: '/pages/practice1/practice1?id=' + res.data.KnowledgePointID + '&questionID=' + res.data.QuestionID,
+                  })
+                }
+              })
+              
+            },
+          })
+        } 
+      }
+    })
     var that = this;
     wx.request({
-      url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoint',
+      url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoints',
       method: 'get',
       success: function (res) {
         console.log(res)

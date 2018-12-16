@@ -12,7 +12,7 @@ namespace QualificationExaming.Api.Controllers
     using Services;
     using Unity.Attributes;
 
-    public class ExamController : ApiController
+    public class ExamApiController : ApiController
     {
 
 

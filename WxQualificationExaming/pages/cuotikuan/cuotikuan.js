@@ -9,13 +9,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
@@ -61,16 +54,19 @@ Page({
 
   },
   //页面加载事件
-  onShow: function () {
+  onLoad: function (options) {
     var that=this;
       wx.getStorage({
         key: 'token',
         success: function (data) {
           console.log(data.data)
           wx.request({
-            url: 'http://localhost:8033/api/UsersApi/GetErrQuestions?username=' + data.data,
+            url: 'http://localhost:8033/api/ErrQuestionApi/GetErrQuestions',
             method: 'get',
-            data: {},
+            data: {
+              openID: data.data,
+              knowledgePointID:options.id
+            },
             header: {
               'content-type': 'application/json',
               'Authorization': 'BasicAuth ' + data.data
