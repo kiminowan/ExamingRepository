@@ -20,9 +20,14 @@ namespace QualificationExaming.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<Admin> GetAdmins()
+        public List<ShowAdmin> GetAdmins()
         {
             return adminService.GetAdmins();
+        }
+        [HttpPost]
+        public int AddAdmin(Admin admin)
+        {
+            return adminService.AddAdmin(admin);
         }
     }
 }

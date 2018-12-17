@@ -24,5 +24,16 @@ namespace QualificationExaming.Api.Controllers
         {
             return roleService.GetRoles();
         }
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int AddRole(Role role)
+        {
+            return roleService.AddRole(role);
+
+        }
     }
 }

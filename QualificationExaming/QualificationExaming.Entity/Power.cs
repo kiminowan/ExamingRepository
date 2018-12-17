@@ -23,8 +23,10 @@ namespace QualificationExaming.Entity
         /// 路径  
         /// </summary>
         public string URL { get; set; }
-        
-
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public int IsDedate { get; set; }
         
         
         

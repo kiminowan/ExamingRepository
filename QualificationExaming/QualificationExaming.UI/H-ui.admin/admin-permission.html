@@ -24,7 +24,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 权限管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-    <button onclick="loadData()">123</button>
+    <button onclick="loadData1()" id="btn123">123</button>
     <div class="text-c">
         <form class="Huiform" method="post" action="" target="_self">
             <input type="text" class="input-text" style="width:250px" placeholder="权限名称" id="" name="">
@@ -42,7 +42,7 @@
                 <th width="40">ID</th>
                 <th width="200">权限名称</th>
                 <th width="200">URL</th>
-
+                <th width="200">状态</th>
                 <th width="100">操作</th>
             </tr>
         </thead>
@@ -52,7 +52,7 @@
                 <td>1</td>
                 <td>栏目添加</td>
                 <td>URL</td>
-
+                <td>URL</td>
                 <td><a title="编辑" href="javascript:;" onclick="admin_permission_edit('角色编辑','admin-permission-add.html','1','','310')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_permission_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
             </tr>
         </tbody>
@@ -84,7 +84,7 @@ function admin_permission_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
 
-    function loadData() {
+    function loadData1() {
         alert(123);
         $.ajax({
             url: 'http://localhost:8033/api/PowerAPI/GetPowers',
@@ -92,35 +92,39 @@ function admin_permission_edit(title,url,id,w,h){
             success: function (data) {
 
                 $(data).each(function (index, data) {
+                    console.log(data.IsDedate);
                     var str = '<tr class="text-c">';
                     str += '<td><input type="checkbox" value="1" name=""></td>';
                     str += '<td>' + data.PowerID + '</td>';
                     str += '<td>' + data.PowerName + '</td>';
                     str += '<td>' + data.URL + '</td>';
-                    str += '<td><a title="编辑" href="javascript:;" onclick="admin_permission_edit("角色编辑","admin-permission-add.html","1","","310")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_permission_del(this,"1")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                    str += '<td>' + (data.IsDedate==0?"未启用":"已启用") + '</td>';
+                    str += '<td><a title="编辑" href="javascript:;" onclick="admin_permission_edit("权限编辑","admin-permission-add.html","1","","310")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_permission_del(this,"1")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                     str += '</tr>';
                     $("#tab").append(str);
                 })
             }
         });
+      
     }
 /*管理员-权限-删除*/
-function admin_permission_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
+//function admin_permission_del(obj,id){
+//	layer.confirm('确认要删除吗？',function(index){
+//		$.ajax({
+//			type: 'POST',
+//			url: '',
+//			dataType: 'json',
+//			success: function(data){
+//				$(obj).parents("tr").remove();
+//				layer.msg('已删除!',{icon:1,time:1000});
+//			},
+//			error:function(data) {
+//				console.log(data.msg);
+//			},
+//		});		
+//	});
+    //}
+    
 </script>
 </body>
 </html>

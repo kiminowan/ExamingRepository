@@ -31,9 +31,22 @@ namespace QualificationExaming.Services
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
-                string sql = string.Format("insert into Power (PowerName,URL)values(PowerName,URL)");
-                var addpowers = conn.Execute(sql, power);
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@PowerName", power.PowerName);
+                parameters.Add("@URL", power.URL);
+                parameters.Add("@IsDedate", power.IsDedate);
+                string sql = string.Format("insert into Power (PowerName,URL,IsDedate)values(@PowerName,@URL,@IsDedate)");
+                var addpowers = conn.Execute(sql, parameters);
                 return addpowers;
+            }
+        }
+        public int DelPowers(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                string sql = "delete from power where id=" + id;
+                var del = conn.Execute(sql, id);
+                return del;
             }
         }
     }

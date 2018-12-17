@@ -24,5 +24,6 @@ namespace QualificationExaming.Entity
         /// 权限名称
         /// </summary>
         public string PowerName { get; set; }
+
     }
 }

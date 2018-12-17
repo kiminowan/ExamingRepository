@@ -35,5 +35,15 @@ on a.PowerID = p.PowerID GROUP BY a.RoleID ,b.RoleName", null);
                 return null;
             }
         }
+        public int AddRole(Role role)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                string sql = string.Format("insert into role(RoleName,Remake) values(@RoleName,@Remake)");
+                var addrole = conn.Execute(sql, role);
+                return addrole;
+            }
+                
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace QualificationExaming.IServices
         /// </summary>
         /// <returns></returns>
         List<ShowRole> GetRoles();
+        int AddRole(Role role);
     }
 }

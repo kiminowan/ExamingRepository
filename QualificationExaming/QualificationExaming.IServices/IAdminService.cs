@@ -9,6 +9,7 @@ namespace QualificationExaming.IServices
     using Entity;
     public interface IAdminService
     {
-        List<Admin> GetAdmins();
+        List<ShowAdmin> GetAdmins();
+        int AddAdmin(Admin admin);
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="RoleAction.cs" />
     <Compile Include="Score.cs" />
+    <Compile Include="ShowAdmin.cs" />
     <Compile Include="ShowRole.cs" />
     <Compile Include="Source.cs" />
     <Compile Include="User.cs" />
