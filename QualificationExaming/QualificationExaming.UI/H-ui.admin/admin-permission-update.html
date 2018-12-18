@@ -31,7 +31,8 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add">
+	<form class="form form-horizontal" id="form-admin-update">
+        <input type="hidden" name="PowerID"  />
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span> 权限名称：</label>
 		<div class="formControls col-xs-8 col-sm-9">
@@ -55,7 +56,7 @@
 	
 	<div class="row cl">
         <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-            <input class="btn btn-primary radius" type="button" id="add" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            <input class="btn btn-primary radius" type="button" id="update" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
         </div>
 	</div>
 	</form>
@@ -64,25 +65,46 @@
 <script type="text/javascript">
 
 
+    //$(function () {
+    //    admin_permission_edit();
+    //    $("#add").click(function () {
+    //        $.ajax({
+    //            url: 'http://localhost:8033/api/PowerAPI/AddPowers',
+    //            type: 'post',
+    //            data: $("#form-admin-add").serialize(),
+    //            success: function (data) {
+    //                if (data > 0) {
+    //                    alert("添加成功");
+    //                }
+    //                else {
+    //                    alert("添加失败");
+    //                }
+    //            }
+    //        })
+    //    });
+
+
+    //});
     $(function () {
         admin_permission_edit();
-        $("#add").click(function () {
+        $("#update").click(function () {
             $.ajax({
-                url: 'http://localhost:8033/api/PowerAPI/AddPowers',
+                url: 'http://localhost:8033/api/PowerAPI/Updatepower',
                 type: 'post',
-                data: $("#form-admin-add").serialize(),
+                data: $("#form-admin-update").serialize(),
                 success: function (data) {
                     if (data > 0) {
-                        alert("添加成功");
+                        alert("修改成功");
                     }
                     else {
-                        alert("添加失败");
+                        alert("修改失败");
                     }
                 }
-            })
+
+            });
+
+
         });
-
-
     });
     function admin_permission_edit() {
         console.log(location.search)
@@ -90,6 +112,7 @@
             url: 'http://localhost:8033/api/PowerAPI/GetPowerById?id=' + localStorage.id,
             type: 'get',
             success: function (data) {
+                $("input[name=PowerID]").val(localStorage.id)
                 $("input[name=PowerName]").val(data.PowerName);
                 $("input[name=URL]").val(data.URL);
                 $("input[name=IsDedate][value=" + data.IsDedate+"]").prop("checked", true);
@@ -98,24 +121,7 @@
 
     }
     
-    $("#add").click(function () {
-        $.ajax({
-            url: 'http://localhost:8199/PowerAPI/Updatepower',
-            type: 'post',
-            data: $("#formData").serialize(),
-            success: function (data) {
-                if (data > 0) {
-                    alert("修改成功");
-                }
-                else {
-                    alert("修改失败");
-                }
-            }
-
-        });
-
-
-    });
+    
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

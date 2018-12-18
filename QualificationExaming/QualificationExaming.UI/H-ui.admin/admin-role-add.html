@@ -43,7 +43,11 @@
                 <input type="text" class="input-text" value="" placeholder="描述" id="" name="Remake">
             </div>
         </div>
-        
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">权限：</label>
+            <div class="formControls col-xs-8 col-sm-9" id="check">
+            </div>
+        </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <button type="button" class="btn btn-success radius" id="add" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
@@ -63,52 +67,21 @@
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
-//$(function(){
-//	$(".permission-list dt input:checkbox").click(function(){
-//		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
-//	});
-//	$(".permission-list2 dd input:checkbox").click(function(){
-//		var l =$(this).parent().parent().find("input:checked").length;
-//		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
-//		if($(this).prop("checked")){
-//			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
-//			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
-//		}
-//		else{
-//			if(l==0){
-//				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
-//			}
-//			if(l2==0){
-//				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
-//			}
-//		}
-//	});
-
-
-
-//	$("#form-admin-role-add").validate({
-//		rules:{
-//			roleName:{
-//				required:true,
-//			},
-//		},
-//		onkeyup:false,
-//		focusCleanup:true,
-//		success:"valid",
-//		submitHandler:function(form){
-//			$(form).ajaxSubmit();
-//			var index = parent.layer.getFrameIndex(window.name);
-//			parent.layer.close(index);
-//		}
-//	});
-//});
     $(function () {
-
+        Show();
         $("#add").click(function () {
+            var ids = [];
+            $("input[name=PowerID]:checked").each(function () {
+                ids.push($(this).val())
+            })
             $.ajax({
-                url: 'http://localhost:8033/api/RoleAPI/AddRole',
+                url: 'http://localhost:8033/RoleAPI/AddRole',
                 type: 'post',
-                data: $("#form-admin-role-add").serialize(),
+                data: {
+                    'RoleName': $("[name=roleName]").val(), 
+                    'Remake': $("[name=Remake]").val(),
+                    'PowerID': ids.join(','),
+                },
                 success: function (data) {
                     if (data > 0) {
                         alert("添加成功");
@@ -121,6 +94,20 @@
         })
 
     })
+    function Show() {
+        $.ajax({
+            url: 'http://localhost:8033/api/PowerAPI/GetPowers',
+            type: 'get',
+            success: function (data) {
+                $(data).each(function (index, data) {
+                    console.log(data.IsDedate);
+                    var str = '<input id="Checkbox1" type="checkbox" name="PowerID" value="'+data.PowerID+'" /><span>'+data.PowerName+'</span>'
+                    $("#check").append(str);
+                })
+                
+            }
+        })
+    }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

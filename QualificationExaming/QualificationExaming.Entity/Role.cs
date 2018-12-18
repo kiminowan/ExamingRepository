@@ -26,7 +26,8 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 权限ID
         /// </summary>
-        
-        
+        public string PowerID { get; set; }
+
+
     }
 }

@@ -40,8 +40,19 @@ on a.PowerID = p.PowerID GROUP BY a.RoleID ,b.RoleName", null);
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
                 string sql = string.Format("insert into role(RoleName,Remake) values(@RoleName,@Remake)");
-                var addrole = conn.Execute(sql, role);
-                return addrole;
+                var add= conn.Execute(sql, role);
+                string sql1 = string.Format("select RoleID from Role where RoleName=@RoleName");
+                var id = conn.Query<int>(sql1, role).FirstOrDefault();
+                var roles = role.PowerID.Split(',');
+                for (int i = 0; i < roles.Length; i++)
+                {
+                    RoleAction roleAction = new RoleAction();
+                    roleAction.RoleID = id;
+                    roleAction.PowerID = Convert.ToInt32(roles[i]);
+                    string sql2 = string.Format("insert into RoleAction (RoleID,PowerID) values(@RoleID,@PowerID)");
+                    var addrole = conn.Execute(sql2, roleAction);
+                }
+                return add;
             }
                 
         }

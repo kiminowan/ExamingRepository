@@ -49,5 +49,23 @@ namespace QualificationExaming.Services
                 return del;
             }
         }
+        public Power GetPowerById(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                string sql = "select * from power where PowerID=@PowerID";
+                var getpowerid = conn.Query<Power>(sql, new { PowerID = id}).FirstOrDefault();
+                return getpowerid;
+            }
+        }
+        public int Updatepower(Power power)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                string sql = string.Format("update power set PowerName=@PowerName,URL=@URL,IsDedate=@IsDedate where PowerID=@PowerID");
+                var i = conn.Execute(sql, power);
+                return i;
+            }
+        }
     }
 }

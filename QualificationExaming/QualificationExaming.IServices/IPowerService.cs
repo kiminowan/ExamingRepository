@@ -16,5 +16,7 @@ namespace QualificationExaming.IServices
         List<Power> GetPowers();
         int AddPowers(Power power);
         int DelPowers(int id);
+        Power GetPowerById(int id);
+        int Updatepower(Power power);
     }
 }

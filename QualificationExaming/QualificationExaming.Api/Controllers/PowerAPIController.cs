@@ -34,5 +34,15 @@ namespace QualificationExaming.Api.Controllers
         {
             return powerService.DelPowers(id);
         }
+        [HttpGet]
+        public Power GetPowerById(int id)
+        {
+            return powerService.GetPowerById(id);
+        }
+        [HttpPost]
+        public int Updatepower(Power power)
+        {
+            return powerService.Updatepower(power);
+        }
     }
 }
