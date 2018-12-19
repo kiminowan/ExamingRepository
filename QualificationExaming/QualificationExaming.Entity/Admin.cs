@@ -26,10 +26,12 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 创建时间
         /// </summary>
-        public string CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
         /// <summary>
         /// 修改时间
         /// </summary>
-        public string ModifyTime { get; set; }
+        public DateTime? ModifyTime { get; set; }
+
+        public string RoleID { get; set; }
     }
 }

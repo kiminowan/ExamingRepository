@@ -65,7 +65,7 @@
 
 
     $(function () {
-        admin_permission_edit();
+        //admin_permission_edit();
         $("#add").click(function () {
             $.ajax({
                 url: 'http://localhost:8033/api/PowerAPI/AddPowers',
@@ -84,35 +84,35 @@
 
 
     });
-    function admin_permission_edit() {
-        console.log(location.search)
-        $.ajax({
-            url: 'http://localhost:8033/api/PowerAPI/GetPowerById?id=' + localStorage.id,
-            type: 'get',
-            success: function (data) {
-                $("input[name=PowerName]").val(data.PowerName);
-                $("input[name=URL]").val(data.URL);
-                $("input[name=IsDedate][value=" + data.IsDedate+"]").prop("checked", true);
-            }
-        })
+    //function admin_permission_edit() {
+    //    console.log(location.search)
+    //    $.ajax({
+    //        url: 'http://localhost:8033/api/PowerAPI/GetPowerById?id=' + localStorage.id,
+    //        type: 'get',
+    //        success: function (data) {
+    //            $("input[name=PowerName]").val(data.PowerName);
+    //            $("input[name=URL]").val(data.URL);
+    //            $("input[name=IsDedate][value=" + data.IsDedate+"]").prop("checked", true);
+    //        }
+    //    })
 
-    }
+    //}
     
-    $("#add").click(function () {
-        $.ajax({
-            url: 'http://localhost:8199/PowerAPI/Updatepower',
-            type: 'post',
-            data: $("#formData").serialize(),
-            success: function (data) {
-                if (data > 0) {
-                    alert("修改成功");
-                }
-                else {
-                    alert("修改失败");
-                }
-            }
+    //$("#add").click(function () {
+    //    $.ajax({
+    //        url: 'http://localhost:8199/PowerAPI/Updatepower',
+    //        type: 'post',
+    //        data: $("#formData").serialize(),
+    //        success: function (data) {
+    //            if (data > 0) {
+    //                alert("修改成功");
+    //            }
+    //            else {
+    //                alert("修改失败");
+    //            }
+    //        }
 
-        });
+    //    });
 
 
     });

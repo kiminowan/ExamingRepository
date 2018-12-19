@@ -21,6 +21,15 @@ namespace QualificationExaming.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        public List<ShowRole> GetRolesToShow()
+        {
+            return roleService.GetRolesToShow();
+        }
+        /// <summary>
+        /// 角色复选框
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public List<ShowRole> GetRoles()
         {
             return roleService.GetRoles();
@@ -40,6 +49,16 @@ namespace QualificationExaming.Api.Controllers
             //role.PowerID = PowerID;
             return roleService.AddRole(role);
 
+        }
+        [HttpGet]
+        public IEnumerable<ShowRole> showRoles(int id)
+        {
+            return roleService.showRoles(id);
+        }
+        [HttpPost]
+        public int UpdateRole(Role role)
+        {
+            return roleService.UpdateRole(role);
         }
     }
 }

@@ -31,6 +31,7 @@
 <body>
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
+        <input type="hidden" name="RoleID" value=""/>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -68,26 +69,31 @@
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
     $(function () {
+        
         Show();
+        admin_role_edit();
         $("#add").click(function () {
             var ids = [];
             $("input[name=PowerID]:checked").each(function () {
                 ids.push($(this).val())
             })
             $.ajax({
-                url: 'http://localhost:8033/RoleAPI/AddRole',
+                url: 'http://localhost:8033/api/RoleAPI/UpdateRole',
                 type: 'post',
                 data: {
+                    
                     'RoleName': $("[name=roleName]").val(), 
                     'Remake': $("[name=Remake]").val(),
                     'PowerID': ids.join(','),
+                    'RoleID': localStorage.id,
                 },
                 success: function (data) {
+                    console.log(data);
                     if (data > 0) {
-                        alert("添加成功");
+                        alert("修改成功");
                     }
                     else {
-                        alert("添加失败");
+                        alert("修改失败");
                     }
                 }
             })
@@ -100,13 +106,30 @@
             type: 'get',
             success: function (data) {
                 $(data).each(function (index, data) {
-                    //console.log(data.IsDedate);
                     var str = '<input id="Checkbox1" type="checkbox" name="PowerID" value="'+data.PowerID+'" /><span>'+data.PowerName+'</span>'
                     $("#check").append(str);
                 })
                 
             }
         })
+    }
+
+    function admin_role_edit() {
+        console.log(location.search)
+        $.ajax({
+            url: 'http://localhost:8033/api/RoleAPI/showRoles?id=' + localStorage.id,
+            type: 'get',
+            success: function (data) {
+                console.log(data)
+                $("input[name=RoleID]").val(localStorage.id)
+                $("input[name=roleName]").val(data[0].RoleName);
+                $("input[name=Remake]").val(data[0].Remake);
+                $(data).each(function (index, data) {
+                    $("input[name=PowerID][value=" + data + "]").prop("checked", true)
+                })
+            }
+        })
+
     }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

@@ -113,6 +113,7 @@ function admin_del(obj,id){
 /*管理员-编辑*/
     function admin_edit(title, url, id, w, h) {
         alert(123);
+        localStorage.id = id;
 	layer_show(title,url,w,h);
 }
 /*管理员-停用*/
@@ -126,24 +127,26 @@ function admin_stop(obj,id){
 		layer.msg('已停用!',{icon: 5,time:1000});
 	});
     }
+
+    $(function () {
+        loadData();
+    })
     function loadData() {
-        alert(123);
+        
         $.ajax({
             url: 'http://localhost:8033/api/adminapi/GetAdmins',
             type: 'get',
-
             success: function (data) {
                 $(data).each(function (index, data) {
                     var str = "<tr class='text-c'>";
-                    str += "<td><input type='checkbox' value='1' name=''></td>";
+                    str += "<td><input type='checkbox' value='' name=''></td>";
                     str += "<td>" + data.AdminID + "</td>";
                     str += "<td>" + data.AdminName + "</td>";
-                    
                     str += "<td>" + data.RoleName + "</td>";
                     str += "<td>" + data.CreateTime + "</td>";
                     str += "<td>" + data.ModifyTime + "</td>";
-                    
-                    str += "<td class='td-manage'><a title=\"编辑\" href=\"javascript: ; \" onclick=\"admin_edit('管理员编辑', 'admin-update.html', '1', '800', '500')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript: ; \" onclick=\"admin_del(this, '1')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a></td>";
+
+                    str += "<td class='td-manage'><a title=\"编辑\" href=\"javascript: ; \" onclick=\"admin_edit('管理员编辑', 'admin-update.html', '" + data.AdminID + "', '800', '500')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui-iconfont\">&#xe6df;</i></a> <a title=\"删除\" href=\"javascript: ; \" onclick=\"admin_del(this, '1')\" class=\"ml - 5\" style=\"text - decoration: none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a></td>";
                     str += "</tr>";
                     $("#tab").append(str);
                 })

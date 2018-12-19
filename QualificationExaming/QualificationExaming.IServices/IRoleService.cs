@@ -13,7 +13,10 @@ namespace QualificationExaming.IServices
         /// 角色接口
         /// </summary>
         /// <returns></returns>
+        List<ShowRole> GetRolesToShow();
         List<ShowRole> GetRoles();
         int AddRole(Role role);
+        IEnumerable<ShowRole> showRoles(int id);
+        int UpdateRole(Role role);
     }
 }

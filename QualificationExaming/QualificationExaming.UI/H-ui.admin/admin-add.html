@@ -27,37 +27,42 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add">
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="AdminName">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="AdminPsw">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-            <input class="Wdate" name="CreateTime" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})">
-		</div>
-	</div>
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>修改时间：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-            <input class="Wdate" name="ModifyTime" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})">
-		</div>
-	</div>
-	<div class="row cl">
-		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-			<input class="btn btn-primary radius" id="add" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-		</div>
-	</div>
-	</form>
+    <form class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="adminName" name="AdminName">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="AdminPsw">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色：</label>
+            <div class="formControls col-xs-8 col-sm-9" id="check">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>创建时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input class="Wdate" name="CreateTime" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>修改时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input class="Wdate" name="ModifyTime" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" id="add" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
 </article>
 
 <!--_footer 作为公共模版分离出去--> 
@@ -129,12 +134,20 @@
 //    });
 
     $(function () {
-
+        Show();
         $("#add").click(function () {
+            var ids = [];
+            $("input[name=RoleID]:checked").each(function () {
+                ids.push($(this).val())
+            })
             $.ajax({
                 url: 'http://localhost:8033/api/AdminAPI/AddAdmin',
                 type: 'post',
-                data: $("#form-admin-add").serialize(),
+                data: {
+                    'AdminName': $("[name=AdminName]").val(),
+                    'AdminPsw': $("[name=AdminPsw]").val(),
+                    'RoleID': ids.join(','),
+                },
                 success: function (data) {
                     if (data > 0) {
                         alert("添加成功");
@@ -147,6 +160,20 @@
         })
 
     })
+    function Show() {
+        $.ajax({
+            url: 'http://localhost:8033/api/RoleAPI/GetRoles',
+            type: 'get',
+            success: function (data) {
+                $(data).each(function (index, data) {
+                    //console.log(data.IsDedate);
+                    var str = '<input id="Checkbox1" type="checkbox" name="RoleID" value="' + data.RoleID + '" /><span>' + data.RoleName + '</span>'
+                    $("#check").append(str);
+                })
+
+            }
+        })
+    }
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

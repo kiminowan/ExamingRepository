@@ -29,5 +29,15 @@ namespace QualificationExaming.Api.Controllers
         {
             return adminService.AddAdmin(admin);
         }
+        [HttpGet]
+        public IEnumerable<ShowAdmin> showAdmins(int id)
+        {
+            return adminService.showAdmins(id);
+        }
+        [HttpPost]
+        public int UpdateAdmin(Admin admin)
+        {
+            return adminService.UpdateAdmin(admin);
+        }
     }
 }

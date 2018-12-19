@@ -89,8 +89,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin-add.html" />
     <Content Include="Global.asax" />
     <Content Include="H-ui.admin\404.html" />
+    <Content Include="H-ui.admin\admin-update.html" />
+    <Content Include="H-ui.admin\admin-role-update.html" />
     <Content Include="H-ui.admin\admin-permission-update.html" />
     <Content Include="H-ui.admin\admin-permission-add.html" />
     <Content Include="H-ui.admin\admin-add.html" />

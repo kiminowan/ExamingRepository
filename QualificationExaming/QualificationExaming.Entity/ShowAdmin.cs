@@ -12,6 +12,8 @@ namespace QualificationExaming.Entity
         public string AdminName { get; set; }
         public string AdminPsw { get; set; }
         public string RoleName { get; set; }
+        public string RoleIds { get; set; }
+        
         public DateTime CreateTime { get; set; }
         public DateTime ModifyTime { get; set; }
     }

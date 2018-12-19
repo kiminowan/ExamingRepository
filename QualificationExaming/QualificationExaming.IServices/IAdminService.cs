@@ -11,5 +11,9 @@ namespace QualificationExaming.IServices
     {
         List<ShowAdmin> GetAdmins();
         int AddAdmin(Admin admin);
+        IEnumerable<ShowAdmin> showAdmins(int id);
+        int UpdateAdmin(Admin admin);
+
+
     }
 }
