@@ -52,6 +52,7 @@ namespace QualificationExaming.Api
             container.RegisterType<IAdminService, AdminService>();
             container.RegisterType<IErrQuestionService, ErrQuestionService>();
             container.RegisterType<IPowerService, PowerService>();
+            container.RegisterType<ILoginService, LoginService>();
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="ErrQuestionService.cs" />
     <Compile Include="ExamService.cs" />
     <Compile Include="KnowledgePointService.cs" />
+    <Compile Include="LoginService.cs" />
     <Compile Include="PowerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionService.cs" />
