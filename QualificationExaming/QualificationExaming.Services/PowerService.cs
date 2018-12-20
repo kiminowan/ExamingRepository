@@ -15,6 +15,10 @@ namespace QualificationExaming.Services
 
     public class PowerService:IPowerService
     {
+        /// <summary>
+        /// 权限显示
+        /// </summary>
+        /// <returns></returns>
         public List<Power> GetPowers()
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -27,6 +31,11 @@ namespace QualificationExaming.Services
                 return null;
             }
         }
+        /// <summary>
+        /// 添加权限
+        /// </summary>
+        /// <param name="power"></param>
+        /// <returns></returns>
         public int AddPowers(Power power)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -40,6 +49,11 @@ namespace QualificationExaming.Services
                 return addpowers;
             }
         }
+        /// <summary>
+        /// 删除权限
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int DelPowers(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -49,6 +63,11 @@ namespace QualificationExaming.Services
                 return del;
             }
         }
+        /// <summary>
+        /// 反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Power GetPowerById(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -58,6 +77,11 @@ namespace QualificationExaming.Services
                 return getpowerid;
             }
         }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="power"></param>
+        /// <returns></returns>
         public int Updatepower(Power power)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))

@@ -51,6 +51,11 @@ on a.PowerID = p.PowerID GROUP BY a.RoleID ,b.RoleName", null);
                 return null;
             }
         }
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public int AddRole(Role role)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -72,6 +77,11 @@ on a.PowerID = p.PowerID GROUP BY a.RoleID ,b.RoleName", null);
             }
 
         }
+        /// <summary>
+        /// 获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IEnumerable<ShowRole> showRoles(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -85,6 +95,11 @@ where r.RoleID=@RoleID");
                 return showrole;
             }
         }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public int UpdateRole(Role role)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))

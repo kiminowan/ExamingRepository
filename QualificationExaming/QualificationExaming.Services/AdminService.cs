@@ -14,6 +14,10 @@ namespace QualificationExaming.Services
     using Entity;
     public class AdminService : IAdminService
     {
+        /// <summary>
+        /// 显示
+        /// </summary>
+        /// <returns></returns>
         public List<ShowAdmin> GetAdmins()
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -31,6 +35,11 @@ on us.RoleID=r.RoleID", null);
                 return null;
             }
         }
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
         public int AddAdmin(Admin admin)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -51,6 +60,11 @@ on us.RoleID=r.RoleID", null);
                 return addadmin;
             }
         }
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IEnumerable<ShowAdmin> showAdmins(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -60,6 +74,11 @@ on us.RoleID=r.RoleID", null);
                 return adminlist;
             }
         }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
         public int UpdateAdmin(Admin admin)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))

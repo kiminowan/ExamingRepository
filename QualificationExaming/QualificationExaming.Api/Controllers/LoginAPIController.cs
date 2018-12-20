@@ -15,11 +15,22 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public ILoginService loginService { get; set; }
+        /// <summary>
+        /// 获取权限
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public List<Power> GetPowerUrls(int id)
         {
             return loginService.GetPowerUrls(id);
         }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="LoginName"></param>
+        /// <param name="LoginPsw"></param>
+        /// <returns></returns>
         [HttpGet]
         public int Login(string LoginName, string LoginPsw)
         {

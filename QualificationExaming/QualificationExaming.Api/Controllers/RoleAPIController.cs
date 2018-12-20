@@ -50,11 +50,21 @@ namespace QualificationExaming.Api.Controllers
             return roleService.AddRole(role);
 
         }
+        /// <summary>
+        /// 获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<ShowRole> showRoles(int id)
         {
             return roleService.showRoles(id);
         }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         [HttpPost]
         public int UpdateRole(Role role)
         {
