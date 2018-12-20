@@ -14,6 +14,7 @@ Page({
     showLeft1: false,
     multi: '',
     showModal: false,
+    collections: [],
   },
   tap_ch: function(e) {
     if (this.data.open) {
@@ -59,6 +60,11 @@ Page({
             'Authorization': 'BasicAuth ' + res.data
           },
           success: function(res) {
+            for (var i = 0; i < res.data.length; i++) {
+              that.data.collections.push({
+                collection: false
+              })
+            }
             console.log(res.data)
             that.setData({
               logs: res.data
@@ -136,6 +142,7 @@ Page({
       },
     })
   },
+  //错题记录
   errQuestionLog: function() {
     var id = this.data.logs[this.data.step - 1].QuestionID;
     wx.getStorage({
@@ -170,6 +177,9 @@ Page({
         correctAnswer: this.data.logs[this.data.step - 1].Answer
       })
     }
+  },
+  onCollectionTap:function(){
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

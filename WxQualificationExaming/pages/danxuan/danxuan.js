@@ -10,7 +10,8 @@ Page({
     step: 1,
     showLeft1: false,
     wxTimerList: {},
-    answers: []
+    answers: [],
+    isAnalized:false
   },
 
   /**
@@ -108,7 +109,7 @@ Page({
         case 4:
           maxscore += 7;
           break;
-        case 4:
+        case 5:
           maxscore += 8;
           break;
       }
@@ -126,12 +127,24 @@ Page({
           case 4:
             score += 7;
             break;
-          case 4:
+          case 5:
             score += 8;
             break;
         }
       }
     }
+    console.log('总分' + maxscore + ' 得分' + score)
+  },
+  showDialogBtn: function () {
+    this.setData({
+      showModal: true,
+      isAnalized:true
+    })
+  },
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
