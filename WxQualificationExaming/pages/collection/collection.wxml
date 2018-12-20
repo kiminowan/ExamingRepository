@@ -14,8 +14,11 @@
     </button>
   </view>
 </i-drawer>
-<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
 
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+  <view class='collection'>
+    <image class='collectionIcon' bindtap='onCollectionTap' data-id='{{item.QuestionID}}' data-index='{{index}}' src="../../image/collected.png"></image>
+  </view>
   <view class='block'>
     <view class='view_question'>
       <view>{{index+1}}.{{item.QuestionName}}</view>
@@ -57,10 +60,15 @@
       </view>
     </view>
     <view class='view_answer'>
-      <view class='view_currentAnswer' wx:if="{{answer}}">
-        <text>正确答案:</text>
-        <text class='text_answer'>{{item.Answer}}</text>
-        <button bindtap="showDialogBtn" class='btn_analysis'>查看解析</button>
+      <view wx:if="{{show}}">
+        <view class='view_currentAnswer' wx:if="{{answer}}">
+          <text>正确答案:</text>
+          <text class='text_answer'>{{item.Answer}}</text>
+          <button bindtap="showDialogBtn" class='btn_analysis'>查看解析</button>
+        </view>
+        <view class='view_currentAnswer' wx:else>
+          <text style='color:green'>答对了</text>
+        </view>
       </view>
     </view>
     <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>

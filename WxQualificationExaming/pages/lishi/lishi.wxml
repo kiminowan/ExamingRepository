@@ -1,2 +1,8 @@
-<!--pages/lishi/lishi.wxml-->
-<text>历史成绩</text>
+<view class='min'>
+<image src='/image/backImg.jpg' class='backimg'></image>
+</view>
+<view class="container">
+  <view wx:for="{{logs}}" class='btn-err'>
+    <button class='btn-name' data-id='{{item.ScoreID}}'>试卷名：{{item.ExamName}} 分数：{{item.Scores}}</button>
+  </view>
+</view>

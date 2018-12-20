@@ -13,23 +13,26 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    wx.request({
-      url: 'http://localhost:8033/api/UsersApi/GetScores',
-      data: {
-        code: res.code
-      },
+    wx.getStorage({
+      key: 'token',
       success: function (res) {
-        var set = wx.setStorage({
-          key: 'token',
-          data: res.data.OpenID,
-          success: function (res) {
-that.setdata
+        wx.request({
+          url: 'http://localhost:8033/api/ScoreApi/GetScores',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
           },
-          fail: function (res) { },
-          complete: function (res) { },
+          data: {
+            openID: res.data,
+          },
+          method: 'get',
+          success: function (res) {
+            that.setData({
+              logs:res.data
+            })
+          },
         })
-        console.log(res.data.OpenID)
-      }
+      },
     })
   },
 

@@ -4,6 +4,6 @@
 </view>
 <view>
 <block wx:for='{{practice}}'>
-<button class='btn' bindtap='zsd1' data-src='{{item.KnowledgePointID}}'>{{item.ExamID}},{{item.ExamName}}</button>
+<button class='btn' bindtap='zsd1' data-src='{{item.ExamID}}'>{{item.ExamID}},{{item.ExamName}}</button>
 </block>
 </view>

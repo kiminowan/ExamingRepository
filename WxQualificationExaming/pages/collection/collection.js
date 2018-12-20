@@ -14,8 +14,9 @@ Page({
     showLeft1: false,
     multi: '',
     showModal: false,
+    show: false,
   },
-  tap_ch: function (e) {
+  tap_ch: function(e) {
     if (this.data.open) {
       this.setData({
         translate: 'transform: translateX(0px)'
@@ -38,7 +39,7 @@ Page({
       multi: e.detail.value.sort().join('')
     })
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     if (options.num != undefined) {
       this.setData({
         step: parseInt(options.num)
@@ -47,18 +48,18 @@ Page({
     var that = this;
     wx.getStorage({
       key: 'token',
-      success: function (res) {
+      success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+          url: 'http://localhost:8033/api/CollectionApi/GetQuestions',
           data: {
-            knowledgePointID: options.id
+            openID: res.data
           },
           method: 'get',
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
           },
-          success: function (res) {
+          success: function(res) {
             console.log(res.data)
             that.setData({
               logs: res.data
@@ -69,34 +70,43 @@ Page({
     })
   },
   //上一题按钮事件
-  prevQuestion: function () {
+  prevQuestion: function() {
     if (this.data.step > 1) {
       this.setData({
         step: this.data.step - 1,
         answer: false,
+        show: false
       })
     }
   },
   //下一题按钮事件
-  nextQuestion: function () {
+  nextQuestion: function() {
     if (this.data.step < this.data.logs.length) {
       this.setData({
         step: this.data.step + 1,
         answer: false,
+        show: false
       })
     }
   },
   //跳转到某题
-  skipQuestion: function (data) {
+  skipQuestion: function(data) {
     this.setData({
       step: data.currentTarget.dataset.num,
       answer: false,
+      show:false
     })
     this.selectComponent("#i-drawer").handleMaskClick();
   },
   //选项按钮事件
-  answer: function (data) {
+  answer: function(data) {
+    this.setData({
+      show: true,
+    })
     if (data.currentTarget.dataset.answer == this.data.logs[this.data.step - 1].Answer) {
+      this.setData({
+        answer: false
+      })
     } else {
       //选错时显示正确答案和解析
       this.setData({
@@ -106,57 +116,92 @@ Page({
     }
   },
   //多选答案
-  multiAnswer: function () {
-    if (this.data.multi == this.data.logs[this.data.step - 1].Answer) {
-    } else {
+  multiAnswer: function() {
+    if (this.data.multi == this.data.logs[this.data.step - 1].Answer) {} else {
       this.setData({
         answer: true,
         correctAnswer: this.data.logs[this.data.step - 1].Answer
       })
     }
   },
+  onCollectionTap: function(e) {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8033/api/CollectionApi/DeleteCollection',
+          method: 'get',
+          data: {
+            questionID: e.currentTarget.dataset.id,
+            openID: res.data
+          },
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          success: function(res) {
+            if (res.data > 0) {
+              that.data.logs.splice(e.currentTarget.dataset.index, 1)
+              that.setData({
+                logs: that.data.logs
+              })
+              if (e.currentTarget.dataset.index == that.data.logs.length) {
+                console.log(that.data.step)
+                if (that.data.step != 1) {
+                  that.setData({
+                    step: that.data.step - 1
+                  })
+                }
+              }
+            }
+          }
+        })
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () { },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () { },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
   //抽屉插件
@@ -166,7 +211,7 @@ Page({
     });
   },
   //模态对话框
-  showDialogBtn: function () {
+  showDialogBtn: function() {
     this.setData({
       showModal: true
     })
@@ -174,12 +219,11 @@ Page({
   /**
    * 弹出框蒙层截断touchmove事件
    */
-  preventTouchMove: function () {
-  },
+  preventTouchMove: function() {},
   /**
    * 隐藏模态对话框
    */
-  hideModal: function () {
+  hideModal: function() {
     this.setData({
       showModal: false
     });

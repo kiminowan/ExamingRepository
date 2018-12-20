@@ -17,7 +17,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:8033/api/ScoreApi/GetScore',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          data: {
+            openID: res.data,
+            scoreID: options.id,
+          },
+          method: 'get',
+          success: function (res) {
+            that.setData({
+              score:res.data.Scores,
+              time:res.data.CreateTime,
+              examName:res.data.ExamName
+            })
+          },
+        })
+      },
+    })
+console.log(options.id)
   },
 
   /**

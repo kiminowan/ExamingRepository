@@ -11,19 +11,21 @@ Page({
     showLeft1: false,
     wxTimerList: {},
     answers: [],
-    isAnalized:false
+    isAnalized: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    /*console.log(this.data.step)*/
+    this.setData({
+      examID: options.id
+    })
     var that = this;
     wx.request({
       url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
       data: {
-        knowledgePointID: 1
+        knowledgePointID: options.id
       },
       method: 'get',
       success: function(res) {
@@ -93,8 +95,9 @@ Page({
   },
   //交卷事件
   examSubmit: function() {
+    var that = this;
     var score = 0;
-    var maxscore=0;
+    var maxscore = 0;
     for (var i = 0; i < this.data.logs.length; i++) {
       switch (this.data.logs[i].TypeID) {
         case 1:
@@ -134,14 +137,37 @@ Page({
       }
     }
     console.log('总分' + maxscore + ' 得分' + score)
-  },
-  showDialogBtn: function () {
-    this.setData({
-      showModal: true,
-      isAnalized:true
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8033/api/ScoreApi/AddScore',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          data: {
+            openID: res.data,
+            examID: that.data.examID,
+            score: score
+          },
+          method: 'get',
+          success: function(res) {
+            wx.navigateTo({
+              url: '../result/result?id='+res.data,
+            })
+          },
+        })
+      },
     })
   },
-  hideModal: function () {
+  showDialogBtn: function() {
+    this.setData({
+      showModal: true,
+      isAnalized: true
+    })
+  },
+  hideModal: function() {
     this.setData({
       showModal: false
     });

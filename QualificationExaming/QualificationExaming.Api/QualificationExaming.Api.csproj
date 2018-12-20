@@ -135,6 +135,7 @@
     <Compile Include="Controllers\RememberApiController.cs" />
     <Compile Include="Controllers\RequestAuthorize.cs" />
     <Compile Include="Controllers\RoleAPIController.cs" />
+    <Compile Include="Controllers\ScoreApiController.cs" />
     <Compile Include="Controllers\UsersApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

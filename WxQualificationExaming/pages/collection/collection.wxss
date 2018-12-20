@@ -1,17 +1,17 @@
 /* pages/practice1/practice1.wxss */
-.block{
+
+.block {
   width: 80%;
   margin: 0 auto;
 }
-.view_question{
+
+.view_question {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0 auto;
   min-height: 100px;
 }
-.select{
+
+.select {
   width: 220px;
   display: flex;
   align-items: center;
@@ -21,42 +21,64 @@
   margin-top: 20px;
   font-size: 14px;
 }
-.btn{
+
+.btn {
   height: 60px;
   width: 140px;
   line-height: 60px;
 }
-.btn_prev{
+
+.btn_prev {
   float: left;
   width: 100px;
 }
-.btn_next{
+
+.btn_next {
   float: right;
   width: 100px;
 }
-.btn_panduan{
+
+.btn_panduan {
   margin-top: 50px;
 }
-.btn_submit{
+
+.btn_submit {
   float: left;
   margin-left: 28px;
   width: 120px;
 }
-.text_answer{
+
+.text_answer {
   color: red;
 }
-.view_answer{
+
+.view_answer {
   min-height: 93px;
   margin-top: 10px;
 }
-.btn_analysis{
+
+.btn_analysis {
   margin-top: 10px;
   width: 140px;
 }
-.view_currentAnswer{
+
+.view_currentAnswer {
   text-align: center;
 }
-.index{
+
+.collection {
+  position: fixed;
+  right: 0;
+  top: 45%;
+  margin-top: -20px;
+}
+
+.collectionIcon {
+  height: 40px;
+  width: 40px;
+}
+
+.index {
   height: 120px;
   width: 30px;
   position: fixed;
@@ -64,9 +86,11 @@
   top: 50%;
   margin-top: -80px;
 }
-.index view{
-margin: 8px 0 0 -8px;
+
+.index view {
+  margin: 8px 0 0 -8px;
 }
+
 .sideslip {
   height: 100%;
   width: 750rpx;
@@ -75,12 +99,12 @@ margin: 8px 0 0 -8px;
   z-index: 0;
 }
 
-
 .list-nav {
-  height:80rpx;
+  height: 80rpx;
   width: 100%;
   background: #eee;
 }
+
 .sideslip {
   height: 100%;
   width: 750rpx;
@@ -88,16 +112,19 @@ margin: 8px 0 0 -8px;
   background-color: #666;
   z-index: -5;
 }
+
 .logo {
   z-index: 10;
   width: 75%;
   height: 400rpx;
   border-right: 2px solid #666;
 }
+
 .content {
   color: #fff;
   padding: 30rpx 0 30rpx 40rpx;
 }
+
 list-images {
   z-index: 100;
   position: absolute;
@@ -106,8 +133,6 @@ list-images {
   left: 20rpx;
   top: 20rpx;
 }
-
-
 
 .logo image {
   z-index: 10;
@@ -121,17 +146,17 @@ list-images {
   padding: 30rpx 0 30rpx 40rpx;
 }
 
-
-.demo-container{
-	width:50vw;
-	height: 100vh;
-	background:#e0bb69;
+.demo-container {
+  width: 50vw;
+  height: 100vh;
+  background: #e0bb69;
 }
 
 /* 分析 */
+
 .show-btn {
   margin-top: 100rpx;
-  color: #22cc22;
+  color: #2c2;
 }
 
 .modal-mask {
@@ -178,7 +203,6 @@ list-images {
   font-size: 28rpx;
 }
 
-
 .input {
   width: 100%;
   height: 82rpx;
@@ -214,4 +238,9 @@ input-holder {
   width: 50%;
   color: #ec5300;
   text-align: center;
+}
+
+image {
+  width: 200px;
+  height: 200px;
 }

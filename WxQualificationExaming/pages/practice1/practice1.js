@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step:1,
+    step: 1,
     answer: false,
     windowWidth: wx.getSystemInfoSync().windowWidth,
     staus: 1,
@@ -60,16 +60,45 @@ Page({
             'Authorization': 'BasicAuth ' + res.data
           },
           success: function(res) {
-            for (var i = 0; i < res.data.length; i++) {
-              that.data.collections.push({
-                collection: false
-              })
-            }
             console.log(res.data)
             that.setData({
               logs: res.data
             })
+            for (var i = 0; i < res.data.length; i++) {
+              that.data.collections.push(false)
+            }
             that.questionLog();
+            wx.getStorage({
+              key: 'token',
+              success: function(res) {
+                wx.request({
+                  url: 'http://localhost:8033/api/CollectionApi/GetQuestions',
+                  data: {
+                    openID: res.data
+                  },
+                  method: 'get',
+                  header: {
+                    'content-type': 'application/json',
+                    'Authorization': 'BasicAuth ' + res.data
+                  },
+                  success: function(res) {
+                    var collections = that.data.collections
+                    for (var i = 0; i < that.data.logs.length; i++) {
+                      for (var j = 0; j < res.data.length; j++) {
+                        if (that.data.logs[i].QuestionID == res.data[j].QuestionID) {
+                          collections[i] = true;
+                        }
+                      }
+                    }
+                    that.setData({
+                      collections: collections
+                    })
+                    console.log(that.data.collections)
+                  }
+                })
+              },
+            })
+
           }
         })
       },
@@ -178,8 +207,57 @@ Page({
       })
     }
   },
-  onCollectionTap:function(){
-
+  //收藏按钮
+  onCollectionTap: function() {
+    var collections = this.data.collections
+    var id = this.data.logs[this.data.step - 1].QuestionID;
+    console.log(collections[this.data.step - 1]) 
+    console.log(this.data.step - 1)
+    if (collections[this.data.step - 1]) {
+      wx.getStorage({
+        key: 'token',
+        success: function (res) {
+          wx.request({
+            url: 'http://localhost:8033/api/CollectionApi/DeleteCollection',
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'BasicAuth ' + res.data
+            },
+            data: {
+              openID: res.data,
+              questionID: id,
+            },
+            method: 'get',
+            success: function (res) {
+            },
+          })
+        },
+      })
+    } else {
+      wx.getStorage({
+        key: 'token',
+        success: function (res) {
+          wx.request({
+            url: 'http://localhost:8033/api/CollectionApi/AddCollection',
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'BasicAuth ' + res.data
+            },
+            data: {
+              openID: res.data,
+              questionID: id,
+            },
+            method: 'get',
+            success: function (res) {
+            },
+          })
+        },
+      })
+    }
+    collections[this.data.step - 1] = !collections[this.data.step - 1]
+    this.setData({
+      collections: collections
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -232,7 +310,7 @@ Page({
     });
   },
   //模态对话框
-  showDialogBtn: function () {
+  showDialogBtn: function() {
     this.setData({
       showModal: true
     })
@@ -240,12 +318,11 @@ Page({
   /**
    * 弹出框蒙层截断touchmove事件
    */
-  preventTouchMove: function () {
-  },
+  preventTouchMove: function() {},
   /**
    * 隐藏模态对话框
    */
-  hideModal: function () {
+  hideModal: function() {
     this.setData({
       showModal: false
     });
