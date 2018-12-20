@@ -124,6 +124,7 @@
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminAPIController.cs" />
+    <Compile Include="Controllers\CollectionApiController.cs" />
     <Compile Include="Controllers\ErrQuestionController.cs" />
     <Compile Include="Controllers\ExamApiController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />

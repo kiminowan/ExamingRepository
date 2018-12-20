@@ -14,6 +14,10 @@
     </button>
   </view>
 </i-drawer>
+<view class='collection'>
+  <image class='collectionIcon' catchtap='onCollectionTap' wx:if="{{collected}}" src="../../image/collected.png"></image>
+  <image class='collectionIcon' wx:else catchtap='onCollectionTap' src="../../image/collect.png"></image>
+</view>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
 
   <view class='block'>
