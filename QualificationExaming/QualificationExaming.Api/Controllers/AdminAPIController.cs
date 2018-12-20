@@ -24,16 +24,31 @@ namespace QualificationExaming.Api.Controllers
         {
             return adminService.GetAdmins();
         }
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
         [HttpPost]
         public int AddAdmin(Admin admin)
         {
             return adminService.AddAdmin(admin);
         }
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<ShowAdmin> showAdmins(int id)
         {
             return adminService.showAdmins(id);
         }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
         [HttpPost]
         public int UpdateAdmin(Admin admin)
         {
