@@ -1,0 +1,66 @@
+<!--pages/errDetail/errDetail.wxml-->
+<view class='min'>
+  <image class='backimg' src='/image/beijing1.png'></image>
+</view>
+<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost">
+  <view>导</view>
+  <view>航</view>
+</i-button>
+<i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
+  <view class="demo-container">
+    <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{item.Num}}'>
+      {{item.Num}}
+    </button>
+  </view>
+</i-drawer>
+<view wx:for='{{logs}}' wx:if="{{step === item.Num}}">
+  <view wx:if="{{item.TypeID==1}}">
+    <view>
+      <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+      <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+      <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+      <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+    </view>
+  </view>
+  <view wx:if="{{item.TypeID==2}}">
+    <view>
+      <checkbox-group bindchange="checkboxChange">
+        <checkbox class='check' value='A'>{{item.ChoiceA}}</checkbox>
+        <checkbox class='check' value='B'>{{item.ChoiceB}}</checkbox>
+        <checkbox class='check' value='C'>{{item.ChoiceC}}</checkbox>
+        <checkbox class='check' value='D'>{{item.ChoiceD}}</checkbox>
+      </checkbox-group>
+    </view>
+  </view>
+  <view wx:if="{{item.TypeID==3}}">
+    <view style='min-height:290px'>
+      <button class='btn_panduan btn' bindtap='answer' data-answer='A'>
+        对
+      </button>
+      <button class='btn_panduan btn' bindtap='answer' data-answer='B'>
+        错
+      </button>
+    </view>
+  </view>
+  <view class='view_answer'>
+    <view class='view_currentAnswer' wx:if="{{answer}}">
+      <text>正确答案:</text>
+      <text class='text_answer'>{{item.Answer}}</text>
+      <button bindtap="showDialogBtn" class='btn_analysis'>查看解析</button>
+    </view>
+  </view>
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">分析</view>
+    <view class="modal-content">
+      {{item.Analysis}}
+    </view>
+  </view>
+  <view>
+    <view>
+      <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+      <button class='btn_submit btn' bindtap='deleteQuestion' data-id='{{item.QuestionID}}'>删除</button>
+      <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    </view>
+  </view>
+</view>

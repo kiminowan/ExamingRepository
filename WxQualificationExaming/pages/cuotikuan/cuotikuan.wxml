@@ -1,6 +1,9 @@
-
+<wxs src="../../wxs/substr.wxs" module="tools" />
+<view class='min'>
+<image src='/image/backImg.jpg' class='backimg'></image>
+</view>
 <view class="container">
-  <view wx:for="{{log}}">
-    <button>{{item.QuestionName.substr(0,10)}}</button>
+  <view wx:for="{{log}}" class='btn-err'>
+    <button class='btn-name' bindtap='showErrQuestions' data-num='{{item.Num}}' data-id='{{item.KnowledgePointID}}'>{{tools.substr(item.QuestionName)}}</button>
   </view>
 </view>

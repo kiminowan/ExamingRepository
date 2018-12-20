@@ -1,71 +1,86 @@
 <!--pages/practice1/practice1.wxml-->
+<wxs src="../../wxs/image.wxs" module="tools" />
 <view class='min'>
   <image class='backimg' src='/image/beijing1.png'></image>
 </view>
-<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost"><view>导</view><view>航</view></i-button>
-<i-drawer mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
-    <view class="demo-container">
-      <button class='btn_select' bindtap wx:for='{{logs}}' data-num='{{index+1}}'>
-        {{index+1}}
-      </button>
-    </view>
+<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost">
+  <view>导</view>
+  <view>航</view>
+</i-button>
+<i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
+  <view class="demo-container">
+    <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{index+1}}'>
+      {{index+1}}
+    </button>
+  </view>
 </i-drawer>
+<view class='top'>考试剩余时间：
+  <text>{{wxTimer}}</text>
+</view>
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+  <view class='block'>
 
-
-  <view wx:if="{{item.TypeID==1}}">
-    <view class='view_question'>
-      <view>{{index+1}}.{{item.QuestionName}}</view>
+    <view wx:if="{{item.TypeID==1}}">
+      <view class='view_question'>
+        <view>{{index+1}}.{{item.QuestionName}}</view>
+        <view wx:if='{{item.QuestionHasImg}}'>
+          <image class='questionImg' src='{{tools.image(item.QuestionImg)}}'></image>
+        </view>
+      </view>
+      <view>
+        <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+        <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+        <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+        <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+      </view>
     </view>
-    <view>
-      <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
-      <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
-      <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
-      <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+
+
+    <view wx:if="{{item.TypeID==2}}">
+      <view class='view_question'>
+        <view>{{index+1}}.{{item.QuestionName}}</view>
+      </view>
+      <view>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox class='check' value='A'>{{item.ChoiceA}}</checkbox>
+          <checkbox class='check' value='B'>{{item.ChoiceB}}</checkbox>
+          <checkbox class='check' value='C'>{{item.ChoiceC}}</checkbox>
+          <checkbox class='check' value='D'>{{item.ChoiceD}}</checkbox>
+        </checkbox-group>
+      </view>
+    </view>
+    <view wx:if="{{item.TypeID==3||item.TypeID==4||item.TypeID==5}}">
+      <view class='view_question'>
+        <view>{{index+1}}.{{item.QuestionName}}</view>
+      </view>
+      <view>
+        <button class='btn_panduan' bindtap='answer' data-answer='A'>
+          答对了
+        </button>
+        <button class='btn_panduan' bindtap='answer' data-answer='B'>
+          答错了
+        </button>
+      </view>
     </view>
   </view>
-
-
-  <view wx:if="{{item.TypeID==2}}">
-    <view class='view_question'>
-      <view>{{index+1}}.{{item.QuestionName}}</view>
-    </view>
-    <view>
-      <checkbox class='check' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</checkbox>
-      <checkbox class='check' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</checkbox>
-      <checkbox class='check' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</checkbox>
-      <checkbox class='check' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</checkbox>
-    </view>
-  </view>
-  <view wx:if="{{item.TypeID==3}}">
-    <view class='view_question'>
-      <view>{{index+1}}.{{item.QuestionName}}</view>
-    </view>
-    <view>
-      <button class='btn_panduan' bindtap='answer' data-answer='A'>
-        对
-      </button>
-      <button class='btn_panduan' bindtap='answer' data-answer='B'>
-        错
-      </button>
-    </view>
-  </view>
-
 
   <view class='view_answer'>
-    <view class='view_currentAnswer' wx:if="{{answer}}">
-      <text>正确答案:</text>
-      <text class='text_answer'>{{item.Answer}}</text>
-      <button class='btn_analysis'>查看解析</button>
+    <view wx:if="{{answers[index].show}}">
+      <text>已选答案:</text>
+      <text class='text_answer'>{{answers[index].answer}}</text>
     </view>
   </view>
-  <view  wx:if="{{step === logs.length}}">
-    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
-    <button class='btn_next btn' bindtap='nextQuestion'>交卷</button>
+  <view class='view_answer'>
+    <view class='view_currentAnswer'>
+      <button bindtap="showDialogBtn" class='btn_analysis'>查看解析</button>
+    </view>
   </view>
-<view  wx:else>
+  <view wx:if="{{step === logs.length}}">
+    <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+    <button class='btn_next btn' bindtap='examSubmit'>交卷</button>
+  </view>
+  <view wx:else>
     <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
     <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
   </view>
-
 </view>

@@ -16,17 +16,17 @@ namespace QualificationExaming.Services
     {
 
         /// <summary>
-        /// 根据错题id删除错题
+        /// 根据用户openID和题目ID删除错题
         /// </summary>
         /// <param name="erroid"></param>
         /// <returns></returns>
-        public int DeleteErro(int erroid)
+        public int DeleteErro(int questionID,string openID)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
                 DynamicParameters parameters = new DynamicParameters();
-
-                parameters.Add("p_errquestionid", erroid);
+                parameters.Add("p_questionID", questionID);
+                parameters.Add("p_openID", openID);
                 var result = conn.Execute("proc_DeleteErrQuestion", parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result;
             }
@@ -67,10 +67,20 @@ namespace QualificationExaming.Services
             var questions = GetErrQuestions(openID).Where(m => m.KnowledgePointID == knowledgePointID);
             if (questions != null)
             {
-                return questions.ToList();
+                List<Question> questionList = questions.ToList();
+                for (int i = 1; i <= questionList.Count(); i++)
+                {
+                    questionList[i - 1].Num = i;
+                }
+                return questionList;
             }
             return null;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
         public List<Question> GetErrQuestions(string openID)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -85,10 +95,6 @@ namespace QualificationExaming.Services
                 if (eroo != null)
                 {
                     List<Question> questionList = eroo.ToList();
-                    for(int i = 1; i <= questionList.Count(); i++)
-                    {
-                        questionList[i-1].Num = i;
-                    }
                     return questionList;
                 }
                 return null;

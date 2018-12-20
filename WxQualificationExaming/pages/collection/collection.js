@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step:1,
+    step: 1,
     answer: false,
     windowWidth: wx.getSystemInfoSync().windowWidth,
     staus: 1,
@@ -15,7 +15,7 @@ Page({
     multi: '',
     showModal: false,
   },
-  tap_ch: function(e) {
+  tap_ch: function (e) {
     if (this.data.open) {
       this.setData({
         translate: 'transform: translateX(0px)'
@@ -38,7 +38,7 @@ Page({
       multi: e.detail.value.sort().join('')
     })
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     if (options.num != undefined) {
       this.setData({
         step: parseInt(options.num)
@@ -47,7 +47,7 @@ Page({
     var that = this;
     wx.getStorage({
       key: 'token',
-      success: function(res) {
+      success: function (res) {
         wx.request({
           url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
           data: {
@@ -58,113 +58,57 @@ Page({
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
           },
-          success: function(res) {
+          success: function (res) {
             console.log(res.data)
             that.setData({
               logs: res.data
             })
-            that.questionLog();
           }
         })
       },
     })
   },
   //上一题按钮事件
-  prevQuestion: function() {
+  prevQuestion: function () {
     if (this.data.step > 1) {
       this.setData({
         step: this.data.step - 1,
         answer: false,
       })
-      this.questionLog();
     }
   },
   //下一题按钮事件
-  nextQuestion: function() {
+  nextQuestion: function () {
     if (this.data.step < this.data.logs.length) {
       this.setData({
         step: this.data.step + 1,
         answer: false,
       })
-      this.questionLog();
     }
   },
   //跳转到某题
-  skipQuestion: function(data) {
+  skipQuestion: function (data) {
     this.setData({
       step: data.currentTarget.dataset.num,
       answer: false,
     })
     this.selectComponent("#i-drawer").handleMaskClick();
-    this.questionLog();
   },
   //选项按钮事件
-  answer: function(data) {
+  answer: function (data) {
     if (data.currentTarget.dataset.answer == this.data.logs[this.data.step - 1].Answer) {
-      //选对时跳转下一题
-      this.nextQuestion();
     } else {
       //选错时显示正确答案和解析
-      this.errQuestionLog();
       this.setData({
         answer: true,
         correctAnswer: this.data.logs[this.data.step - 1].Answer
       })
     }
   },
-  //做题记录
-  questionLog: function() {
-    var id = this.data.logs[this.data.step - 1].QuestionID;
-    wx.getStorage({
-      key: 'token',
-      success: function(res) {
-        wx.request({
-          url: 'http://localhost:8033/api/RememberApi/AddRemember',
-          header: {
-            'content-type': 'application/json',
-            'Authorization': 'BasicAuth ' + res.data
-          },
-          data: {
-            openID: res.data,
-            questionID: id,
-          },
-          method: 'get',
-          success: function(res) {
-            console.log(res.data)
-          },
-        })
-      },
-    })
-  },
-  errQuestionLog: function() {
-    var id = this.data.logs[this.data.step - 1].QuestionID;
-    wx.getStorage({
-      key: 'token',
-      success: function(res) {
-        wx.request({
-          url: 'http://localhost:8033/api/ErrQuestionApi/AddErro',
-          header: {
-            'content-type': 'application/json',
-            'Authorization': 'BasicAuth ' + res.data
-          },
-          data: {
-            openID: res.data,
-            questionID: id,
-          },
-          method: 'get',
-          success: function(res) {
-            console.log(res.data)
-          },
-        })
-      },
-    })
-  },
   //多选答案
-  multiAnswer: function() {
+  multiAnswer: function () {
     if (this.data.multi == this.data.logs[this.data.step - 1].Answer) {
-      this.nextQuestion();
     } else {
-      this.errQuestionLog();
       this.setData({
         answer: true,
         correctAnswer: this.data.logs[this.data.step - 1].Answer
@@ -174,45 +118,45 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function () { },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
   //抽屉插件

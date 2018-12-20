@@ -32,9 +32,9 @@ namespace QualificationExaming.Api.Controllers
         /// <param name="errid"></param>
         /// <returns></returns>
         [HttpGet]
-        public int DeleteErro(int errid)
+        public int DeleteErro(int questionID, string openID)
         {
-            return errQuestionService.DeleteErro(errid);
+            return errQuestionService.DeleteErro(questionID,openID);
         }
         /// <summary>
         /// 错题添加

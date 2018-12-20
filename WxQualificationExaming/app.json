@@ -10,11 +10,11 @@
     "pages/pagegr/pagegr",
     "pages/choose1/choose1",
     "pages/cuoti/cuoti",
-    "pages/shoucang/shoucang",
+    "pages/collection/collection",
     "pages/lishi/lishi",
     "pages/cuotikuan/cuotikuan",
-    "pages/result/result"
-    
+    "pages/result/result",
+    "pages/errDetail/errDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

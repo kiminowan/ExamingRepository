@@ -1,11 +1,23 @@
 /* pages/practice1/practice1.wxss */
 .view_question{
-  width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   margin: 0 auto;
   min-height: 100px;
+  margin-top: 25px;
+}
+.questionImg{
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+}
+.selectImg{
+  width: 25px;
+  height: 25px；
+}
+.block{
+  width: 80%;
+  margin: 0 auto;
 }
 .select{
   width: 220px;
@@ -36,21 +48,20 @@
   width: 120px;
 }
 .check{
-  width: 300px;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60px;
   line-height: 20px;
-  margin-top: 10px;
-  margin-left: 40px;
+  margin: 10px auto;
   font-size: 14px;
 }
 .text_answer{
   color: red;
 }
 .view_answer{
-  min-height: 93px;
+  min-height: 68px;
   margin-top: 10px;
 }
 .btn_analysis{
@@ -92,8 +103,12 @@ margin: 8px 0 0 -8px;
   float: right;
 }
 .btn_panduan{
-  width: 100px;
-  height: 80px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  line-height: 14px;
   margin-top: 20px;
 }
 
@@ -102,4 +117,16 @@ margin: 8px 0 0 -8px;
 	width:50vw;
 	height: 100vh;
 	background:#fff;
+}
+
+/*考试时间样式*/
+.top{
+  background-color: white;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top text{
+  color: red;
 }

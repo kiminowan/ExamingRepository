@@ -50,7 +50,7 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 题干是否包含图片
         /// </summary>
-        public string QuestionHasImg { get; set; }
+        public bool QuestionHasImg { get; set; }
         /// <summary>
         /// 图片名称
         /// </summary>
@@ -58,7 +58,7 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 选项是否图片
         /// </summary>
-        public string ChoiceIsImg { get; set; }
+        public bool ChoiceIsImg { get; set; }
         /// <summary>
         /// 试卷ID
         /// </summary>

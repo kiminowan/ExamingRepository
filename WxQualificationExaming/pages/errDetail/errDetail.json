@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "错题本",
+  "usingComponents": {
+    "i-drawer": "../../dist/drawer/index",
+    "i-button": "../../dist/button/index"
+  }
+}

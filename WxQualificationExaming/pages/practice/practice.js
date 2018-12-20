@@ -34,7 +34,7 @@ Page({
                 success: function (res) {
                   console.log(res)
                   wx.navigateTo({
-                    url: '/pages/practice1/practice1?id=' + res.data.KnowledgePointID + '&questionID=' + res.data.QuestionID,
+                    url: '/pages/practice1/practice1?id=' + res.data.KnowledgePointID + '&num=' + res.data.Num,
                   })
                 }
               })

@@ -26,7 +26,12 @@ namespace QualificationExaming.Services
                 var questionlist = conn.Query<Question>("select * from question", null);
                 if (questionlist != null)
                 {
-                    return questionlist.ToList();
+                    List<Question> questionList = questionlist.ToList();
+                    for (int i = 1; i <= questionList.Count(); i++)
+                    {
+                        questionList[i - 1].Num = i;
+                    }
+                    return questionList;
                 }
                 return null;
             }
@@ -38,7 +43,9 @@ namespace QualificationExaming.Services
                 var questionlist = conn.Query<Question>("select * from question q join remember r on q.QuestionID=r.QuestionID join `user` u on u.UserID=r.UserID  where u.OpenID='"+ openID + "' ORDER BY(r.CreateTime) DESC ", null);
                 if (questionlist != null)
                 {
-                    return questionlist.FirstOrDefault();
+                    Question question = questionlist.FirstOrDefault();
+                    question= GetQuestions(question.KnowledgePointID).Find(m=>m.QuestionID== question.QuestionID);
+                    return question;
                 }
                 return null;
             }

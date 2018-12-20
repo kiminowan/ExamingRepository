@@ -15,7 +15,7 @@ namespace QualificationExaming.Services
         /// </summary>
         /// <param name="erroid"></param>
         /// <returns></returns>
-        int DeleteErro(int erroid);
+        int DeleteErro(int questionID, string openID);
 
         /// <summary>
         /// 添加错题

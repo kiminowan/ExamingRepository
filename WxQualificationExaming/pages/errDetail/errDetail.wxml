@@ -1,0 +1,79 @@
+<!--pages/errDetail/errDetail.wxml-->
+<view class='min'>
+  <image class='backimg' src='/image/beijing1.png'></image>
+</view>
+<i-button class='index' style='height:200px' bind:click="toggleLeft1" type="ghost">
+  <view>导</view>
+  <view>航</view>
+</i-button>
+<i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
+  <view class="demo-container">
+    <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{item.Num}}'>
+      {{item.Num}}
+    </button>
+  </view>
+</i-drawer>
+<view wx:if='{{logs.length==0}}'>该知识点下无错题记录</view>
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+  <view class='block'>
+    <view wx:if="{{item.TypeID==1}}">
+      <view class='view_question'>
+        <view>{{item.Num}}.{{item.QuestionName}}</view>
+      </view>
+      <view>
+        <button class='select' data-answer='A'>{{item.ChoiceA}}</button>
+        <button class='select' data-answer='B'>{{item.ChoiceB}}</button>
+        <button class='select' data-answer='C'>{{item.ChoiceC}}</button>
+        <button class='select' data-answer='D'>{{item.ChoiceD}}</button>
+      </view>
+    </view>
+
+
+    <view wx:if="{{item.TypeID==2}}">
+      <view class='view_question'>
+        <view>{{index+1}}.{{item.QuestionName}}</view>
+      </view>
+      <view>
+        <checkbox class='check' data-answer='A'>{{item.ChoiceA}}</checkbox>
+        <checkbox class='check' data-answer='B'>{{item.ChoiceB}}</checkbox>
+        <checkbox class='check' data-answer='C'>{{item.ChoiceC}}</checkbox>
+        <checkbox class='check' data-answer='D'>{{item.ChoiceD}}</checkbox>
+      </view>
+    </view>
+    <view wx:if="{{item.TypeID==3}}">
+      <view class='view_question'>
+        <view>{{index+1}}.{{item.QuestionName}}</view>
+      </view>
+      <view>
+        <button class='btn_panduan' data-answer='A'>
+          对
+        </button>
+        <button class='btn_panduan' data-answer='B'>
+          错
+        </button>
+      </view>
+    </view>
+
+    <view class='view_answer'>
+      <view class='view_currentAnswer'>
+        <text>正确答案:</text>
+        <text class='text_answer'>{{item.Answer}}</text>
+        <button bindtap="showDialogBtn" class='btn_analysis'>查看解析</button>
+      </view>
+    </view>
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="modal-title">分析</view>
+      <view class="modal-content">
+        {{item.Analysis}}
+      </view>
+    </view>
+  </view>
+  <view>
+    <view>
+      <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+      <button class='btn_submit btn' bindtap='deleteQuestion' data-id='{{item.QuestionID}}' data-index='{{index}}'>删除</button>
+      <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    </view>
+  </view>
+</view>

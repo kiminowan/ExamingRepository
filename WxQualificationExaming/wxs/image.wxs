@@ -1,0 +1,7 @@
+var image = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  return "http://localhost:8033/img/"+val;
+}
+module.exports.image = image;

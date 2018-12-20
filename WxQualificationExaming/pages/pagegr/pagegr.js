@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -95,7 +95,7 @@ Page({
   shoucang: function () {
     wx.navigateTo({
       //跳转到自己希望到页面
-      url: '/pages/shoucang/shoucang',
+      url: '/pages/collection/collection',
     })
   },
   //点击历史成绩执行的事件
