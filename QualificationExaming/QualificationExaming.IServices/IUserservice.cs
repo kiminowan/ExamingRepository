@@ -10,5 +10,6 @@ namespace QualificationExaming.IServices
     public interface IUserservice
     {
         User UserLogin(String code);
+        List<Score> GetScore(string code);
     }
 }

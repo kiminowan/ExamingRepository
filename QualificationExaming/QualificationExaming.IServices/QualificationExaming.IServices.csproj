@@ -46,6 +46,7 @@
     <Compile Include="IExamService.cs" />
     <Compile Include="IKnowledgePointService.cs" />
     <Compile Include="ILoginService.cs" />
+    <Compile Include="IMultimediaService.cs" />
     <Compile Include="IQuestionService.cs" />
     <Compile Include="IRememberService.cs" />
     <Compile Include="IRoleService.cs" />

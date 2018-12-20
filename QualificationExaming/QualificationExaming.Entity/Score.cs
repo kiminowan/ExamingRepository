@@ -23,7 +23,11 @@ namespace QualificationExaming.Entity
         /// <summary>
         /// 试卷id
         /// </summary>
-       public int ExamID { get; set; }   
+       public int ExamID { get; set; }  
+        /// <summary>
+        /// 试卷名称
+        /// </summary>
+        public string ExamName { get; set; }
         /// <summary>
         /// 交卷时间
         /// </summary>

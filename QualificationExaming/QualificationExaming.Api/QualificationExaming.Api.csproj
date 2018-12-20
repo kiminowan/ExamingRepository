@@ -128,6 +128,7 @@
     <Compile Include="Controllers\ExamApiController.cs" />
     <Compile Include="Controllers\KnowledgePointController.cs" />
     <Compile Include="Controllers\LoginAPIController.cs" />
+    <Compile Include="Controllers\MultimediaController.cs" />
     <Compile Include="Controllers\PowerAPIController.cs" />
     <Compile Include="Controllers\QuestionApiController.cs" />
     <Compile Include="Controllers\RememberApiController.cs" />

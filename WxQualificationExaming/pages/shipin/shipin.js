@@ -35,7 +35,7 @@ Page({
       key: 'token',
       success: function (res) {
         wx.request({
-          url: 'http://localhost:8033/api/Multimedia/GetMultimedias',
+          url: 'http://localhost:13803/api/Multimedia/GetMultimedias',
           method: 'get',
           success: function (res) {
             

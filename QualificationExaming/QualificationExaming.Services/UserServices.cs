@@ -77,5 +77,20 @@ namespace QualificationExaming.Services
                 return user;
             }
         }
+
+        public List<Score> GetScore(string code)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var userList = conn.Query<User>("SELECT * FROM user", null);
+                var client = userList.Where(r => r.OpenID.Equals(code)).FirstOrDefault();
+                var id = client.UserID;
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@id", id);
+                string sql = "SELECT * FROM score,exam,`user` WHERE Score.ExamID=exam.ExamID AND Score.UserID=`user`.UserID=@id";
+                var result = conn.Query<Score>(sql, parameters).ToList();
+                return result;
+            }
+        }
     }
 }

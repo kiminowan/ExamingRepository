@@ -16,5 +16,14 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IUserservice userses { get; set; }
+        /// <summary>
+        /// 获取用户的成绩表
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public List<Score> GetScores(string code)
+        {
+            return userses.GetScore(code);
+        }
     }
 }

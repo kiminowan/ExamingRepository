@@ -12,7 +12,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this;
+    wx.request({
+      url: 'http://localhost:8033/api/UsersApi/GetScores',
+      data: {
+        code: res.code
+      },
+      success: function (res) {
+        var set = wx.setStorage({
+          key: 'token',
+          data: res.data.OpenID,
+          success: function (res) {
+that.setdata
+          },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        console.log(res.data.OpenID)
+      }
+    })
   },
 
   /**
