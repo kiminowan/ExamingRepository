@@ -1,0 +1,48 @@
+
+
+
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+<!--<view class="section tc">-->
+  <video
+    id="myVideo"
+    src="{{item.QuestionHasImg}}"
+    danmu-list="{{danmuList}}"
+    enable-danmu
+    danmu-btn
+    controls
+    duration='20'
+    direction='90'
+   show-fullscreen-btn='true'
+   class='vd'
+  ></video>
+<!--</view>-->
+  <view class='block'>
+    <view class='view_question'>
+      <view>{{index+1}}.{{item.QuestionName}}</view>
+    </view>
+    <!--<view wx:if="{{item.TypeID==1}}">-->
+
+      <view>
+        <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+        <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+        <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+        <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+      </view>
+   <!-- </view>-->
+    
+    <view class='view_answer'>
+      <view class='view_currentAnswer' wx:if="{{answer}}">
+        <text>正确答案:</text>
+        <text class='text_answer'>{{item.Answer}}</text>
+        <button class='btn_analysis'>查看解析</button>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view>
+      <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+      <button class='btn_submit btn' bindtap='multiAnswer' wx:if="{{item.TypeID==2}}">确认</button>
+      <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    </view>
+  </view>
+</view>

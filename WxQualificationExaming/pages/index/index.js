@@ -64,7 +64,7 @@ Page({
   },
   duoxuan:function(){
     wx.navigateTo({
-      url: '/pages/result/result',
+      url: '/pages/shipin/shipin',
     })
   },
   cuoti:function(){

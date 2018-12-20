@@ -1,0 +1,69 @@
+<!--pages/music/music.wxml-->
+<audio
+  poster="{{poster}}"
+  name="{{name}}"
+  author="{{author}}"
+  src="{{src}}"
+  id="myAudio"
+  controls
+  loop
+  src='/music/cxl1.mp3'
+  name='晓乐地带'
+></audio>
+
+<view wx:for='{{logs}}' wx:if="{{step === index+1}}">
+
+  <view class='block'>
+    <view class='view_question'>
+      <view>{{index+1}}.{{item.QuestionName}}</view>
+    </view>
+    <view wx:if="{{item.TypeID==1}}">
+
+      <view>
+        <button class='select' bindtap='answer' data-answer='A'>{{item.ChoiceA}}</button>
+        <button class='select' bindtap='answer' data-answer='B'>{{item.ChoiceB}}</button>
+        <button class='select' bindtap='answer' data-answer='C'>{{item.ChoiceC}}</button>
+        <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
+      </view>
+    </view>
+    <view wx:if="{{item.TypeID==2}}">
+
+      <view>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox class='check' value='A'>{{item.ChoiceA}}</checkbox>
+          <checkbox class='check' value='B'>{{item.ChoiceB}}</checkbox>
+          <checkbox class='check' value='C'>{{item.ChoiceC}}</checkbox>
+          <checkbox class='check' value='D'>{{item.ChoiceD}}</checkbox>
+        </checkbox-group>
+      </view>
+    </view>
+
+
+    <view wx:if="{{item.TypeID==3}}">
+
+      <view style='min-height:290px'>
+        <button class='btn_panduan btn' bindtap='answer' data-answer='A'>
+          对
+        </button>
+        <button class='btn_panduan btn' bindtap='answer' data-answer='B'>
+          错
+        </button>
+      </view>
+    </view>
+    <view class='view_answer'>
+      <view class='view_currentAnswer' wx:if="{{answer}}">
+        <text>正确答案:</text>
+        <text class='text_answer'>{{item.Answer}}</text>
+        <button class='btn_analysis'>查看解析</button>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view>
+      <button class='btn_prev btn' bindtap='prevQuestion'>上一题</button>
+      <button class='btn_submit btn' bindtap='multiAnswer' wx:if="{{item.TypeID==2}}">确认</button>
+      <button class='btn_next btn' bindtap='nextQuestion'>下一题</button>
+    </view>
+  </view>
+</view>
+

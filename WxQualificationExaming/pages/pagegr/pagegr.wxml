@@ -10,3 +10,4 @@
 <button class='btn3' bindtap='lishi'>历史成绩</button>
 </view>
 
+

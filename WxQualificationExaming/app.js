@@ -8,7 +8,7 @@ App({
 
     // 登录
     wx.login({
-      success: function (res) {
+     success: function (res) {
         if (res.code) {
           wx.request({
             url: 'http://localhost:8033/api/KnowledgePointApi/Login',
@@ -58,7 +58,7 @@ App({
            })
           }
         })*/
-      }
+    }
     })
     // 获取用户信息
     wx.getSetting({

@@ -14,7 +14,8 @@
     "pages/lishi/lishi",
     "pages/cuotikuan/cuotikuan",
     "pages/result/result",
-    "pages/errDetail/errDetail"
+    "pages/errDetail/errDetail",
+    "pages/shipin/shipin"
   ],
   "window": {
     "backgroundTextStyle": "light",
