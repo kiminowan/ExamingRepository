@@ -16,6 +16,11 @@ namespace QualificationExaming.Api.Controllers
         [Dependency]
         public ILoginService loginService { get; set; }
         [HttpGet]
+        public List<Power> GetPowerUrls(int id)
+        {
+            return loginService.GetPowerUrls(id);
+        }
+        [HttpGet]
         public int Login(string LoginName, string LoginPsw)
         {
             return loginService.Login(LoginName, LoginPsw);

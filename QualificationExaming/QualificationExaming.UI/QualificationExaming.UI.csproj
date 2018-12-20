@@ -1246,6 +1246,7 @@
     <Content Include="My97DatePicker\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
     <Content Include="My97DatePicker\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
     <Content Include="My97DatePicker\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Script\jquery-1.10.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

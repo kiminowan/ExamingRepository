@@ -9,6 +9,7 @@ namespace QualificationExaming.IServices
     using Entity;
     public interface ILoginService
     {
+        List<Power> GetPowerUrls(int id);
         int Login(string LoginName, string LoginPsw);
     }
 }

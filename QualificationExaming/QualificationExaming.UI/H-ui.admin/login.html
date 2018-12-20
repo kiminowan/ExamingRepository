@@ -29,7 +29,7 @@
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-xs-8">
-          <input id="pwd" name="" type="password" placeholder="密码" class="input-text size-L">
+          <input id="pwd" name="" type="password"  placeholder="密码" class="input-text size-L">
         </div>
       </div>
       <!--<div class="row cl">
@@ -46,7 +46,7 @@
       </div>-->
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+          <input name="" type="button" id="btn_login" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" onclick="deng()">
           <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
         </div>
       </div>
@@ -58,26 +58,29 @@
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
 <!--此乃百度统计代码，请自行删除-->
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-    })();
-    function login() {
-        var name = $("name").val();
-        var pwd = $("pwd").val();
+//var _hmt = _hmt || [];
+//(function() {
+//  var hm = document.createElement("script");
+//  hm.src = "https://hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
+//  var s = document.getElementsByTagName("script")[0]; 
+//  s.parentNode.insertBefore(hm, s);
+//    })();
+    $(function () {
+    })
+    function deng() {
         $.ajax({
             url: 'http://localhost:8033/api/LoginAPI/Login',
             type: "get",
             data: {
-                LoginName: name,
-                LoginPsw: pwd,
+                LoginName : $("#name").val(),
+                LoginPsw : $("#pwd").val(),
             },
             success: function (data) {
                 if (data > 0) {
-                    alert("登入成功");
+                    alert(data);
+                    /* 登入成功之后将返回回来的登录人的id写进缓存 */
+                    localStorage.adminID = data;
+                    location.href = "http://localhost:1974/H-ui.admin/index.html";
                 }
                 else {
                     alert("登录失败");
