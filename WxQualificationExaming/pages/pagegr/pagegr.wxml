@@ -9,5 +9,11 @@
 <button class='btn2' bindtap='shoucang'>题目收藏</button>
 <button class='btn3' bindtap='lishi'>历史成绩</button>
 </view>
+<view class='women'>
+<text class='lianxi'>联系我们</text>
+</view>
+<view class='tu'>
+ <image src='/image/曹晓乐.png' class='xin'></image>
+</view>
 
 

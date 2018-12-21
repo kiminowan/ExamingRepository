@@ -20,3 +20,20 @@ font-size: 25px;
 font-family: 楷体;
 font-size: 25px;
 }
+.xin{
+  margin-top: 0px;
+  width: 80px;
+  height: 80px;
+}
+.lianxi{
+
+font-size: 14px;
+font-family: 楷体;
+}
+.tu{
+  margin-top: 0px;
+}
+.women{
+
+  margin-top: 100px;
+}
