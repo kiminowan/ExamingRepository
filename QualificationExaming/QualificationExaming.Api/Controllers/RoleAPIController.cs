@@ -12,7 +12,7 @@ namespace QualificationExaming.Api.Controllers
     using Services;
     using Unity.Attributes;
     [RoutePrefix("RoleAPI")]
-    public class RoleAPIController : ApiController
+    public class RoleApiController : ApiController
     {
         [Dependency]
         public IRoleService roleService { get; set; }

@@ -11,7 +11,7 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class MultimediaController : ApiController
+    public class MultimediaApiController : ApiController
     {
         [Dependency]
         public IMultimediaService multimediaService { get; set; }

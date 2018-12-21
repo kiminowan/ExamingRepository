@@ -11,7 +11,7 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class LoginAPIController : ApiController
+    public class LoginApiController : ApiController
     {
         [Dependency]
         public ILoginService loginService { get; set; }
