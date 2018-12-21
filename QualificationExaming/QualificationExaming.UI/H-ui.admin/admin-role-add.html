@@ -101,7 +101,7 @@
             success: function (data) {
                 $(data).each(function (index, data) {
                     //console.log(data.IsDedate);
-                    var str = '<input id="Checkbox1" type="checkbox" name="PowerID" value="'+data.PowerID+'" /><span>'+data.PowerName+'</span>'
+                    var str = '<input id="Checkbox1" type="checkbox" ' + (data.IsDedate == 1 ? '' :'disabled')+' name="PowerID" value="'+data.PowerID+'" /><span>'+data.PowerName+'</span>'
                     $("#check").append(str);
                 })
                 
