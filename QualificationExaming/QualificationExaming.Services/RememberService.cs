@@ -14,6 +14,12 @@ namespace QualificationExaming.Services
 
     public class RememberService:IRememberService
     {
+        /// <summary>
+        /// 添加做题记录
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <param name="questionID"></param>
+        /// <returns></returns>
         public int Addremember(string openID,int questionID)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))

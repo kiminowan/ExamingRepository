@@ -6,6 +6,12 @@ Page({
       url: "/pages/choose1/choose1"
     })
   },
+  btn_history: function () {
+    wx.redirectTo({
+      //详细信息
+      url: "/pages/lishi/lishi"
+    })
+  },
   /**
    * 页面的初始数据
    */

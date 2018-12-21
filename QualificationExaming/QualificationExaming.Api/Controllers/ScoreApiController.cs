@@ -16,7 +16,7 @@ namespace QualificationExaming.Api.Controllers
         [Dependency]
         public IScoreService scoreService { get; set; }
         /// <summary>
-        /// 获取成绩
+        /// 获取成绩根据OpenId
         /// </summary>
         /// <param name="openID"></param>
         /// <returns></returns>

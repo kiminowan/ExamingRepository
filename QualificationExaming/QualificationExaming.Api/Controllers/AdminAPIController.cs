@@ -25,7 +25,7 @@ namespace QualificationExaming.Api.Controllers
             return adminService.GetAdmins();
         }
         /// <summary>
-        /// 添加
+        /// 添加管理员
         /// </summary>
         /// <param name="admin"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace QualificationExaming.Api.Controllers
             return adminService.AddAdmin(admin);
         }
         /// <summary>
-        /// 获取
+        /// 获取管理员
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -45,7 +45,7 @@ namespace QualificationExaming.Api.Controllers
             return adminService.showAdmins(id);
         }
         /// <summary>
-        /// 修改
+        /// 修改管理员
         /// </summary>
         /// <param name="admin"></param>
         /// <returns></returns>

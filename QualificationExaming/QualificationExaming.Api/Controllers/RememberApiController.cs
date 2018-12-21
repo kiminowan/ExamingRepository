@@ -15,6 +15,12 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IRememberService rememberService { get; set; }
+        /// <summary>
+        /// 做题记录表
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <param name="questionID"></param>
+        /// <returns></returns>
         [HttpGet]
         public int AddRemember(string openID, int questionID)
         {

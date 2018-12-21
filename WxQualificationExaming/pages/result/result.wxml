@@ -9,4 +9,7 @@
 <view>
 <button class='btn_index' bindtap='btn_index'>返回试卷</button>
 </view>
+<view>
+<button class='btn_index' bindtap='btn_history'>查看历史成绩</button>
+</view>
 </view>

@@ -15,7 +15,7 @@ namespace QualificationExaming.Services
     public class AdminService : IAdminService
     {
         /// <summary>
-        /// 显示
+        /// 获取管理员
         /// </summary>
         /// <returns></returns>
         public List<ShowAdmin> GetAdmins()
@@ -36,7 +36,7 @@ on us.RoleID=r.RoleID", null);
             }
         }
         /// <summary>
-        /// 添加
+        /// 添加管理员
         /// </summary>
         /// <param name="admin"></param>
         /// <returns></returns>
@@ -61,7 +61,7 @@ on us.RoleID=r.RoleID", null);
             }
         }
         /// <summary>
-        /// 获取
+        /// 获取权限根据id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -75,7 +75,7 @@ on us.RoleID=r.RoleID", null);
             }
         }
         /// <summary>
-        /// 修改
+        /// 修改权限
         /// </summary>
         /// <param name="admin"></param>
         /// <returns></returns>

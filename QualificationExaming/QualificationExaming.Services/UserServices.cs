@@ -40,8 +40,8 @@ namespace QualificationExaming.Services
             {
                 User user = new User();
                 HttpClient httpclient = new HttpClient();
-                string appid = "wxa91c675de31edc47";
-                string secret = "0d7663a55d06f3482e9934e52f4b53e1";
+                string appid = "wx78ba9584fd775358";
+                string secret = "6d30a5b4c288996b960ad16a0c0bdd24";
                 httpclient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = httpclient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
                 var result = "";
@@ -77,7 +77,11 @@ namespace QualificationExaming.Services
                 return user;
             }
         }
-
+        /// <summary>
+        /// 根据OpenId获取自己的收藏历史成绩
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public List<Score> GetScore(string code)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
