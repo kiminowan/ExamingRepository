@@ -9,6 +9,7 @@
     danmu-list="{{danmuList}}"
     enable-danmu
     danmu-btn
+    autoplay='true'
     controls
     duration='20'
     direction='90'
