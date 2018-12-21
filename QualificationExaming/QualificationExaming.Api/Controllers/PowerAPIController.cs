@@ -11,7 +11,7 @@ namespace QualificationExaming.Api.Controllers
     using IServices;
     using Services;
     using Unity.Attributes;
-    public class PowerAPIController : ApiController
+    public class PowerApiController : ApiController
     {
         [Dependency]
         public IPowerService powerService { get; set; }
