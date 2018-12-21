@@ -120,10 +120,34 @@
 //		}
 //	});
 //    });
-
+    //添加管理员
     $(function () {
+        //加载多选
         Show();
+        //触发添加事件
         $("#add").click(function () {
+            //管理员名称非空验证
+            if ($("input[name=AdminName]").val().trim().length <= 0) {
+                alert("管理员名称不能为空");
+                return;
+            }
+            //管理员密码非空验证
+            if ($("input[name=AdminPsw]").val().trim().length <= 0) {
+                alert("管理员密码不能为空");
+                return;
+            }
+            //角色非空验证
+            var textbox = document.getElementsByName("RoleID");
+            for (i = 0; i < textbox.length; i++) {
+                if (!textbox[i].checked) {
+                    if (i == textbox.length - 1) {
+                        return alert('请选择一个!');
+                    }
+                }
+                else {
+                    break;
+                }
+            }
             var ids = [];
             $("input[name=RoleID]:checked").each(function () {
                 ids.push($(this).val())
@@ -148,6 +172,7 @@
         })
 
     })
+    //加载角色
     function Show() {
         $.ajax({
             url: 'http://localhost:8033/api/RoleAPI/GetRoles',

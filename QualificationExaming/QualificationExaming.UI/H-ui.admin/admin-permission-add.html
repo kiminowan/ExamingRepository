@@ -47,7 +47,7 @@
     <div class="row cl">
         <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否启用：</label>
         <div class="formControls col-xs-8 col-sm-9">
-            <input type="radio" value="0" name="IsDedate"/>未启用<input type="radio" value="1" name="IsDedate"/>已启用
+            <input type="radio" value="0" name="IsDedate"/>未启用<input type="radio" value="1" name="IsDedate" checked="checked"/>已启用
         </div>
     </div>
 	
@@ -63,10 +63,27 @@
 
 <script type="text/javascript">
 
-
+    //添加权限
     $(function () {
         //admin_permission_edit();
+        //触发添加事件
         $("#add").click(function () {
+            //权限名称非空验证
+            if ($("input[name=PowerName]").val().trim().length <= 0) {
+                alert("权限名称不能为空");
+                return;
+            }
+            //权限路径非空验证
+            if ($("input[name=URL]").val().trim().length <= 0) {
+                alert("权限路径不能为空");
+                return;
+            }
+
+            //if ($("input[name=IsDedate]:checked") == false) {
+            //    alert("请选择是否启用");
+            //    return;
+            //}
+            
             $.ajax({
                 url: 'http://localhost:8033/api/PowerAPI/AddPowers',
                 type: 'post',

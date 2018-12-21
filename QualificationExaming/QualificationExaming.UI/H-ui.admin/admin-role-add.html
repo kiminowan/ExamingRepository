@@ -67,9 +67,39 @@
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
+    //添加角色
     $(function () {
+        //加载权限
         Show();
+        //触发添加事件
         $("#add").click(function () {
+            //角色名称非空验证
+            if ($("input[name=roleName]").val().trim().length <= 0) {
+                alert("角色名称不能为空");
+                return;
+            }
+            //角色描述非空验证
+            if ($("input[name=Remake]").val().trim().length <= 0) {
+                alert("角色描述不能为空");
+                return;
+            }
+            //权限非空验证
+            var textbox = document.getElementsByName("PowerID");
+            for (i = 0; i < textbox.length; i++)
+            {
+                if (!textbox[i].checked)
+                {
+                    if (i == textbox.length - 1)
+                    {
+                        return alert('请选择一个!');
+                    }
+                }
+                else {
+                    break;
+                }
+            }
+            
+
             var ids = [];
             $("input[name=PowerID]:checked").each(function () {
                 ids.push($(this).val())
@@ -94,6 +124,7 @@
         })
 
     })
+    //加载权限
     function Show() {
         $.ajax({
             url: 'http://localhost:8033/api/PowerAPI/GetPowers',
