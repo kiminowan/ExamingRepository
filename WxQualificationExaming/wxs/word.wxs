@@ -1,0 +1,7 @@
+var word = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  return "http://localhost:8033/Content/" + val;
+}
+module.exports.word = word;

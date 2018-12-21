@@ -1,0 +1,9 @@
+<wxs src="../../wxs/word.wxs" module="tools" />
+<view class='min'>
+<image src='/image/backImg.jpg' class='backimg'></image>
+</view>
+<view class="container">
+  <view wx:for="{{log}}" class='btn-err'>
+    <button class='btn-name' bindtap='downLoad' data-url='{{tools.word(item.SourceName)}}'>{{item.SourceName}}</button>
+  </view>
+</view>

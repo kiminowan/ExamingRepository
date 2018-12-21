@@ -75,6 +75,7 @@
     <Compile Include="RememberService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="ScoreService.cs" />
+    <Compile Include="SourceService.cs" />
     <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -135,6 +135,21 @@ Page({
             break;
         }
       }
+      else{
+        if (this.data.logs[i].TypeID==2){
+          
+          var flag=true;
+          var chars = this.data.answers[i].answer.split('');
+          for (var j = 0; j < chars.length;j++){
+            if (this.data.logs[i].Answer.indexOf(chars[j])==-1){
+              flag=false;
+            }
+          }
+          if(flag){
+            score += 2;
+          }
+        }
+      }
     }
     console.log('总分' + maxscore + ' 得分' + score)
     wx.getStorage({

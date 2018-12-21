@@ -56,6 +56,7 @@ namespace QualificationExaming.Api
             container.RegisterType<ICollectionService, CollectionService>();
             container.RegisterType<IMultimediaService, MultimediaService>();
             container.RegisterType<IScoreService, ScoreService>();
+            container.RegisterType<ISourceService, SourceService>();
         }
     }
 }

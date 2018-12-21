@@ -1,0 +1,29 @@
+/* pages/source/source.wxss */
+
+.btn-name {
+  width: 100%;
+  line-height: 30px;
+  font-size: 34rpx;
+  color: #007aff;
+  border: solid 0px;
+  background: rgba(255, 123, 0, 0);
+}
+
+.btn-err {
+  margin-top: 40rpx;
+  height: 140rpx;
+  width: 100%;
+  background: rgba(255, 123, 0, 0);
+  border: 1px solid rgb(255, 187, 0);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+  padding: 0 0 0 40rpx;
+  box-sizing: border-box;
+}
+button::after{ 
+  border: none; 
+}

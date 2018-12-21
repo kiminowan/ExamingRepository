@@ -67,12 +67,9 @@ Page({
       url: '/pages/shipin/shipin',
     })
   },
-  cuoti:function(){
+  skipSource:function(){
     wx.navigateTo({
-      url: '/pages/duoxuan/duoxuan',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '/pages/source/source',
     })
   }
 })

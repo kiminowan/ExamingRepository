@@ -15,7 +15,8 @@
     "pages/cuotikuan/cuotikuan",
     "pages/result/result",
     "pages/errDetail/errDetail",
-    "pages/shipin/shipin"
+    "pages/shipin/shipin",
+    "pages/source/source"
   ],
   "window": {
     "backgroundTextStyle": "light",
