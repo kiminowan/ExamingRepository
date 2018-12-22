@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://172.25.53.26:8033/api/QuestionApi/GetQuestions',
+      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
       method: 'get',
       success: function (res) {
         console.log(res)

@@ -50,7 +50,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://172.25.53.26:8033/api/CollectionApi/GetQuestions',
+          url: 'http://localhost:8033/api/CollectionApi/GetQuestions',
           data: {
             openID: res.data
           },
@@ -130,7 +130,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://172.25.53.26:8033/api/CollectionApi/DeleteCollection',
+          url: 'http://localhost:8033/api/CollectionApi/DeleteCollection',
           method: 'get',
           data: {
             questionID: e.currentTarget.dataset.id,

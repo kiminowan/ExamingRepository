@@ -22,7 +22,7 @@ Page({
             key: 'token',
             success: function(res) {
               wx.request({
-                url: 'http://172.25.53.26:8033/api/QuestionApi/GetRememberQuestion',
+                url: 'http://localhost:8033/api/QuestionApi/GetRememberQuestion',
                 data: {
                   openID: res.data
                 },
@@ -46,7 +46,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://172.25.53.26:8033/api/KnowledgePointApi/GetKnowledgePoints',
+      url: 'http://localhost:8033/api/KnowledgePointApi/GetKnowledgePoints',
       method: 'get',
       success: function (res) {
         console.log(res)

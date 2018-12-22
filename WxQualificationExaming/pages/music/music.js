@@ -35,7 +35,7 @@ Page({
       key: 'token',
       success: function (res) {
         wx.request({
-          url: 'http://172.25.53.26:13803/api/QuestionApi/GetQuestions',
+          url: 'http://localhost:13803/api/QuestionApi/GetQuestions',
           method: 'get',
           success: function (res) {
             console.log(res)
@@ -90,7 +90,7 @@ Page({
       key: 'token',
       success: function (res) {
         wx.request({
-          url: 'http://172.25.53.26:8033/api/Remember/AddRemember',
+          url: 'http://localhost:8033/api/Remember/AddRemember',
           data: {
             openID: res.data,
             questionID: id,

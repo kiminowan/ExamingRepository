@@ -25,7 +25,7 @@ Page({
       success: function (data) {
         console.log(data.data)
         wx.request({
-          url: 'http://172.25.53.26:8033/api/ErrQuestionApi/GetErrQuestions',
+          url: 'http://localhost:8033/api/ErrQuestionApi/GetErrQuestions',
           method: 'get',
           data: {
             openID: data.data,

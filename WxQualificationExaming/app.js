@@ -11,7 +11,7 @@ App({
      success: function (res) {
         if (res.code) {
           wx.request({
-            url: 'http://172.25.53.26:8033/api/KnowledgePointApi/Login',
+            url: 'http://localhost:8033/api/KnowledgePointApi/Login',
             data: {
               code: res.code
             },
