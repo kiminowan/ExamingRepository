@@ -24,7 +24,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/ErrQuestionApi/GetErrQuestions',
+          url: 'http://172.25.53.26:8033/api/ErrQuestionApi/GetErrQuestions',
           data: {
             openID: res.data,
             knowledgePointID: options.id
@@ -99,7 +99,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/ErrQuestionApi/DeleteErro',
+          url: 'http://172.25.53.26:8033/api/ErrQuestionApi/DeleteErro',
           method: 'get',
           data: {
             questionID: e.currentTarget.dataset.id,

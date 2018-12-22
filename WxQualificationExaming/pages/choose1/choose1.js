@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:8033/api/ExamApi/GetExams',
+      url: 'http://172.25.53.26:8033/api/ExamApi/GetExams',
       method: 'get',
       success: function (q) {
         console.log(q)

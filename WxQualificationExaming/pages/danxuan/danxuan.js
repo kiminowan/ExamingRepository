@@ -23,7 +23,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+      url: 'http://172.25.53.26:8033/api/QuestionApi/GetQuestions',
       data: {
         knowledgePointID: options.id
       },
@@ -156,7 +156,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/ScoreApi/AddScore',
+          url: 'http://172.25.53.26:8033/api/ScoreApi/AddScore',
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data

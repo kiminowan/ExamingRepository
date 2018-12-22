@@ -28,7 +28,7 @@ Page({
       key: 'token',
       success: function (res) {
         wx.request({
-          url: 'http://localhost:8033/api/ScoreApi/GetScore',
+          url: 'http://172.25.53.26:8033/api/ScoreApi/GetScore',
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data

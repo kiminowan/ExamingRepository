@@ -50,7 +50,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
+          url: 'http://172.25.53.26:8033/api/QuestionApi/GetQuestions',
           data: {
             knowledgePointID: options.id
           },
@@ -72,7 +72,7 @@ Page({
               key: 'token',
               success: function(res) {
                 wx.request({
-                  url: 'http://localhost:8033/api/CollectionApi/GetQuestions',
+                  url: 'http://172.25.53.26:8033/api/CollectionApi/GetQuestions',
                   data: {
                     openID: res.data
                   },
@@ -154,7 +154,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/RememberApi/AddRemember',
+          url: 'http://172.25.53.26:8033/api/RememberApi/AddRemember',
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
@@ -178,7 +178,7 @@ Page({
       key: 'token',
       success: function(res) {
         wx.request({
-          url: 'http://localhost:8033/api/ErrQuestionApi/AddErro',
+          url: 'http://172.25.53.26:8033/api/ErrQuestionApi/AddErro',
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
@@ -218,7 +218,7 @@ Page({
         key: 'token',
         success: function (res) {
           wx.request({
-            url: 'http://localhost:8033/api/CollectionApi/DeleteCollection',
+            url: 'http://172.25.53.26:8033/api/CollectionApi/DeleteCollection',
             header: {
               'content-type': 'application/json',
               'Authorization': 'BasicAuth ' + res.data
@@ -238,7 +238,7 @@ Page({
         key: 'token',
         success: function (res) {
           wx.request({
-            url: 'http://localhost:8033/api/CollectionApi/AddCollection',
+            url: 'http://172.25.53.26:8033/api/CollectionApi/AddCollection',
             header: {
               'content-type': 'application/json',
               'Authorization': 'BasicAuth ' + res.data
