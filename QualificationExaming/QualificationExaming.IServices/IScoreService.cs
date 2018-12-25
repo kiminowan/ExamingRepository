@@ -23,5 +23,11 @@ namespace QualificationExaming.Services
         /// 用户id
         /// 题目id
         int AddScore(string openID, int examID, int score);
+        /// <summary>
+        /// 根据用户id进行查询成绩
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Score> GetScoresByid(int id);
     }
 }

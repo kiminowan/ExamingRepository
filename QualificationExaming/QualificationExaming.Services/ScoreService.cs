@@ -50,5 +50,23 @@ namespace QualificationExaming.Services
                 return result.FirstOrDefault();
             }
         }
+        /// <summary>
+        /// 获取成绩根据用户id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<Score> GetScoresByid(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var questionlist = conn.Query<Score>("SELECT * FROM score where UserID=" + id + "'", null);
+
+                if (questionlist != null)
+                {
+                    return questionlist.ToList();
+                }
+                return null;
+            }
+        }
     }
 }

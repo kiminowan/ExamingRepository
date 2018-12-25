@@ -1,11 +1,11 @@
 
 
-
+<wxs src="../../wxs/word.wxs" module="tools" />
 <view wx:for='{{logs}}' wx:if="{{step === index+1}}">
 <!--<view class="section tc">-->
   <video
     id="myVideo"
-    src="{{item.QuestionHasImg}}"
+    src="{{tools.word(item.QuestionHasImg)}}"
     danmu-list="{{danmuList}}"
     enable-danmu
     danmu-btn

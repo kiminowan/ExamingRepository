@@ -31,14 +31,14 @@ namespace QualificationExaming.Api.Controllers
             return null;
         }
         /// <summary>
-        /// 获取成绩
+        /// 获取成绩根据用户id
         /// </summary>
-        /// <param name="openID"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public Score GetScore(string openID, int scoreID)
+        public List<Score> GetScoreByid(int id)
         {
-            var score = scoreService.GetScores(openID).Find(m => m.ScoreID == scoreID);
+            var score = scoreService.GetScoresByid(id);
             return score;
         }
         /// <summary>

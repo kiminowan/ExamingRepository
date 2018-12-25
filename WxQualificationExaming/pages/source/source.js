@@ -35,11 +35,12 @@ Page({
   //资料显示
   downLoad:function(e){
     console.log(e.currentTarget.dataset.url)
+    //微信自带下载文件方法
     wx.downloadFile({
-      // 示例 url，并非真实存在
       url: e.currentTarget.dataset.url,
       success: function (res) {
         console.log(res.tempFilePath)
+        //微信自带打开办公软件
         wx.openDocument({
           filePath: res.tempFilePath,
           success: function (res) {

@@ -19,6 +19,8 @@ namespace QualificationExaming.Api.Controllers
         [Dependency]
         public IExamService examService { get; set; }
 
+        [Dependency]
+        public IMistakesService mistakes { get; set; }
         /// <summary>
         /// 试卷类型表
         /// </summary>
@@ -28,6 +30,21 @@ namespace QualificationExaming.Api.Controllers
         {
             return examService.GetExams();
 
+        }
+        [HttpGet]
+        public List<Exam> get()
+        {
+            var sources = examService.GetExams();
+            return sources;
+        }
+        /// <summary>
+        /// 根据知识点获取错题
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<Mistakes> GetMistakes()
+        {
+            return mistakes.GetMistakes();
         }
     }
 }
