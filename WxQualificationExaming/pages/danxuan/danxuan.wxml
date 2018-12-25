@@ -11,7 +11,7 @@
 <i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
   <view class="demo-container">
     <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{index+1}}'>
-      {{index+1}}
+      {{index+1}} {{answers[index].answer}}
     </button>
   </view>
 </i-drawer>

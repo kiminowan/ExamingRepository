@@ -16,6 +16,8 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IErrQuestionService errQuestionService { get; set; }
+        
+
         /// <summary>
         /// 获取用户错题
         /// </summary>
@@ -46,5 +48,7 @@ namespace QualificationExaming.Api.Controllers
         {
             return errQuestionService.AddErro(openID,questionID);
         }
+        
+        
     }
 }

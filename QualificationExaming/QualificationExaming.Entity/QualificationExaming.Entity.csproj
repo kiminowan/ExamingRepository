@@ -45,6 +45,7 @@
     <Compile Include="Collection.cs" />
     <Compile Include="ErrQuestion.cs" />
     <Compile Include="Exam.cs" />
+    <Compile Include="Mistakes.cs" />
     <Compile Include="Multimedia.cs" />
     <Compile Include="Power.cs" />
     <Compile Include="Question.cs" />

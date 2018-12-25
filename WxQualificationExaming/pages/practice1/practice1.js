@@ -192,8 +192,24 @@ Page({
             console.log(res.data)
           },
         })
+        wx.request({
+          url: 'http://localhost:8033/api/ErrQuestionApi/AddMistakes',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          },
+          data: {
+          
+            id: id,
+          },
+          method: 'get',
+          success: function (res) {
+            console.log(res.data)
+          },
+        })
       },
     })
+    
   },
   //多选答案
   multiAnswer: function() {
