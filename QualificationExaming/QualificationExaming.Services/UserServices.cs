@@ -13,11 +13,7 @@ namespace QualificationExaming.Services
     using System.Configuration;
     using Entity;
     using Newtonsoft.Json;
-
-
-
     using System.Net.Http;
-
     using System.Transactions;
 
     public class UserServices : IUserservice
@@ -29,7 +25,6 @@ namespace QualificationExaming.Services
         /// <returns></returns>
         public User UserLogin(String code)
         {
-
             //using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             //{
             //    conn.Open(); 
