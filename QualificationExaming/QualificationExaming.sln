@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QualificationExaming.UI", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonCache", "CommonCache\CommonCache.csproj", "{8FC9643D-8A85-4B7B-B694-EC07A9040C9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "C:\Users\齐彦国\Desktop\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1.csproj", "{634DB931-1063-44DF-9950-F24073840DF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{8FC9643D-8A85-4B7B-B694-EC07A9040C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC9643D-8A85-4B7B-B694-EC07A9040C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC9643D-8A85-4B7B-B694-EC07A9040C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634DB931-1063-44DF-9950-F24073840DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634DB931-1063-44DF-9950-F24073840DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634DB931-1063-44DF-9950-F24073840DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634DB931-1063-44DF-9950-F24073840DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
