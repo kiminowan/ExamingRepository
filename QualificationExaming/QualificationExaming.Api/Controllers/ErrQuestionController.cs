@@ -16,15 +16,15 @@ namespace QualificationExaming.Api.Controllers
     {
         [Dependency]
         public IErrQuestionService errQuestionService { get; set; }
-        
-
+        [Dependency]
+        public IMistakesService mistakesService { get; set; }
         /// <summary>
         /// 获取用户错题
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
         [HttpGet]
-        public List<Question> GetErrQuestions(string openID,int knowledgePointID)
+        public List<Question> GetErrQuestions(string openID, int knowledgePointID)
         {
             return errQuestionService.GetErrQuestionsToShow(openID, knowledgePointID);
         }
@@ -36,7 +36,7 @@ namespace QualificationExaming.Api.Controllers
         [HttpGet]
         public int DeleteErro(int questionID, string openID)
         {
-            return errQuestionService.DeleteErro(questionID,openID);
+            return errQuestionService.DeleteErro(questionID, openID);
         }
         /// <summary>
         /// 错题添加
@@ -46,9 +46,18 @@ namespace QualificationExaming.Api.Controllers
         [HttpGet]
         public int AddErro(string openID, int questionID)
         {
-            return errQuestionService.AddErro(openID,questionID);
+            return errQuestionService.AddErro(openID, questionID);
         }
-        
-        
+        /// <summary>
+        /// 错题记录添加
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public int AddMistakes(int questionID)
+        {
+            return mistakesService.AddMistakes(questionID);
+        }
+
     }
 }

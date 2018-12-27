@@ -1,9 +1,9 @@
 <!--pages/choose1/choose1.wxml-->
 <view class='min'>
- <image class='img' src='/image/beijing1.png'></image>
+  <image class='img' src='/image/beijing1.png'></image>
 </view>
-<view>
-<block wx:for='{{practice}}'>
-<button class='btn' bindtap='zsd1' data-src='{{item.ExamID}}'>{{item.ExamID}},{{item.ExamName}}</button>
-</block>
+<view class="container">
+  <view wx:for="{{practice}}" class='btn-err'>
+    <button class='btn-name' bindtap='zsd1' data-src='{{item.ExamID}}'>{{item.ExamID}},{{item.ExamName}}</button>
+  </view>
 </view>

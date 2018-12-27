@@ -33,6 +33,10 @@ namespace QualificationExaming.Entity
         /// </summary>
        public DateTime CreateTime { get; set; }
         /// <summary>
+        /// 是否随机
+        /// </summary>
+        public bool isRandom { get; set; }
+        /// <summary>
         /// 用户id
         /// </summary>
        public int UserID { get; set; }

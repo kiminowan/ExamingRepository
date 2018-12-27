@@ -49,9 +49,9 @@ namespace QualificationExaming.Api.Controllers
         /// 用户id
         /// 题目id
         [HttpGet]
-        public int AddScore(string openID, int examID, int score)
+        public int AddScore(string openID, int examID, int score, bool isRandom)
         {
-            var result = scoreService.AddScore(openID, examID, score);
+            var result = scoreService.AddScore(openID, examID, score,isRandom);
             return result;
         }
     }

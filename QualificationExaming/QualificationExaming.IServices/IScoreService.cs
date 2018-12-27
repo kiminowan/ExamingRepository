@@ -22,7 +22,7 @@ namespace QualificationExaming.Services
         /// <returns></returns>
         /// 用户id
         /// 题目id
-        int AddScore(string openID, int examID, int score);
+        int AddScore(string openID, int examID, int score, bool isRandom);
         /// <summary>
         /// 根据用户id进行查询成绩
         /// </summary>

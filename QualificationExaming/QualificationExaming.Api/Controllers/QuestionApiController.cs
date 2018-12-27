@@ -34,5 +34,14 @@ namespace QualificationExaming.Api.Controllers
             var question = questionService.GetRemember(openID);
             return question;
         }
+        /// <summary>
+        /// 随机取题
+        /// </summary>
+        /// <returns></returns>
+        public List<Question> GetQuestionsRandom()
+        {
+            var questionList = questionService.GetQuestionsRandom();
+            return questionList;
+        }
     }
 }

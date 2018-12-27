@@ -19,7 +19,7 @@ Page({
   },
   a1: function () {
     wx.navigateTo({
-      url: '../danxuan/danxuan'
+      url: '../danxuan/danxuan?judge=0'
     })
   },
 

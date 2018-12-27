@@ -76,7 +76,7 @@ Page({
   zsd1: function (data) {
     console.log(data.currentTarget.dataset.src)
     wx.navigateTo({
-      url: '/pages/danxuan/danxuan?id=' + data.currentTarget.dataset.src,
+      url: '/pages/danxuan/danxuan?id=' + data.currentTarget.dataset.src +'&judge=1',
     })
   }
 })

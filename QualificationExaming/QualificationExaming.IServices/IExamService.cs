@@ -14,5 +14,11 @@ namespace QualificationExaming.IServices
         /// </summary>
         /// <returns></returns>
         List<Exam> GetExams();
+        /// <summary>
+        /// 根据试卷ID获取试题
+        /// </summary>
+        /// <param name="examID"></param>
+        /// <returns></returns>
+        List<Question> GetQuestionsByExamID(int examID);
     }
 }

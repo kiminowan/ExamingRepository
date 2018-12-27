@@ -23,7 +23,7 @@ namespace QualificationExaming.Services
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
-                var questionlist = conn.Query<Score>("select s.*,e.ExamName from score s join exam e on s.ExamID=e.ExamID join `user` u on u.UserID=s.UserID  where u.OpenID='" + openID + "'", null);
+                var questionlist = conn.Query<Score>("select s.*,e.ExamName from score s join exam e on s.ExamID=e.ExamID join `user` u on u.UserID=s.UserID  where u.OpenID='" + openID + "' ORDER BY s.CreateTime DESC", null);
                 if (questionlist != null)
                 {
                     return questionlist.ToList();
@@ -38,7 +38,7 @@ namespace QualificationExaming.Services
         /// <returns></returns>
         /// 用户id
         /// 题目id
-        public int AddScore(string openID, int examID,int score)
+        public int AddScore(string openID, int examID,int score, bool isRandom)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
@@ -46,6 +46,7 @@ namespace QualificationExaming.Services
                 parameters.Add("p_openID", openID);
                 parameters.Add("p_examID", examID);
                 parameters.Add("p_score", score);
+                parameters.Add("p_isRandom", isRandom);
                 var result = conn.Query<int>("proc_AddScore", parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return result.FirstOrDefault();
             }
@@ -59,7 +60,7 @@ namespace QualificationExaming.Services
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
             {
-                var questionlist = conn.Query<Score>("SELECT * FROM score where UserID=" + id + "'", null);
+                var questionlist = conn.Query<Score>("select s.*,e.ExamName from score s join exam e on s.ExamID=e.ExamID where s.ScoreID=" + id , null);
 
                 if (questionlist != null)
                 {

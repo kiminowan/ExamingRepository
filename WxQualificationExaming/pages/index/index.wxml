@@ -27,7 +27,7 @@
 </view>
 <view class='view_bottom'>
 <view class='view_collection'>
-<button class='btn_collection' bindtap='duoxuan'>音频答题</button>
+<button class='btn_collection' bindtap='duoxuan'>音视频答题</button>
 </view>
 <view class='view_personal'>
 <button class='btn_personal' bindtap='grzx'>个人中心</button>

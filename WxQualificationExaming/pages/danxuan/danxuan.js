@@ -11,44 +11,82 @@ Page({
     showLeft1: false,
     wxTimerList: {},
     answers: [],
-    isAnalized: false
+    isAnalized: false,
+    wxTimer: new timer({
+      beginTime: "00:20:00",
+      complete: function() {
+        that.examSubmit()
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      examID: options.id
-    })
     var that = this;
-    wx.request({
-      url: 'http://localhost:8033/api/QuestionApi/GetQuestions',
-      data: {
-        knowledgePointID: options.id
-      },
-      method: 'get',
-      success: function(res) {
-        console.log(res)
-        for (var i = 0; i < res.data.length; i++) {
-          that.data.answers.push({
-            answer: '',
-            show: false
-          })
-        }
-        console.log(that.data.answers)
-        that.setData({
-          logs: res.data
-        })
-        var wxTimer = new timer({
-          beginTime: "00:20:00",
-          complete: function() {
-            console.log("完成了")
+    if (options.judge == 1) {
+      this.setData({
+        examID: options.id,
+        isRandom:false
+      })
+      wx.request({
+        url: 'http://localhost:8033/api/ExamApi/GetQuestionsByExamID',
+        data: {
+          examID: options.id
+        },
+        method: 'get',
+        success: function(res) {
+          console.log(res)
+          for (var i = 0; i < res.data.length; i++) {
+            that.data.answers.push({
+              answer: '',
+              show: false
+            })
           }
-        })
-        wxTimer.start(that);
-      }
-    })
+          console.log(that.data.answers)
+          that.setData({
+            logs: res.data
+          })
+          var wxTimer = new timer({
+            beginTime: "00:20:00",
+            complete: function() {
+              that.examSubmit()
+            }
+          })
+          wxTimer.start(that);
+        }
+      })
+    } else {
+      this.setData({
+        examID: 1,
+        isRandom:true
+      })
+      wx.request({
+        url: 'http://localhost:8033/api/QuestionApi/GetQuestionsRandom',
+        method: 'get',
+        success: function(res) {
+          console.log(res)
+          for (var i = 0; i < res.data.length; i++) {
+            that.data.answers.push({
+              answer: '',
+              show: false
+            })
+          }
+          console.log(that.data.answers)
+          that.setData({
+            logs: res.data
+          })
+          var wxTimer = new timer({
+            beginTime: "00:20:00",
+            complete: function() {
+              that.examSubmit()
+            }
+          })
+          wxTimer.start(that);
+        }
+      })
+    }
   },
   checkboxChange(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value.sort().join(''));
@@ -134,18 +172,55 @@ Page({
             score += 8;
             break;
         }
-      }
-      else{
-        if (this.data.logs[i].TypeID==2){
-          
-          var flag=true;
+      } else {
+        var id = that.data.logs[i].QuestionID
+        console.log(that.data.logs[i].QuestionID)
+        wx.getStorage({
+          key: 'token',
+          success: function(res) {
+            wx.request({
+              url: 'http://localhost:8033/api/ErrQuestionApi/AddErro',
+              header: {
+                'content-type': 'application/json',
+                'Authorization': 'BasicAuth ' + res.data
+              },
+              data: {
+                openID: res.data,
+                questionID: id,
+              },
+              method: 'get',
+              success: function (res) {
+                console.log(res.data)
+              },
+            })
+            wx.request({
+              url: 'http://localhost:8033/api/ErrQuestionApi/AddMistakes',
+              header: {
+                'content-type': 'application/json',
+                'Authorization': 'BasicAuth ' + res.data
+              },
+              data: {
+                questionID: id,
+              },
+              method: 'get',
+              success: function(res) {
+                console.log(res.data)
+              },
+            })
+          }
+        })
+        if (this.data.logs[i].TypeID == 2) {
+          var flag = true;
           var chars = this.data.answers[i].answer.split('');
-          for (var j = 0; j < chars.length;j++){
-            if (this.data.logs[i].Answer.indexOf(chars[j])==-1){
-              flag=false;
+          if (this.data.answers[i].answer.length<=0){
+            flag = false;
+          }
+          for (var j = 0; j < chars.length; j++) {
+            if (this.data.logs[i].Answer.indexOf(chars[j]) == -1) {
+              flag = false;
             }
           }
-          if(flag){
+          if (flag) {
             score += 2;
           }
         }
@@ -164,12 +239,13 @@ Page({
           data: {
             openID: res.data,
             examID: that.data.examID,
-            score: score
+            score: score,
+            isRandom: that.data.isRandom
           },
           method: 'get',
           success: function(res) {
             wx.navigateTo({
-              url: '../result/result?id='+res.data,
+              url: '../result/result?id=' + res.data,
             })
           },
         })
@@ -212,7 +288,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    console.log(1)
   },
 
   /**

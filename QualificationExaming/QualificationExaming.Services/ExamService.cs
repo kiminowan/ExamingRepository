@@ -29,10 +29,24 @@ namespace QualificationExaming.Services
                     return examList.ToList();
                 }
                 return null;
-
-
             }
-
+        }
+        /// <summary>
+        /// 根据试卷ID获取试题
+        /// </summary>
+        /// <param name="examID"></param>
+        /// <returns></returns>
+        public List<Question> GetQuestionsByExamID(int examID)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var questions = conn.Query<Question>("select * from question  where ExamID="+examID, null);
+                if (questions != null)
+                {
+                    return questions.ToList();
+                }
+                return null;
+            }
         }
     }
 }

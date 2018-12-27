@@ -8,13 +8,17 @@
   <view>导</view>
   <view>航</view>
 </i-button>
+
 <i-drawer id='i-drawer' mode="left" visible="{{showLeft1}}" bind:close="toggleLeft1">
-  <view class="demo-container">
-    <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{index+1}}'>
-      {{index+1}} {{answers[index].answer}}
-    </button>
-  </view>
+  <scroll-view scroll-y class="demo-container" style="height: 630px;">
+    <view >
+      <button class='btn_select' bindtap='skipQuestion' wx:for='{{logs}}' data-num='{{index+1}}'>
+        {{index+1}} {{answers[index].answer}}
+      </button>
+    </view>
+  </scroll-view>
 </i-drawer>
+
 <view class='top'>考试剩余时间：
   <text>{{wxTimer}}</text>
 </view>
@@ -35,11 +39,11 @@
         <button class='select' bindtap='answer' data-answer='D'>{{item.ChoiceD}}</button>
       </view>
       <view class='view_answer'>
-    <view wx:if="{{answers[index].show}}">
-      <text>已选答案:</text>
-      <text class='text_answer'>{{answers[index].answer}}</text>
-    </view>
-  </view>
+        <view wx:if="{{answers[index].show}}">
+          <text>已选答案:</text>
+          <text class='text_answer'>{{answers[index].answer}}</text>
+        </view>
+      </view>
     </view>
 
 
@@ -56,11 +60,11 @@
         </checkbox-group>
       </view>
       <view class='view_answer'>
-    <view wx:if="{{answers[index].show}}">
-      <text>已选答案:</text>
-      <text class='text_answer'>{{answers[index].answer}}</text>
-    </view>
-  </view>
+        <view wx:if="{{answers[index].show}}">
+          <text>已选答案:</text>
+          <text class='text_answer'>{{answers[index].answer}}</text>
+        </view>
+      </view>
     </view>
     <view wx:if="{{item.TypeID==3||item.TypeID==4||item.TypeID==5}}">
       <view class='view_question'>
@@ -90,7 +94,7 @@
       </view>
     </view>
   </view>
-  
+
 
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">

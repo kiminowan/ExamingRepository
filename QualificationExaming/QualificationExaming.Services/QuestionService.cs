@@ -36,6 +36,11 @@ namespace QualificationExaming.Services
                 return null;
             }
         }
+        /// <summary>
+        /// 练习题记忆方法
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
         public Question GetRemember(string openID)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
@@ -46,6 +51,27 @@ namespace QualificationExaming.Services
                     Question question = questionlist.FirstOrDefault();
                     question= GetQuestions(question.KnowledgePointID).Find(m=>m.QuestionID== question.QuestionID);
                     return question;
+                }
+                return null;
+            }
+        }
+        /// <summary>
+        /// 随机取题
+        /// </summary>
+        /// <returns></returns>
+        public List<Question> GetQuestionsRandom()
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString))
+            {
+                var questionlist = conn.Query<Question>("select * from question order by rand() LIMIT 20 ", null);
+                if (questionlist != null)
+                {
+                    List<Question> questionList = questionlist.ToList();
+                    for (int i = 1; i <= questionList.Count(); i++)
+                    {
+                        questionList[i - 1].Num = i;
+                    }
+                    return questionList;
                 }
                 return null;
             }

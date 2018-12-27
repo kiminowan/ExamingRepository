@@ -200,7 +200,7 @@ Page({
           },
           data: {
           
-            id: id,
+            questionID: id,
           },
           method: 'get',
           success: function (res) {

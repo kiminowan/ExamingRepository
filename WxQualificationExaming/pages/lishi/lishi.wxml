@@ -1,8 +1,8 @@
 <view class='min'>
-<image src='/image/backImg.jpg' class='backimg'></image>
+  <image src='/image/backImg.jpg' class='backimg'></image>
 </view>
 <view class="container">
   <view wx:for="{{logs}}" class='btn-err'>
-    <button class='btn-name' data-id='{{item.ScoreID}}'>试卷名：{{item.ExamName}} 分数：{{item.Scores}}</button>
+    <button class='btn-name' data-id='{{item.ScoreID}}'>试卷名：{{item.isRandom?'随机抽题':item.ExamName}} 分数：{{item.Scores}}</button>
   </view>
 </view>
